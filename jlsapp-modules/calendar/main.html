@@ -1,0 +1,383 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>Calendar</a></li>
+            <li class="active">Patrick John</li>
+        </ol>
+    </div>
+</div>
+<div class="box__feature-navigation">
+    <div class="box-header">
+        Calendar: <strong>{{currUser}}</strong>
+    </div>
+    <div class="box-tool">
+      <span class="inline text-white m-r-sm _700">Current User: </span>
+        <ul class="nav inline">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-xs white btn-block"><i class="material-icons md-24">&#xe3C7; </i> {{currUser}}</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage" ng-click="currUser = 'Jane Doe'">
+                        <i class="material-icons md-24">&#xe145; </i> Jane Doe
+                    </a>
+                    <a class="dropdown-item openInPage" ng-click="currUser = 'Mary Higglesmith'">
+                        <i class="material-icons md-24">&#xe145; </i> Mary Higglesmith
+                    </a>
+                    <a class="dropdown-item openInPage" ng-click="currUser = 'Abdul Shawry'">
+                        <i class="material-icons md-24">&#xe145; </i> Abdul Shawry
+                    </a>
+                    <a class="dropdown-item openInPage" ng-click="currUser = 'Jame Kahn'">
+                        <i class="material-icons md-24">&#xe145; </i> Jame Kahn
+                    </a>
+                    <a class="dropdown-item openInPage" ng-click="currUser = 'Edward Nofacekin'">
+                        <i class="material-icons md-24">&#xe145; </i> Edward Nofacekin
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- <div class="box-tool">
+        <span class="text-white text-sm _700">Change user &nbsp;</span>
+        <select class="text-xs">
+          <option value="" query=''></option>
+          <option value="uid9287832" >Jane Doe</option>
+          <option value="uid5537832">Mary Higglesmith</option>
+          <option value="uid6382232">Abdul Shawry </option>
+          <option value="uid6233832">Jame Kahn</option>
+          <option value="uid6387832">Edward Nofacekin</option>
+        </select>
+    </div> -->
+</div>
+<div class="box m-a-0">
+    <div class="box-header grey-300">
+        <button type="button" class="btn btn-sm white" ng-click="today()">Today</button>
+          <button class="btn btn-sm white" ng-click="changeView('agendaDay')">Day</button>
+          <button class="btn btn-sm white" ng-click="changeView('agendaWeek')">Week</button>
+          <button class="btn btn-sm white" ng-click="changeView('month')">Month</button>
+    </div>
+    <div class="box-tool">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <button type="button" tooltip="Double click on calendar day to create event" class="btn btn-sm white" data-toggle="modal" data-target="#availabilityModal">
+          <!-- <i class="fa fa-plus m-r-xs"></i> Mark period as unavailable -->
+          <i class="material-icons m-r-xs">add</i> New Event
+        </button>
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-sm white"><i class="material-icons">&#xe3C7; </i> More Actions</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage" data-toggle="modal" data-target="#availabilityModal">
+                        <i class="material-icons md-24">&#xe145; </i> New Event
+                    </a>
+                    <!-- <a class="dropdown-item" href ng-click="viewScheduler();">
+                        <i class="material-icons md-24">&#xe896; </i> View Task Scheduler
+                    </a> -->
+                    <a class="dropdown-item" href ng-click="viewIncidents();">
+                        <i class="material-icons md-24">&#xe896; </i> View Incidents Overview
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href>
+                        Seperated Link (if needed)
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    
+<div class="">
+
+
+
+      <div class="row no-gutter grey-900 text-black">
+
+        
+        <div class="col-sm-2 p-a-0">
+
+          <div id="legend" class="p-a-sm grey-900">
+            <div class="m-b text-lg _700">Legend</div>
+              <div class="nav-active-white">
+                <ul class="nav nav-pills nav-stacked nav-sm">
+
+                  <li class="nav-item m-b-sm">
+                      <label class="md-check">
+                        <input type="checkbox" checked="">
+                        <i class="unavailable no-icon"></i>
+                        <span class="_700">Unavailable</span>
+                      </label>
+                  </li>
+
+                  <li class="nav-item m-b-sm">
+                      <label class="md-check">
+                        <input type="checkbox" checked="">
+                        <i class="public-holiday no-icon"></i>
+                        <span class="_700">Public Holiday</span>
+                      </label>
+                  </li>
+
+                  <li class="nav-item m-b-sm">
+                      <label class="md-check">
+                        <input type="checkbox" checked="">
+                        <i class="vacation no-icon"></i>
+                        <span class="_700">Vacation</span>
+                      </label>
+                  </li>
+
+                   <li class="nav-item m-b-sm">
+                      <label class="md-check">
+                        <input type="checkbox" checked="">
+                        <i class="preferred-time no-icon"></i>
+                        <span class="_700">Preferred time</span>
+                      </label>
+                  </li>
+
+                   <li class="nav-item m-b-sm">
+                      <label class="md-check">
+                        <input type="checkbox" checked="">
+                        <i class="scheduled-shift no-icon"></i>
+                         <span class="_700">Scheduled Shift</span>
+                      </label>
+                  </li>
+
+                </ul>
+              </div>
+          </div>
+
+
+          <div class="list-group">
+            <div ng-repeat="e in events" class="list-group-item m-b-sm list-group-item__event">
+              <input ng-model="e.title" class="form-control no-border no-bg p-a-0 text-sm">
+              <a data-toggle="modal" data-target="#deleteConfirmation"><i class="material-icons md-18 delete" >remove_circle</i></a>
+              <div class="text-xs"><span class="w-8 b-a inline rounded m-r-sm {{e.className[0]}}"></span>Date</span> </div>
+                <div class="text-xs"><span class="w-8 m-r-sm "></span>Start Time - End Time</span> </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-10">
+          <div class="calendar" ng-model="eventSources" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>
+        </div>
+        
+      </div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="availabilityModal" class="modal fade" role="dialog">
+  <div class="modal__javelin">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <form role="form" ng-submit="addAvailability()">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Event</h4>
+      </div>
+      <div class="modal-body">
+
+      
+            <div class="form-group row">
+            <label for="shifts" class="col-sm-4 form-control-label">Type</label>
+            <div class="col-sm-8">
+              <select class="c-select form-control">
+                <option value="unavailable" selected>Unavailable</option>
+                <option value="public-holiday">Public Holiday</option>
+                <option value="vacation">Vacation</option>
+                <option value="preferred-time">Preferred Time</option>
+                <option value="scheduled-shift">Scheduled Shift</option>
+              </select>
+            </div>
+          </div> 
+
+          <div class="form-group row">
+            <label for="description" class="col-sm-4 form-control-label">Description</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="description" ng-model="description" placeholder="Description">
+            </div>
+          </div>
+
+          <div class="form-group row" ng-app="app" ng-controller="FullcalendarCtrl">
+            <div class="col-sm-3">
+              <input type="text" size="8" class="form-control"
+              ng-model="startDate"
+              name="startDate"
+              data-icon-up="fa fa-chevron-up"
+              data-icon-down="fa fa-chevron-down"
+              placeholder='{{currentDate | date: "MM/dd/yy"}}'  
+              bs-datepicker>
+            </div>
+             <div class="col__sm--2-4">
+              <input type="text" size="8" class="form-control"
+              ng-model="startTime"
+              name="startTime"
+              data-icon-up="fa fa-chevron-up"
+              data-icon-down="fa fa-chevron-down"
+              placeholder='{{currentDate | date: "h:mm a"}}' 
+              bs-timepicker>
+            </div>
+            <label class="form-control-label col-sm-1">To</label>
+             <div class="col__sm--2-4">
+              <input type="text" size="8" class="form-control"
+              ng-model="endTime"
+              name="endTime"
+              data-icon-up="fa fa-chevron-up"
+              data-icon-down="fa fa-chevron-down"
+              placeholder='{{oneHourFromNow | date: "h:mm a"}}' 
+              bs-timepicker>
+            </div>
+             <div class="col-sm-3">
+              <input type="text" size="8" class="form-control"
+              ng-model="startEnd"
+              name="startEnd"
+              data-icon-up="fa fa-chevron-up"
+              data-icon-down="fa fa-chevron-down"
+              placeholder='{{currentDate | date: "MM/dd/yy"}}' 
+              bs-datepicker>
+            </div>
+
+          </div>
+
+           <div class="form-group row">
+            <label class="col-sm-4">All day</label>
+            <div class="col-sm-8">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="allday" name="allday">
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-4">Repeats</label>
+            <div class="col-sm-8">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="repeats" name="repeats">
+                </label>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group row" ng-show="repeats">
+            <label for="days" class="col-sm-4 form-control-label">On these days</label>
+
+            <div class="col-sm-8">
+              <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox1" value="monday"> M
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox2" value="tuesday"> T
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox3" value="wednesday"> W
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox4" value="thursday"> T
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox5" value="friday"> F
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox6" value="saturday"> S
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox7" value="sunday"> S
+              </label>
+
+            </div>
+
+          </div>
+
+          
+      </div>
+
+      <div class="modal-footer">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </form>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div id="availabilityModalEdit" class="modal fade" role="dialog">
+  <div class="modal__javelin">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <form role="form" ng-submit="addAvailability()">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Scheduled Shift</h4>
+      </div>
+      <div class="modal-body">
+
+        <ul class="list-group">
+             <li class="list-group-item row">
+                 <span class="col-sm-4">Description</span>
+                 <span class="col-sm-8">A front desk shift in Manilla</span>
+             </li>
+             <li class="list-group-item row">
+                 <span class="col-sm-4">Date</span>
+                 <span class="col-sm-8">Friday 27th May, 8.00am to 8pm</span>
+             </li>
+             <li class="list-group-item row">
+                 <span class="col-sm-4">Location</span>
+                 <span class="col-sm-8">75 King William Street, London, EC3N 7NH</span>
+             </li>
+
+         </ul>
+
+
+      </div>
+
+      <div class="modal-footer">
+        <input type="submit" value="Confirm" class="btn btn-primary" />
+        <input type="submit" value="Reject" class="btn btn-primary brand-red" />
+         <!-- <input type="submit" value="Request approval" class="btn btn-info" /> -->
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="deleteConfirmation" class="modal fade" role="dialog">
+  <div class="modal__javelin">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <form role="form">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete event</h4>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this event?
+      </div>
+      <div class="modal-footer">
+        <input type="button" value="Okay" class="btn btn-primary" />
+        <button type="button" ng-click="remove($index)" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </form>
+    </div>
+
+  </div>
+</div>

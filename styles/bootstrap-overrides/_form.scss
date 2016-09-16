@@ -1,0 +1,35 @@
+input.form-control{ @include placeholder {
+    color: $grey-600;
+    opacity: 1;
+}}
+
+.checkbox-inline__pl0{
+	@extend .checkbox-inline;
+	.ui-check{
+		padding-left: 0px;
+	}
+
+}
+
+/* Normalize date field   */
+input[type="date"].form-control {
+	line-height: normal;
+}
+
+
+.form-control-lg {
+  // height: $input-height-lg;
+  padding: $input-padding-y-lg $input-padding-x-lg;
+  font-size: $font-size-sm;
+  @extend ._700;
+  line-height: $line-height-lg;
+  @include border-radius($input-border-radius-lg);
+}
+
+.form__editable {
+
+
+}
+.label__form{
+  font-size: 0.778rem;
+}

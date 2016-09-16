@@ -1,0 +1,116 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>Dell</a></li>
+            <li><a href>Contracts</a></li>
+            <li class="active">Work Orders</li>
+        </ol>
+    </div>
+</div>
+<div class="row m-b vs-tabs" ng-controller="WorkContractsCtrl">
+    <div class="col-sm-12">
+        <div class="box">
+            <div class="box-body" style="padding: 0px;">
+                <div class="makecodeview">
+                    <div class="padding">
+                        <h4>Post Summary</h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img class="irc_mi iaBGMY_xgdaU-pQOPx8XEepE" alt="" style="margin-top: 27px;" src="http://cobyphilips.co.uk/wp-content/uploads/2015/07/coby-receptionist.jpg" width="170">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Title</label>
+                                            <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Role</label>
+                                            <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Title</label>
+                                            <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Number of Employees</label>
+                                            <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary btn-xs">Duplicate Post</button>
+                                <button type="submit" class="btn btn-primary btn-xs">Edit Post</button>
+                            </div>
+                            <div class="col-md-6 pull-right">
+                                <button type="submit" class="btn btn-primary btn-xs pull-right">Save changes</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div>
+                                  <script type="text/ng-template" id="group-template.html">
+
+
+                                    <div class="box__contracts {{panelClass || 'panel-default'}}">
+                                      <div class="box-heading dker">
+                                        
+                                          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span
+                                            ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+
+                                      </div>
+                                      <div class="box-body panel-collapse collapse" uib-collapse="!isOpen">
+                                        <div class="" ng-transclude></div>
+                                      </div>
+                                    </div>
+                                  </script>
+
+                                  <!-- <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" ng-model="oneAtATime">
+                                      Open only one at a time
+                                    </label>
+                                  </div> -->
+                                  <uib-accordion close-others="oneAtATime">
+                                    
+                                    <uib-accordion-group heading="Custom template" template-url="group-template.html" is-open="status.open">
+                                      <uib-accordion-heading>
+                                        Billing and Finance<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                                      </uib-accordion-heading>
+                                      This is just some content to illustrate fancy headings.
+                                    </uib-accordion-group>
+
+                                    <uib-accordion-group heading="Custom template" template-url="group-template.html">
+                                      <uib-accordion-heading>
+                                        Billing and Finance<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                                      </uib-accordion-heading>
+                                      This is just some content to illustrate fancy headings.
+                                    </uib-accordion-group>
+
+                                    <uib-accordion-group heading="Custom template" template-url="group-template.html">
+                                      <uib-accordion-heading>
+                                        Billing and Finance<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                                      </uib-accordion-heading>
+                                      This is just some content to illustrate fancy headings.
+                                    </uib-accordion-group>
+
+                                  </uib-accordion>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

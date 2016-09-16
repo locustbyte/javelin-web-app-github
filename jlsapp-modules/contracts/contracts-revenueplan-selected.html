@@ -1,0 +1,100 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li>
+                <div><a href ui-sref="app.jlsapp.contracts-customers-new">Customer</a><small class="block">Axure UK</small></div>
+            </li>
+            <li>
+                <div><a href="">Contracts</a><small class="block">CTR-452345</small></div>
+            </li>
+            <li class="active">
+                <div><a href="">Billing Plan</a><small class="block"></small></div>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="box__feature-navigation">
+    <div class="box-header" ng-class="{'box-header'}">
+        <span class="text-lg _700">Revenue Plan Selected</span>
+
+        <span class="text-lg _700 pull-right" ng-show="!editableForm.$visible">
+          <button class="btn btn-sm btn-fw primary m-b-md" ng-click="editableForm.$show()">
+              Edit
+          </button>
+        </span>
+        <span class="text-lg _700 pull-right" ng-show="editableForm.$visible">
+          <button type="button" class="btn btn-sm btn-fw primary" ng-show="editableForm.$visible" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            Save
+          </button>
+          <button type="button" class="btn btn-sm btn-fw white text-black" ng-show="editableForm.$visible" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            Cancel
+          </button>
+        </span>
+    </div>
+
+    <div ng-show="editableForm.$visible" class="grey-300 p-a"><span class="text-sm animated slowitdown infinite _700" ng-show="editableForm.$visible"><i class="material-icons md-24 _700">edit</i> <code class="_700 text-md m-l-sm m-r-sm green-600">EDIT MODE</code> (Click Save button at bottom of form once you have finished editing)</span></div>
+</div>
+
+<form editable-form name="editableForm" onaftersave="saveUser()">
+    <div class="row p-a" ng-class="{'grey-100': editableForm.$visible, 'white': !editableForm.$visible}">
+        <div class="col-sm-12">
+
+          <div class="row">
+              <div class="col-sm-12">
+                  <h4>General</h4>
+              </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+                <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Name</div>
+                <span ng-show="editableForm.$visible">
+                  <input type="text" class="form-control" placeholder="" value="This is a Name Field">
+                </span>
+                <span class="" ng-show="!editableForm.$visible">This is a Name Field</span>
+            </div>
+          </div>
+
+          <div class="row form-group">
+              <div class="col-md-6">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Revenue Method Classificiation</div>
+                  <span ng-show="editableForm.$visible">
+                    <select class="form-control">
+                      <option value="1">Reference Set</option>
+                      <option value="2">Option 2</option>
+                    </select>
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">Reference Set</span>
+              </div>
+
+              <div class="col-md-6">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Invoice Method Classification</div>
+                  <span ng-show="editableForm.$visible">
+                    <select class="form-control">
+                      <option value="1">Reference Set</option>
+                      <option value="2">Option 2</option>
+                    </select>
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">Reference Set</span>
+              </div>
+          </div>
+        </div>
+
+        <div class="row p-a">
+          <div class="col-md-12">
+            <button class="btn btn-sm btn-fw primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+              Edit
+            </button>
+            <span ng-show="editableForm.$visible">
+              <button type="submit" class="btn btn-sm btn-fw primary" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                  Save
+              </button>
+              <button type="button" class="btn btn-sm btn-fw white" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                Cancel
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>

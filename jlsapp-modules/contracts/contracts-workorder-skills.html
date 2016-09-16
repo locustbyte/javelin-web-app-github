@@ -1,0 +1,213 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>Contracts</a></li>
+            <li><a href>Work Order</a></li>
+            <li><a href>Location</a></li>
+            <li class="active">Post</li>
+        </ol>
+    </div>
+</div>
+<div class="row m-b" ng-controller="WorkContractsCtrl">
+    <div class="col-sm-12">
+        <div class="box">
+            <div class="box-body" style="padding: 0px;">
+                <div class="makecodeview">
+                    <div class="padding">
+                        <h4>Post Summary</h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img class="irc_mi iaBGMY_xgdaU-pQOPx8XEepE post-image" alt="" style="width:100%;padding:5px;border:1px solid #ddd;" src="http://cobyphilips.co.uk/wp-content/uploads/2015/07/coby-receptionist.jpg">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="row p-b-md">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Title</label>
+                                            <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Role</label>
+                                            <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Title</label>
+                                            <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Number of Employees</label>
+                                            <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-b-md">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary btn-xs">Duplicate Post</button>
+                                <button type="submit" class="btn btn-primary btn-xs">Edit Post</button>
+                            </div>
+                            <div class="col-md-6 pull-right">
+                                <button type="submit" class="btn btn-primary btn-xs pull-right">Save changes</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div>
+                                  <script type="text/ng-template" id="group-template.html">
+
+
+                                    <div class="box__contracts {{panelClass || 'panel-default'}}">
+                                      <div class="box-heading dker">
+                                        
+                                          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span
+                                            ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+
+                                      </div>
+                                      <div class="box-tool"></div>
+                                      <div class="box-body panel-collapse collapse" uib-collapse="!isOpen">
+                                        <div class="" ng-transclude></div>
+                                      </div>
+                                    </div>
+                                  </script>
+
+                                  <!-- <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" ng-model="oneAtATime">
+                                      Open only one at a time
+                                    </label>
+                                  </div> -->
+                                  <uib-accordion close-others="oneAtATime">
+                                    
+                                    <uib-accordion-group heading="Post Details" template-url="group-template.html" is-open="status.open">
+                                      <uib-accordion-heading>
+                                        Post Details<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                                      </uib-accordion-heading>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="box-header">
+                                                <h2><strong>Requirements</strong></h2>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-2">
+                                                <button type="submit" class="btn btn-primary btn-xs pull-right">Edit</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="box-header">
+                                                    <label for="exampleInputEmail1">Identification Required</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="box-header">
+                                                    <label for="exampleInputEmail1">Uniform Required</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="box-header">
+                                                <h2><strong>Customer Preference</strong></h2>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-2">
+                                                <button type="submit" class="btn btn-primary btn-xs pull-right">Edit</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="box-header">
+                                                    <label for="exampleInputEmail1">Trainings</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="box-header">
+                                                    <label for="exampleInputEmail1">Languages</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="box-header">
+                                                    <label for="exampleInputEmail1">Qualifications</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="box-header">
+                                                <h2><strong>Shift & Billing</strong></h2>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-2">
+                                                <button type="submit" class="btn btn-primary btn-xs pull-right">Edit</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="box-header">
+                                                    <label for="exampleInputEmail1">Book On</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="box-header">
+                                                    <label for="exampleInputEmail1">Book Off</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="box-header">
+                                                    <label for="exampleInputEmail1">Call In</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="box-header">
+                                                    <label for="exampleInputEmail1">Call In Frequency</label>
+                                                    <input type="text" class="form-control" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </uib-accordion-group>
+
+                                    <uib-accordion-group heading="Skills & Licences" template-url="group-template.html">
+                                      <uib-accordion-heading>
+                                        SKills & Licences<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                                      </uib-accordion-heading>
+                                      content
+                                    </uib-accordion-group>
+
+                                    <uib-accordion-group heading="Shift Patterns" template-url="group-template.html">
+                                      <uib-accordion-heading>
+                                        Shift Patterns<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                                      </uib-accordion-heading>
+                                      Content
+                                    </uib-accordion-group>
+
+                                  </uib-accordion>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="box__brand-black no-borders m-a-0">
+    <div class="box-header">
+        <h1>Dropdown (Bootstrap UI NG Version)</h1>
+        <!-- <h3>The kind that are <span class="_700">SORTABLE</span>, have <span class="_700">FILTER</span> controls, and are <span class="_700">RESPONSIVE</span></h3> -->
+    </div>
+</div>
+
+<div class="row m-b">
+    <div class="col-sm-12">
+        <div class="box__style-guide">
+            <div class="box-header">
+                Left aligned
+                <small>Pattern ref: xxxxxxx</small>
+            </div>
+            <div class="box-body">
+                <!--begin pattern -->
+                <div class="makecodeview">
+                    <div class="btn-group" uib-dropdown is-open="status.isopen">
+                         <button id="single-button" type="button" class="btn btn-xs white" uib-dropdown-toggle ng-disabled="disabled">
+                           <i class="material-icons md-24">&#xe3C7; </i> Actions 
+                         </button>
+                         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                           <li role="menuitem">
+                               <a class="dropdown-item openInPage" ng-click="openInPage();">
+                                   <i class="material-icons md-24">add</i> Add Something
+                               </a>
+                           </li>
+                           <li role="menuitem">
+                               <a class="dropdown-item" href ng-click="viewIncidents();">
+                                   <i class="material-icons md-24">add</i> Add something Else
+                               </a>
+                           </li>
+                         </ul>
+                       </div>
+                </div>
+                <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+            </div>
+        </div>
+    </div>
+    
+</div>
+ 
+

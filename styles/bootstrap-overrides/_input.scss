@@ -1,0 +1,49 @@
+.input-group__filter {
+	width: 100%;
+	.input-group__filter--btn-group {
+		 min-width: 320px;
+		.btn {
+			 padding: 1rem 0.5rem;
+			 border: none;
+		}
+		i {
+			color: $brand-red;
+			&:hover,
+		    &:focus,
+		    &.hover {
+			    color: $brand-black;
+				text-decoration: none;
+		    }
+		}
+		.btn__text {
+			font-size: $font-size-xs;
+			color: $brand-red;
+			text-decoration: underline;
+			&:hover,
+		    &:focus,
+		    &.hover{
+			    color: $brand-black;
+				text-decoration: none;
+		     }
+			}
+		
+		}
+	.input-group__filter--text-input {
+		border-left: 1px solid $border-color;
+		input {
+			border: none;
+			padding: 1rem;
+		}
+
+	}
+	.input-group__filter--select {
+		border: none;
+		border-left: 1px solid $border-color;
+		padding: 0.6rem;
+	}
+		select {
+			border: none;
+			cursor: pointer;
+		}
+}
+

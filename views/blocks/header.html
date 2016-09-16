@@ -1,0 +1,45 @@
+  <div class="navbar brand-black rad-none">
+
+    <!-- Open side - Naviation on mobile -->
+    <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up m-l text-white">
+      <i class="material-icons">&#xe5d2;</i>
+    </a>
+    <!-- / -->
+    
+    <!-- Page title - Bind to $state's title however after lewis -->
+    <!-- <div class="navbar-item pull-left h5" ng-bind="$state.current.data.title" id="pageTitle"></div> -->
+
+    <!-- nabar right -->
+    <ul class="nav navbar-nav pull-right">
+      <li class="nav-item dropdown pos-stc-xs">
+        <a class="nav-link" href data-template-url="../views/blocks/tpl.aside.html" data-placement="right" data-animation="am-slide-right aside-open-backdrop" bs-aside="aside" data-container="body">
+          <i class="material-icons">&#xe7f5;</i>
+          <span class="label label-sm up warn">3</span>
+        </a>
+        <div ui-include="'../views/blocks/dropdown.notification.html'"></div>
+      </li>
+      <li class="nav-item dropdown">
+        <a href class="nav-link dropdown-toggle clear" data-toggle="dropdown">
+          <span class="hidden-md-down nav-text m-r-sm text-right">
+            <!-- <span class="block l-h-1x _500">Lewis Rogers</span> -->
+          </span>
+          <span class="avatar w-32">
+            <img src="../static/img/lewis.jpg" alt="...">
+            <!-- <i class="away b-white left"></i> -->
+          </span>
+        </a>
+        <div ui-include="'../views/blocks/dropdown.user.html'"></div>
+      </li>
+      <li class="nav-item hidden-md-up">
+        <a class="nav-link" data-toggle="collapse" data-target="#collapse">
+          <i class="material-icons">&#xe5d4;</i>
+        </a>
+      </li>
+    </ul>
+    <!-- / navbar right -->
+    <!-- navbar collapse -->
+    <div class="collapse navbar-toggleable-sm" id="collapse">
+      <div ui-include="'../views/blocks/navbar.form.right.html'"></div>
+    </div>
+    <!-- / navbar collapse -->
+  </div>

@@ -1,0 +1,68 @@
+.dropdown-item {
+	font-size: $font-size-xs;
+}
+
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: $font-size-sm;
+  line-height: $line-height;
+
+  background-color: $grey-700;
+  white-space: nowrap; // as with > li > a
+}
+
+.box__pattern-search{
+	.dropdown-header {
+	  background-color: $brand-black;
+	  white-space: nowrap; // as with > li > a
+	}
+}
+
+//TODO Below was used in the contracts\contract-customer-new.html, used to style the bootstrap drop down to follow the look of the current select fields.
+.btn-drop-down-style{
+
+  font-weight: 400;
+  font-family: "Open Sans", "San-serif";
+  background-color: #fff;
+  color: $dark-black;
+  text-align: left;
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+  &:not([disabled]):hover,
+  &:not([disabled]):focus,
+  &:not([disabled]).active{
+    box-shadow: inset 0 -10rem 0px rgba(158, 158, 158, 0.1);
+  }
+}
+
+.right-caret {
+  //padding-left: 80%;
+	border-left: 3px solid transparent;
+	 border-right: 3px solid transparent;
+	 border-top: 6px solid #555;
+	 left: 94%;
+	 top: 45%;
+	 position: absolute;
+
+}
+
+.margin-width{
+
+	margin-left: 90%;
+}
+
+.dropdown-toggle::after{
+	display: inline-block;
+    width: 0;
+    height: 0;
+    margin-right: .25rem;
+    margin-left: .25rem;
+    vertical-align: middle;
+    content: "";
+		left:90%;
+		border-top: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------

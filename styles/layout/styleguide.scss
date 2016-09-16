@@ -1,0 +1,23 @@
+/**
+ * Author: Tan Kent
+ */
+ pre.text-left{
+	padding: 10px 20px 10px 20px;
+    background-color: #E0DEDE;
+    border: 1px solid #E4E4E4;
+    white-space: pre-wrap;
+    color: #383838;
+    border-radius: 10px;
+    font-family: montserrat;
+    font-size: 11px;
+}
+
+.makecodeview{
+	margin-bottom: 1rem;
+}
+
+.styleguide__demo-content{
+	@extend .m-t-lg;
+	display: block;
+    clear: both;
+}

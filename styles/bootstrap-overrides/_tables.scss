@@ -1,0 +1,25 @@
+.table-heading {
+	@extend .montserrat;
+	//NO default here so we can override Table Headers with background col vars which specify text colors
+	//color: $brand-neutral;
+	font-size: 0.625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	vertical-align: middle !important;
+}
+
+th {
+	@extend .table-heading;
+}
+
+.table__variant-centered{
+	@extend .table;
+	thead tr th:not(:first-child){@extend .text-center};
+	tbody tr td:not(:first-child){@extend .text-center};
+	.footable-row-detail-name{@extend .text-md, ._700};
+	.footable-row-detail-value{@extend .text-md, ._100};
+}
+
+.table{
+	@extend .table-hover;
+}

@@ -1,0 +1,30 @@
+
+.list__ess-scheduler{
+	@extend .list;
+	.list-item{
+		padding: 0px;
+		
+	}
+}
+
+.list-group-item {
+	border: none;
+}
+
+
+/* Full width Modal list styles */
+.list-group	{
+	clear: both;
+.list-group-item {
+		font-family: $stack-montserrat;
+		i {
+			margin-right: 10px;
+		}
+		span {
+			padding-right: 10px;	
+		}
+		&:last-child {
+			@extend .m-b;
+		}
+	}
+}

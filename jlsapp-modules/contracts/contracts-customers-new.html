@@ -1,0 +1,308 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>My Dashboard</a></li>
+            <li><a href ui-sref="app.jlsapp.contracts-customers">Customers</a></li>
+            <li class="active"><a href>New Customer</a></li>
+        </ol>
+    </div>
+</div>
+<div class="box__feature-navigation">
+    <div class="box-header">
+        Customer
+    </div>
+    <div class="box-tool">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-xs white btn-block"><i class="material-icons md-24">&#xe3C7; </i> Actions</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage">
+                        <i class="material-icons md-24">&#xe145; </i> Option 1
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href>
+                        Seperated Link (if needed)
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<form editable-form name="editableForm" onaftersave="saveUser()">
+<div class="padding">
+    <div class="row m-b">
+        <div class="col-sm-12">
+            <h3>Customer</h3>
+            <div class="form-group row">
+                <div class="col-sm-12">
+
+                  <div class="row form-group">
+                    <div class="col-md-3">
+                      <label class="form-control-label">First Name</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Middle Name </label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Last Name</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-3">
+                      <label class="form-control-label">Customer</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">DUNS No. </label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Tax Reg No.</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                  </div>
+
+
+                <h3>Account </h3>
+                <div class="row form-group">
+                  <div class="col-md-3">
+                    <label class="form-control-label">Account Description</label>
+                    <input type="text" class="form-control" placeholder="">
+                  </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Account Type</label>
+
+
+                      <select class="form-control">
+                        <option value="1">Type 1</option>
+                        <option value="2">Type 2</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Customer Class</label>
+                      <select class="form-control">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label"> <i class="material-icons">date_range</i>Account Established</label>
+                      <span>
+                        <input type="text" size="3" class="form-control"
+                            value=""
+                            ng-model="endDate"
+                            name="endDate"
+                            data-icon-up="fa fa-chevron-up"
+                            data-icon-down="fa fa-chevron-down"
+                            bs-datepicker>
+                      </span>
+
+                    </div>
+                </div>
+                <h3>Account Address</h3>
+                  <div class="row form-group">
+
+                    <div class="col-md-3">
+                      <label class="form-control-label">Site Name</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Mail Stop</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    </div>
+
+
+
+<!-- the custom css for this drop down can be found in styles/boostrap-overrides/_dropdown.scss this was used as no styles currently exist for the angular ui drop down.
+This however will need to be refactored in the future using the "select" mark up instead of the angular UI buttons to follow the conventions -->
+                  <div class="row form-group">
+                    <div class="col-md-3">
+
+                      <label class="form-control-label">Country</label>
+                      <br/>
+
+                        <div class="btn-group w-full" uib-dropdown is-open="status.isopen">
+                        <button type="button" class="btn btn-drop-down-style form-control" uib-dropdown-toggle ng-disabled="editableForm.$waiting">
+                          {{selectedCountry.name}}
+                          <span class="right-caret"><span>
+                        </button>
+
+                        <ul class="dropdown-menu w-full">
+                          <li role="menuitem"><a ng-click="editableForm.$cancel();setCountry(countries[0])">England</a></li>
+                          <li role="menuitem"><a ng-click="editableForm.$show();setCountry(countries[1])">Australia</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-3">
+                      <label class="form-control-label">Address Line 1</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Address Line 2</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Address Line 3</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">*City or Town</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                  </div>
+                  <div class="row form-group">
+
+                    <div class="col-md-3">
+                      <label class="form-control-label">Post Code</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+
+                      <!-- <label class="form-control-label">County</label>
+                      <input type="text" class="form-control" placeholder=""> -->
+                      <span ng-show="editableForm.$visible">
+                        <label class="form-control-label">Suburb</label>
+                        <input type="text" class="form-control" placeholder="">
+                      </span>
+
+                      <span ng-show="!editableForm.$visible">
+                        <label class="form-control-label">County</label>
+                        <input type="text" class="form-control" placeholder="">
+                      </span>
+
+                    </div>
+                  </div>
+
+                <!--   <h3>Account Address Details</h3>
+                  <div class="row form-group">
+                    <div class="col-md-3">
+                      <label class="form-control-label">Customer Category Code</label>
+                      <select class="form-control">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Site Language</label>
+                      <select class="form-control">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Translated Customer Name</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-control-label">Trading Partner Identifier</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-3">
+                      <label class="form-control-label">EDI Location Code</label>
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                      <div class="col-md-3">
+                        <label class="form-control-label m-b-md"></label>
+                          <div>
+                                <label class="md-check">
+                                  <input type="checkbox"><i class="indigo"></i>
+                                  Key Account
+                                </label>
+                          </div>
+                        </div>
+                      </div>
+                  </div> -->
+                  <h3>Address Purpose</h3>
+
+                  <div class="row form-group">
+                    <div class="col-sm-12">
+                      <table class="table table-hover table-striped b-t" ui-jp="footable" data-filter="#filter" data-page-size="5">
+                        <thead>
+                          <tr>
+                            <th>Primary</th>
+                            <th><label class="form-control-label"> <i class="material-icons">date_range</i>From</label></th>
+                            <th><label class="form-control-label"> <i class="material-icons">date_range</i>To</label></th>
+                            <th>Purpose</th>
+                            <th>Remove</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                           <tr ng-repeat = "item in customerPurpose | orderBy: sortType:!sortReverse">
+
+                            <td>
+                              <label class="md-check m-t-sm">
+                              <input type="checkbox" ng-click="FlipYesNo()" ><i class="indigo"></i>
+                              <span ng-show="!currentYesNo">
+                                    Yes
+                              </span>
+                              <span ng-show="currentYesNo">
+                                  No
+                              </span>
+                            </label>
+                          </td>
+
+                          <td>
+                            <span>
+                              <input type="text" size="3" class="form-control"
+                                  value=""
+                                  ng-model="endDate"
+                                  name="endDate"
+                                  data-icon-up="fa fa-chevron-up"
+                                  data-icon-down="fa fa-chevron-down"
+                                  bs-datepicker>
+                            </span>
+                          </td>
+
+                          <td>
+                            <span>
+                              <input type="text" size="3" class="form-control"
+                                  value=""
+                                  ng-model="endDate"
+                                  name="endDate"
+                                  data-icon-up="fa fa-chevron-up"
+                                  data-icon-down="fa fa-chevron-down"
+                                  bs-datepicker>
+                            </span>
+                          </td>
+
+                          <td>
+                            <select class="form-control">
+                              <option value="1">Option 1</option>
+                              <option value="2">Option 2</option>
+                            </select>
+                          </td>
+
+                          <td>
+                            <i class="material-icons md-24" ng-click="removeCustomerPurpose(item.id)">indeterminate_check_box</i>
+                          </td>
+
+                          </tr>
+                        </tbody>
+                      </table>
+                      <button class="btn btn-fw dark pull-left" ng-click="addCustomerPurpose()" >Add Purpose</button>
+
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="row form-group">
+                    <div class="col-md-3">
+                        <button class="btn btn-fw dark pull-left">Save</button>
+                    </div>
+                  </div>
+
+</form>

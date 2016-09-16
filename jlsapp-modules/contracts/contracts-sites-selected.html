@@ -1,0 +1,395 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>My Dashboard</a></li>
+            <li><a href ui-sref="app.jlsapp.contracts-customers">Customers</a></li>
+            <li class="active"><a href>Add Site</a></li>
+        </ol>
+    </div>
+</div>
+
+<form editable-form name="editableForm" onaftersave="saveUser()">
+    <div class="row p-a text-md" ng-class="{'grey-100': editableForm.$visible, 'white': !editableForm.$visible}">
+      <div class="col-sm-12">
+
+        <div class="form-group row">
+          <div class="col-sm-12">
+            <div class="jumbotron">
+              <p>Google Maps Place holder</p>
+              <p>For demonstration purpose only</p>
+              <p>Devs - please swap with actual google map</p>
+              <p>test only</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+              <div class="col-md-12">
+                <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Site Name</div>
+                <span ng-show="editableForm.$visible">
+                  <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.locationName }}">
+                </span>
+                <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.locationName }}</span>
+              </div>
+            </div>
+
+
+
+              <div class="row form-group">
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Floor</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.floor }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.floor }}</span>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Building</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.building }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.building }}</span>
+                </div>
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Address Line 1</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.addressLine1 }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.addressLine1 }}</span>
+                </div>
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Address Line 2</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.addressLine2 }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.addressLine2 }}</span>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Address Line 3</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.addressLine3 }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.addressLine3 }}</span>
+                </div>
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Address Line 4</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.addressLine4 }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.addressLine4 }}</span>
+                </div>
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">City</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.city }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.city }}</span>
+                </div>
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Province</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.province }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.province }}</span>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">State</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.state }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.state }}</span>
+                </div>
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Postal Code</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.postalCode }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.postalCode }}</span>
+                </div>
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">County</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.country }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.country }}</span>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Country</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.country }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.country }}</span>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Country Code</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.countryCode }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.countryCode }}</span>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Postal Code Extension</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.postalCodeExtension }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.postalCodeExtension }}</span>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Address Effective Date</div>
+                    <span ng-show="editableForm.$visible">
+                      <input type="text" size="3" class="form-control"
+                        ng-model="sitesInformation.addressEffectiveDate"
+                        name="sitesInformation.addressEffectiveDate"
+                        data-icon-up="fa fa-chevron-up"
+                        data-icon-down="fa fa-chevron-down"
+                        bs-datepicker>
+                    </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.addressEffectiveDate }}</span>
+                </div>
+
+
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Address Expiration Date</div>
+                    <span ng-show="editableForm.$visible">
+                      <input type="text" size="3" class="form-control"
+                        value="{{sitesInformation.addressExpirationDate }}"
+                        ng-model="sitesInformation.addressExpirationDate"
+                        name="sitesInformation.addressExpirationDate"
+                        data-icon-up="fa fa-chevron-up"
+                        data-icon-down="fa fa-chevron-down"
+                        bs-datepicker>
+                    </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.addressExpirationDate }}</span>
+                </div>
+
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Sales Tax Geocode</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.salesTaxGeocode }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.salesTaxGeocode }}</span>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Description</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.description }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.description }}</span>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Short Description</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.shortDescription }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.shortDescription }}</span>
+                </div>
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Latitude</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.latitude }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.latitude }}</span>
+                </div>
+              </div>
+
+
+
+              <div class="form-group row">
+
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Longitude</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="{{ sitesInformation.longitude }}">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">{{ sitesInformation.longitude }}</span>
+                </div>
+
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Purpose</div>
+                  <span ng-show="editableForm.$visible">
+                    <div class="input-group input-group-md">
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn white b-a no-shadow"><i class="material-icons">search</i></button>
+                      </span>
+                      <ui-select ng-model="selected_site" theme="bootstrap" class="ng-pristine ng-untouched ng-valid ng-scope md" title="Choose Purpose">
+                        <ui-select-match placeholder="Select a Purpose">{{$select.selected.purposeOptions}}</ui-select-match>
+                          <ui-select-choices repeat="item in purposeOptions | filter: $select.search track by item.purpose">
+                            <div ng-click="addPurpose(item.id)" >
+                              <i class="material-icons">add_box</i>
+                              <span ng-bind-html="item.purpose"></span>
+                            </div>
+                        </ui-select-choices>
+                        <ui-select-no-choice>
+                          <span>No results are present</span>
+                        </ui-select-no-choice>
+                      </ui-select>
+                    </div>
+                    <!-- <input type="text" class="form-control" placeholder="" value="{{ sites.purpose }}"> -->
+                  </span>
+                  <!-- <span class="text-muted" ng-show="!editableForm.$visible">{{ sites.purpose }}</span> -->
+
+                  <!-- <table class="table table-hover table-striped b-t" ui-jp="footable" data-filter="#filter" data-page-size="5"> -->
+                    <table class="table table-hover table-striped b-t" ui-jp="" data-filter="#filter" data-page-size="5">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Purpose</th>
+                        <th>Primary Purpose</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                       <tr ng-repeat = "item in purpose | orderBy: sortType:!sortReverse">
+                        <td>{{item.purpose}}</td>
+                        <td class="pull-right">
+                        <i class="material-icons md-24" ng-click="removePurpose()">indeterminate_check_box</i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            <hr/>
+            <div class="row">
+              <div class="col-md-12">
+                <h4>IVR</h4>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="label__form">Add new IVR Number</div>
+
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Country</div>
+                  <span ng-show="editableForm.$visible">
+                              <select class="form-control">
+                                <option value="1">UK</option>
+                                <option value="1">France</option>
+                                <option value="1">Germany</option>
+                                <option value="1">Indonesia</option>
+                                <option value="1">Australia</option>
+                              </select>
+                              <div class="label__form">This field is required</div>
+                    </span>
+                  <span class="" ng-show="!editableForm.$visible">UK</span>
+              </div>
+
+              <div class="col-md-3">
+                <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Code</div>
+                <span ng-show="editableForm.$visible">
+                  <input type="text" class="form-control" placeholder="" value="{{ }}">
+                </span>
+                <span class="" ng-show="!editableForm.$visible">{{ }}</span>
+              </div>
+
+              <div class="col-md-3">
+                <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Number</div>
+                <span ng-show="editableForm.$visible">
+                  <input type="text" class="form-control" placeholder="" value="{{ }}">
+                  <div class="label__form">This field is required</div>
+                </span>
+                <span class="" ng-show="!editableForm.$visible">{{ }}</span>
+              </div>
+
+            </div>
+
+            <!-- <div class="row form-group"> -->
+              <div class="row m-b">
+                  <div class="col-sm-12">
+                      <button class="btn white" ui-sref="">Add IVR</button>
+                  </div>
+              <!-- </div> -->
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="label__form" ng-class="{'b-b': !editableForm.$visible}"></div>
+                <span ng-show="editableForm.$visible">
+                  <div class="input-group input-group-md">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn white b-a no-shadow"><i class="material-icons">search</i></button>
+                    </span>
+                    <ui-select ng-model="selected_site" theme="bootstrap" class="ng-pristine ng-untouched ng-valid ng-scope md" title="Choose Purpose">
+                      <ui-select-match placeholder="Search IVR...">{{$select.selected.purposeOptions}}</ui-select-match>
+                        <ui-select-choices repeat="item in purposeOptions | filter: $select.search track by item.purpose">
+                          <div ng-click="addPurpose(item.id)" >
+                            <i class="material-icons">add_box</i>
+                            <span ng-bind-html="item.purpose"></span>
+                          </div>
+                      </ui-select-choices>
+                      <ui-select-no-choice>
+                        <span>No results are present</span>
+                      </ui-select-no-choice>
+                    </ui-select>
+                  </div>
+                  <!-- <input type="text" class="form-control" placeholder="" value="{{ sites.purpose }}"> -->
+                </span>
+                <!-- <span class="text-muted" ng-show="!editableForm.$visible">{{ sites.purpose }}</span> -->
+
+                <!-- <table class="table table-hover table-striped b-t" ui-jp="footable" data-filter="#filter" data-page-size="5"> -->
+                <table class="table table-hover table-striped b-t" ui-jp="" data-filter="#filter" data-page-size="5">
+                  <thead>
+                    <tr>
+                      <th>IVR Number</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr ng-repeat = "item in purpose | orderBy: sortType:!sortReverse">
+                      <td>{{item.purpose}}</td>
+                      <td class="pull-right">
+                      <i class="material-icons md-24" ng-click="removePurpose()">indeterminate_check_box</i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                    <button class="btn btn-sm btn-fw primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+                      Edit
+                    </button>
+                    <span ng-show="editableForm.$visible">
+                        <button type="submit" class="btn btn-sm btn-fw primary" ng-disabled="editableForm.$waiting"
+                        ng-click="editableForm.$cancel()">
+                          Save
+                        </button>
+                        <button type="button" class="btn btn-sm btn-fw white" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                        Cancel
+                        </button>
+                    </span>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>

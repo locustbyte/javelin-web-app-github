@@ -1,0 +1,59 @@
+<div class="box__brand-black no-borders m-a-0">
+    <div class="box-header">
+        <h1>Accordion UI</h1>
+        <!-- <h3>The kind that are <span class="_700">SORTABLE</span>, have <span class="_700">FILTER</span> controls, and are <span class="_700">RESPONSIVE</span></h3> -->
+    </div>
+</div>
+
+<div class="row m-b">
+    <div class="col-sm-12">
+        <div class="box__style-guide" id="ui-search__accordion001">
+            <div class="box-header">
+                Accordions
+                <small>Pattern ref: accordion001</small>
+            </div>
+            <div class="box-body">
+                <script type="text/ng-template" id="group-template.html">
+                    <div class="box__acordion {{panelClass || 'panel-default'}}">
+                      <div class="accordion__header">
+                        <span class="panel-title">
+                          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+                            <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+                              {{heading}}
+                            </span>
+                          </a>
+                        </span>
+                      </div>
+                      <div class="panel-collapse collapse" uib-collapse="!isOpen">
+                        <div class="box-body" ng-transclude></div>
+                      </div>
+                    </div>
+                  </script>
+                
+                <!--begin pattern -->
+                <uib-accordion close-others="oneAtATime">
+                    <uib-accordion-group is-open="status.open" heading="Accordion Header 1" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Accordion 1<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        Content
+                    </uib-accordion-group>
+                    <uib-accordion-group heading="Accordion Header 2" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Accordion 1<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        Content
+                    </uib-accordion-group>
+                    <uib-accordion-group heading="Accordion Header 3" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Accordion 1<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        Content
+                    </uib-accordion-group>
+                </uib-accordion>
+            </div>
+        </div>
+    </div>
+</div>
+       
+

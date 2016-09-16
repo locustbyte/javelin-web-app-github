@@ -1,0 +1,12 @@
+@mixin color-variant($parent, $bg, $color, $body-text-color, $tool-color) {
+  .box-color-#{$parent}{  	
+	color: $color !important;
+	background-color: $bg !important;
+	.box-tool{
+		color: $tool-color;
+	}
+	.box-body{
+		color: $body-text-color;
+	}
+  }
+}

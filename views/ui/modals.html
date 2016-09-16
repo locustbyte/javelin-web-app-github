@@ -1,0 +1,36 @@
+<div class="box__brand-black no-borders m-a-0">
+    <div class="box__header__brand-neutral-light">
+        <h1>Modals UI</h1>
+        <!-- <h3>The kind that are <span class="_700">SORTABLE</span>, have <span class="_700">FILTER</span> controls, and are <span class="_700">RESPONSIVE</span></h3> -->
+    </div>
+</div>
+
+<div class="p-a" ng-controller="ModalCtrl">
+    <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header blue-grey-900 b-a b-white">
+       Title
+    </div>
+    <div class="modal-body m-t-md">
+         Content
+    </div>
+    <div class="modal-footer dker">
+        <button class="btn btn-danger" type='button' ng-click='cancel()'>Close</button>
+    </div>
+</script>
+
+
+<div class="box__style-guide" id="usual">
+    <div class="box-header">
+        Modal: <code class="accent text-xs text-white">Full Width</code>
+        <small>Pattern Reference: <span class="_600">modal__full-width</span></small>
+    </div>
+    <div class="box-body">
+        <!--begin pattern -->
+        <div class="makecodeview">
+             <button class="btn white" type="button" ng-click="open('lg')">Open Modal Windows</button>
+        </div>
+        <!-- <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+        <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span> -->
+    </div>
+</div>
+

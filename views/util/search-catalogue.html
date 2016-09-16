@@ -1,0 +1,67 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>JLS Styleguide</a> </li>
+            <li class="active">UI Element / Pattern Search</li>
+        </ol>
+    </div>
+</div>
+<div class="box__brand-black no-borders m-a-0">
+    <div class="box-header">
+        <h1>Search the <code class="grey-800">UI Pattern</code> library</h1>
+        <!-- <h3>The kind that are <span class="_700">SORTABLE</span>, have <span class="_700">FILTER</span> controls, and are <span class="_700">RESPONSIVE</span></h3> -->
+    </div>
+</div>
+<div class="box__pattern-search">
+    <div class="row no-gutter" id="pattern-search">
+        <div class="col-md-12">
+            <div class=" blue-grey-100">
+                <div class="box-header__intro">
+                    <div class="input-group">
+
+                        <span class="input-group-btn">
+                            <button ng-click="person.selected = undefined" class="btn white">
+                                <i class="material-icons nav__icon">&#xe8b6;</i>
+                            </button>
+                        </span>
+                        <ui-select ng-model="pattern.selected" theme="bootstrap" ng-disabled="disabled" reset-search-input="false" ng-class="ui-select;" class="search__ui-select">
+                            <ui-select-match placeholder="Search by name, type, pattern no, description, tag...">{{$pattern.patternRef}}</ui-select-match>
+                            <ui-select-choices group-by="'type'" repeat="pattern in patterns | propsFilter: {name: $select.search, patternRef: $select.search, type: $select.search, tags: $select.search}">
+                              <div ng-bind-html="pattern.name | highlight: $select.search"></div>
+                              <small>
+                                  <b>Pattern Reference: {{pattern.patternRef}}</b>, Tags <code class="grey-300">{{pattern.tags}}</code>
+                                </small>
+                            </ui-select-choices>
+                        </ui-select>
+
+                        <span class="input-group-btn">
+                          <button ng-click="person.selected = undefined" class="btn white">
+                            <i class="material-icons nav__icon">clear</i>
+                          </button>
+                        </span>
+                        
+                    </div>
+                </div>
+                <div class="box-body intro" ng-hide="resultsIn">
+                    <div class="instructions">
+                        If you're a developer or just looking for a UI snippet / Patterm, this little tool can help you check if we have what you're looking for by searching via <code>Type</code>, <code>Name</code>, <code>Description</code> you can search by <code>Tags</code> too!
+                    </div>
+                    
+                    
+                   
+                </div>
+                <div class="row no-gutter" ng-show="resultsIn">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="box no-borders m-a-0">
+                            <div class="box-header green-400">
+                                <span class="text-lg">We found at least one <span class="_700">UI Pattern!</span> Check below!</span>
+                                <div class="text-md">You should use this <span class="_700">'Pattern'</span> or at least <span class="_700">create a variant</span> of it to suit your UI needs.</div>
+                            </div>
+                        </div>
+                        <ui-include src="thePath" fragment="fragment"></ui-include>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>

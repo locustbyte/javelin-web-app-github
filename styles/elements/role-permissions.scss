@@ -1,0 +1,43 @@
+.card--role {
+	@extend .card;
+	border-radius: 0;
+}
+
+.role__table {
+	@extend .table;
+	@extend .table-striped;
+	@extend .table-sm;
+	margin-bottom: 0;
+}
+.role__permission {
+	text-align: center;
+	width: 100px;
+}
+.role__access {
+	@extend .table-heading;
+}
+.role__mark {
+	position: relative;
+	text-align: center;
+	.checkbox {
+		margin-bottom: 0;
+	}
+}
+.role__mark-text {
+  display: none;
+}
+@include media-breakpoint-down(sm) {
+	.role__mark {
+		text-align: inherit;
+		width: auto;
+		label {
+			width: 100%;
+		}
+	}
+	.role__mark-text {
+		display: block;
+		position: absolute;
+		top: 5px;
+		margin-left: 1.25rem;
+	}
+}

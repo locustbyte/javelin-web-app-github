@@ -1,0 +1,187 @@
+<div class="box__breadcrumbs">
+    <div class="box-header dker">
+        <ol class="breadcrumb">
+            <li><a href>ESS Scheduling</a> </li>
+            <li class="active">Task Scheduler Overview</li>
+        </ol>
+    </div>
+</div>
+<div class="box__ess-scheduler">
+    <div class="box-header">
+        <h5>{{vtactiontitle}}</h5>
+    </div>
+    <div class="box-tool">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-xs white btn-block"><i class="material-icons md-24">&#xe3C7; </i> Actions</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage" ng-click="openInPage();">
+                        <i class="material-icons md-24">&#xe145; </i> Create Incident Report
+                    </a>
+                    <a class="dropdown-item" href>
+                        <i class="material-icons md-24">&#xe896; </i> View Scheduler
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href>
+                        Seperated Link (if needed)
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="4000" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+<div id="createIncident" class="card" style="display:none">
+    <div class="card-block">
+        <div class="row white">
+            <div class="col-sm-12">
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <div class="md-form-group float-label">
+                            <input class="md-input" ng-model="user.address">
+                            <label>Reporter</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="md-form-group float-label">
+                            <ui-select ng-model="customer.selected" theme="bootstrap">
+                                <ui-select-match placeholder="Select customer by name or customer ID...">{{$select.selected.name}}, <small>{{$select.selected.custid}}</small></ui-select-match>
+                                <ui-select-choices repeat="item in customers | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                    <small>Customer ID: </small>
+                                    <small ng-bind-html="item.custid | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+                            <span class="md-input-msg right">Customer</span>
+                            <span class="help-block">{{address.selected.formatted_address}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="md-form-group float-label">
+                            <ui-select ng-model="address.selected" theme="bootstrap">
+                                <ui-select-match placeholder="Choose site location...">{{$select.selected.name}}, <small>{{$select.selected.address}}</small></ui-select-match>
+                                <ui-select-choices repeat="item in siteLocation | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                    <small ng-bind-html="item.address | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+                            <span class="md-input-msg right">Site Location</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="md-form-group float-label">
+                            <ui-select ng-model="systemFault.selected" theme="bootstrap">
+                                <ui-select-match placeholder="Choose System Type...">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item in systemFaults | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                    <small ng-bind-html="item.desc | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+                            <span class="md-input-msg right">System type</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="md-form-group float-label">
+                            <ui-select multiple ng-model="faultType.selected" theme="bootstrap" ng-disabled="disabled">
+                                <ui-select-match placeholder="Select faults...">{{$item.name}}</ui-select-match>
+                                <ui-select-choices group-by="'country'" repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                    <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                    <small>
+                                      Description: {{person.email}}
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+                            <span class="md-input-msg right">Fault type(s)</span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-sm-12">
+                        <div class="md-form-group float-label">
+                            <textarea class="md-input" ng-model="user.biography" rows="4"></textarea>
+                            <label>Notes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <button class="btn green-800 btn-xs" type="button" ng-click='saveCreateIncident();'>Schedule incident</button>
+        <button class="btn btn-default btn-xs" type="button" ng-click='cancelCreateIncident();'>Cancel</button>
+    </div>
+</div>
+<div id="task-scheduler-list" ng-show="!creatingTask">
+    <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
+        <thead>
+            <tr>
+                <th colspan="5">
+                    <div class="input-group input-group-lg" ng-show="!creatingTask">
+                        <input st-search="" class="form-control p-x b-a rounded" placeholder="Keyword search on all task fields..." type="text" />
+                        <span class="input-group-btn">
+                          <button type="submit" class="btn white b-a rounded no-shadow"><i class="material-icons"></i></button>
+                        </span>
+                    </div>
+                    
+                </th>
+            </tr>
+            <tr>
+                <th st-sort="firstName">Task ID</th>
+                <th st-sort="firstName">Logged By</th>
+                <th st-sort="birthDate">Engineer</th>
+                <th st-sort="lastName">Status</th>
+                <th width="50"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in displayedCollection">
+                <td>{{row.firstName}}</td>
+                <td>Reporter Name</td>
+                <td>{{row.engineerName}}
+                    <br /><small>{{row.engineerID}}</small>
+                </td>
+                <td>
+                    <div ng-switch on="row.lastName">
+                        <span ng-switch-when="Scheduling in progress">
+                        
+                        <button class="md-btn btn-block green-500" title="scheduled">
+                            Scheduling in progress
+                            
+                            </button>
+                       </span>
+                        <span ng-switch-when="Task in progress">
+                        <div class="progress progress-striped active">
+                            <div class="progress-bar accent" style="width: 65%">Repairing</div>
+                          </div>
+                        <button class="md-btn btn-block green-800">
+                            Task in progress
+                        </button>
+                       </span>
+                        <span ng-switch-when="Enroute">
+                            <button class="md-btn btn-block green-700">
+                                Enroute
+                            </button>
+                        </span>
+                        <span ng-switch-when="Complete">
+                            <button class="md-btn btn-block green-800">
+                                Complete
+                            </button>
+                        </span>
+                        <span ng-switch-default>No update available</span>
+                    </div>
+                </td>
+
+                <td>
+                    <button type="button" ng-click="removeItem(row)" class="btn btn-sm white">
+                        <i class="material-icons md-18">&#xe5cd; </i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <button type="button" ng-click="addRandomItem(row)" class="btn btn-sm btn-info">
+        <i class="material-icons md-18">&#xe5cd; </i> Add random task (For test purposes only in case you dele)
+    </button> -->
+    
+</div>

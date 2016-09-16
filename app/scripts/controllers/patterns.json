@@ -1,0 +1,50 @@
+[
+	{ "name": "Inputs", "tags": "input form text field", "patternRef": "inputs001", "type": "Forms", "url": "../views/form/form.element.html", "div": "ui-search__inputs001"},
+	{ "name": "Search Standard", "tags": "input form text search field", "patternRef": "search-standard001", "type": "Forms", "url": "../views/form/form.search.html", "div": "ui-search__search-standard001"},
+	{ "name": "Search Filter (Small)", "tags": "input form text search filter context pattern", "patternRef": "search-filter001", "type": "Forms", "url": "../views/form/form.search.html", "div": "ui-search__search-filter001"},
+	{ "name": "Search Filter (Large)", "tags": "input form text search filter context pattern", "patternRef": "search-filter002", "type": "Forms", "url": "../views/form/form.search.html", "div": "ui-search__search-filter002"},
+	{ "name": "Search Dropdown Filter (Arrow Icon)", "tags": "input form text search filter dropdown arrow context", "patternRef": "search-dropdown-filter001", "type": "Forms", "url": "../views/form/form.search.html", "div": "ui-search__search-dropdown-filter001"},
+	{ "name": "Search Dropdown Filter (Context selection and Arrow Icon)", "tags": "input form text search filter dropdown arrow context pattern", "patternRef": "search-dropdown-filter002", "type": "Forms", "url": "../views/form/form.search.html", "div": "ui-search__search-dropdown-filter002"},
+
+	{ "name": "Static", "tags": "table list", "patternRef": "table002", "type": "Tables", "url": "../views/table/static.html", "div": "ui-search__table002"},
+	{ "name": "Datatable", "tags": "table data datatable", "patternRef": "table003", "type": "Tables", "url": "../views/table/datatable.html", "div": "ui-search__table003"},
+	{ "name": "Footable (sortable)", "tags": "table responsive headers sortable", "patternRef": "footable-table001", "type": "Tables", "url": "../views/table/footable.html", "div": "ui-search__footable-table001"},
+	{ "name": "Footable (Sortable with Filter)", "tags": "table responsive headers sortable filter context", "patternRef": "footable-table002", "type": "Tables", "url": "../views/table/footable.html", "div": "ui-search__footable-table002"},
+	{ "name": "Footable Accordion", "tags": "table responsive headers filter accordion collapsible", "patternRef": "footable-table-accordion001", "type": "Tables", "url": "../views/table/footable-accordion.html", "div": "ui-search__footable-table-accordion001"},
+	              
+	{ "name": "Typography Montserrat 400", "tags": "type typeface fonts font", "patternRef": "type001", "type": "UI Element - Typography", "url": "../views/ui/typography.html", "div": "ui-search__type001"},
+	{ "name": "Typography Montserrat 700", "tags": "type typeface fonts font", "patternRef": "type002", "type": "UI Element - Typography", "url": "../views/ui/typography.html", "div": "ui-search__type002"},
+	{ "name": "Typography Open Sans", "tags": "type typeface fonts font", "patternRef": "type003", "type": "UI Element - Typography", "url": "../views/ui/typography.html", "div": "ui-search__type003"},
+	{ "name": "Typography Headings", "tags": "type typeface fonts font", "patternRef": "type004", "type": "UI Element - Typography", "url": "../views/ui/typography.html", "div": "ui-search__type004"},
+	{ "name": "Typography Display Headings", "tags": "type typeface fonts font header heading", "patternRef": "type005", "type": "UI Element - Typography", "url": "../views/ui/typography.html", "div": "ui-search__type005"},
+
+	{ "name": "Card (Detailed) with Image", "tags": "panel card container", "patternRef": "card-detailed-image-001", "type": "UI Element - Cards", "url": "../views/ui/cards.html", "div": "ui-search__card-detailed-image-001"},
+	{ "name": "Card (Detailed)", "tags": "panel card container", "patternRef": "card-detailed-001", "type": "UI Element - Cards", "url": "../views/ui/cards.html", "div": "ui-search__card-detailed-001"},
+	{ "name": "Card Simple", "tags": "panel card container", "patternRef": "card-simple-001", "type": "UI Element - Cards", "url": "../views/ui/cards.html", "div": "ui-search__card-simple-001"},
+
+	{ "name": "Breadcrumbs", "tags": "navigation bread breadcrumbs", "patternRef": "bread-crumbs-001", "type": "UI Element - Breadcrumbs", "url": "../views/ui/breadcrumbs.html", "div": "usual" },
+	{ "name": "Breadcrumbs labels above", "tags": "navigation bread breadcrumbs labels", "patternRef": "bread-crumbs-003", "type": "UI Element - Breadcrumbs", "url": "../views/ui/breadcrumbs.html", "div": "above" },
+	{ "name": "Breadcrumbs labels below", "tags": "navigation bread breadcrumbs labels", "patternRef": "bread-crumbs-002", "type": "UI Element - Breadcrumbs", "url": "../views/ui/breadcrumbs.html", "div": "below" },
+
+	{ "name": "Box Variant: box__brand-red", "tags": "box container", "patternRef": "box__brand-red", "type": "UI Element - Box", "url": "../views/ui/box.html", "div": "ui-search__box__brand-red" },
+	{ "name": "Box Variant: box__brand-black", "tags": "box container", "patternRef": "box__brand-black", "type": "UI Element - Box", "url": "../views/ui/box.html", "div": "ui-search__box__brand-black" },
+	{ "name": "Box Variant: box__brand-neutral", "tags": "box container", "patternRef": "box__brand-neutral", "type": "UI Element - Box", "url": "../views/ui/box.html", "div": "ui-search__box__brand-neutral" },
+	{ "name": "Box Variant: box__brand-neutral-light", "tags": "box container", "patternRef": "box__brand-neutral-light", "type": "UI Element - Box", "url": "../views/ui/box.html", "div": "ui-search__box__brand-neutral-light" },
+	{ "name": "Box Variant: box__brand-neutral-lighter", "tags": "box container", "patternRef": "box__brand-neutral-lighter", "type": "UI Element - Box", "url": "../views/ui/box.html", "div": "ui-search__box__brand-neutral-lighter" },
+
+	{ "name": "Colours - Primary", "tags": "color colours colour colors", "patternRef": "colors__primary", "type": "UI Element - Colours", "url": "../views/ui/color.html", "div": "ui-search__colors-primary" },
+	{ "name": "Colours - Background options", "tags": "color colours colour colors background", "patternRef": "colors__background-options", "type": "UI Element - Colours", "url": "../views/ui/color.html", "div": "ui-search__colors-background-options" },
+	{ "name": "Colours - Palette", "tags": "color colours colour colors palette", "patternRef": "colors__palette", "type": "UI Element - Colours", "url": "../views/ui/color.html", "div": "ui-search__colors-palette" },
+
+	{ "name": "Basic Form Standard Block", "tags": "form input block", "patternRef": "form-standard-block", "type": "UI Element - Form Layout", "url": "../views/form/form.layout.html", "div": "ui-search__form-standard-block" },
+	{ "name": "Form Horizontal", "tags": "form layout horizontal", "patternRef": "form-horizontal", "type": "UI Element - Form Layout", "url": "../views/form/form.layout.html", "div": "ui-search__form-horizontal" },
+	{ "name": "Form Inline", "tags": "form layout inline", "patternRef": "form-inline", "type": "UI Element - Form Layout", "url": "../views/form/form.layout.html", "div": "ui-search__form-inline" },
+
+	{ "name": "Navigation (Section / Feature)", "tags": "navigation page feature nav section feature", "patternRef": "navigation-page-001", "type": "UI Element - Navigation", "url": "../views/ui/navigation.html", "div": "ui-search__navigation-page-001" },
+
+	{ "name": "Sliding Panel (Angular) - Standard", "tags": "sliding panel reveal hidden div notifications popout pop", "patternRef": "sliding-panel001", "type": "UI Element - Sliding Panel", "url": "../views/ui/ng.panel.slide.html", "div": "ui-search__slide-panel001" },
+	{ "name": "Sliding Panel (Angular) - Push Content", "tags": "sliding panel reveal hidden div notifications popout pop", "patternRef": "sliding-panel002", "type": "UI Element - Sliding Panel", "url": "../views/ui/ng.panel.slide.html", "div": "ui-search__slide-panel002" },
+	{ "name": "Sliding Panel (Angular) - Squeeze Content", "tags": "sliding panel reveal hidden div notifications popout pop", "patternRef": "sliding-panel003", "type": "UI Element - Sliding Panel", "url": "../views/ui/ng.panel.slide.html", "div": "ui-search__slide-panel003" },
+	{ "name": "Accordion (Angular) - Squeeze Content", "tags": "accordion collapse collapsible", "patternRef": "accordion001", "type": "UI Element - Accordion", "url": "../views/ui/accordion.html", "div": "ui-search__accordion001" }
+	
+]

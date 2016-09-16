@@ -1,0 +1,701 @@
+<div pageslide ps-open="demo3" ps-speed="0.25" ps-side="right" ps-squeeze="true">
+	<div id="demo-right">
+		<!-- slide panel content -->
+		<div class="box__notifications-panel" id="ui-search__box__brand-red">
+			<div class="box-header red-900">
+			<span class="_700">Suitable Employees</span>
+			</div>
+			<div class="box-tool">
+				<a ng-click="toggleDemo3()" class="button"><i class="material-icons md-24">close</i></a>
+			</div>
+		</div>
+		<div class="list box">
+			<div class="list-item">
+				<div class="list-left">
+					<img src="../static/img/calvin.jpg" class="w-40 circle">
+				</div>
+				<div class="list-body">
+					<a href class="_500 m-b visible-sm-inline">Calvin Kent</a>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">place</i> 1.7 Miles from DFL Tower
+					</small>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">phone</i> 0789 0192 888
+					</small>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">highlight</i> Firearm- Reception - Health & Safety
+					</small>
+					<button class="btn btn-fw success m-t-10">Select</button>
+				</div>
+			</div>
+			<div class="list-item">
+				<div class="list-left">
+					<img src="../static/img/lewis.jpg" class="w-40 circle">
+				</div>
+				<div class="list-body">
+					<a href class="_500">Lewis Rogers.</a>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">place</i> 1.9 Miles from DFL Tower
+					</small>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">phone</i> 0789 000 888
+					</small>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">highlight</i> Firearm- Reception - Health & Safety
+					</small>
+					<button class="btn btn-fw success m-t-10">Select</button>	
+				</div>
+			</div>
+			<div class="list-item">
+				<div class="list-left">
+					<img src="../static/img/calvin.jpg" class="w-40 circle">
+				</div>
+				<div class="list-body">
+					<a href class="_500">Jane Smith.</a>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">place</i> 2.9 Miles from DFL Tower
+					</small>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">phone</i> 0789 000 888
+					</small>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">highlight</i> Firearm- Reception - Health & Safety
+					</small>
+					<button class="btn btn-fw success m-t-10">Select</button>	
+				</div>
+			</div>
+			<div class="list-item">
+				<div class="list-left">
+					<img src="../static/img/lewis.jpg" class="w-40 circle">
+				</div>
+				<div class="list-body">
+					<a href class="_500">John Doe</a>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">place</i> 3.3 Miles from DFL Tower
+					</small>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">phone</i> 0789 000 888
+					</small>
+					<small class="block text-muted .visible-xs-inline m-t-10">
+						<i class="material-icons">highlight</i> Firearm- Reception - Health & Safety
+					</small>
+					<button class="btn btn-fw success m-t-10">Select</button>	
+				</div>
+			</div>
+		</div>
+		
+		<!-- end slide panel content -->
+	</div>
+</div>
+
+<div class="box__breadcrumbs">
+	<div class="breadcrumbs__header">
+		<ol class="breadcrumb">
+			<li><a href>Notifications</a></li>
+			<!-- <li class="active">Requested</li> -->
+		</ol>
+	</div>
+</div>
+<div class="box__feature-navigation">
+	<div class="box-header">
+		Notification Requests
+	</div>
+	<div class="box-tool">
+		<div class="btn-group" uib-dropdown is-open="status.isopen">
+          <button id="single-button" type="button" class="btn btn-xs white" uib-dropdown-toggle ng-disabled="disabled">
+            <i class="material-icons md-24">&#xe3C7; </i> Actions 
+          </button>
+          <ul class="dropdown-menu pull-right" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+            <li role="menuitem">
+                <a class="dropdown-item openInPage">
+                    <i class="material-icons md-24">&#xe145; </i> Option One
+                </a>
+            </li>
+            <li role="menuitem">
+                <a class="dropdown-item" href ng-click="viewIncidents();">
+                    <i class="material-icons md-24">&#xe896; </i> Option Two
+                </a>
+            </li>
+          </ul>
+        </div>
+	</div>
+</div>
+
+<div class="row p-a">
+	<div class="col-md-3">
+		<div class="card__filter">
+			<div class="card-header">
+				<span class="label label-lg text-black white pos-rlt m-r-xs pull-right m-t-xs"><b class="arrow left b-white"></b>45</span>
+				<i class="material-icons md-36">settings</i>
+				<span class="p-l-sm text-md">Overdue</span>
+			</div>
+			<div class="card-block">
+				<button class="btn btn-sm primary" ng-click="doFilter('Config Change');">Show</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="card__filter">
+			<div class="card-header">
+				<span class="label label-lg text-black white pos-rlt m-r-xs pull-right m-t-xs"><b class="arrow left b-white"></b>18</span>
+				<i class="material-icons md-36">security</i>
+				<span class="p-l-sm text-md">Jeopardy</span>
+			</div>
+			<div class="card-block">
+				<button class="btn btn-sm primary" ng-click="doFilter('Permission');">Show </button>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="card__filter">
+			<div class="card-header">
+				<span class="label label-lg text-black white pos-rlt m-r-xs pull-right m-t-xs"><b class="arrow left b-white"></b>67</span>
+				<i class="material-icons md-36">event</i>
+				<span class="p-l-sm text-md">At Risk</span>
+			</div>
+			<div class="card-block">
+				<button class="btn btn-sm primary" ng-click="doFilter('Schedule');">Show </button>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="card__filter">
+			<div class="card-header">
+				<span class="label label-lg text-black white pos-rlt m-r-xs pull-right m-t-xs"><b class="arrow left b-white"></b>67</span>
+				<i class="material-icons md-36">event</i>
+				<span class="p-l-sm text-md">Upcoming</span>
+			</div>
+			<div class="card-block">
+				<button class="btn btn-sm primary" ng-click="doFilter('Schedule');">Show </button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Search filters -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="input-group input-group-lg">
+
+                <span class="input-group-btn">
+                  <button type="submit" class="btn white b-a rounded no-shadow"><i class="material-icons">filter_list</i></button>
+                </span>
+                <input id="filter" type="text" class="form-control p-x b-a rounded" placeholder="Search" ng:model="query" ng-change="value='{{query}}'">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Table accordion -->
+<div class="row">
+<div class="col-sm-12">
+	<table id="approvalsTable" class="table m-b-none white table-stripped table__accordion" ui-jp="footable" data-filter="#filter">
+		<thead>
+			<tr>
+				<th data-hide="phone,tablet" data-name="Priority">Priority</th>
+				<th data-toggle="true">In/Out</th>
+				<th data-hide="phone,tablet">Start/End Time</th>
+				<th data-hide="phone,tablet" data-name="Time">Time</th>
+				<th>Employee Name</th>
+				<th data-hide="phone,tablet" data-name="Contact">Contact</th>
+				<th data-hide="phone,tablet" data-name="Site ID">Site ID</th>
+				<th data-hide="phone,tablet" data-name="Location">Location</th>
+				<th>Info</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><label class="label danger">High</label></td>
+				<td><i class="material-icons">call_received</i></td>
+				<td>07:00</td>
+				<td>+30 mins</td>
+				<td>Eirc Guzman</td>
+				<td>0300 123 543</td>
+				<td>44982</td>
+				<td>Madison Square Garden</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+			<tr>
+				<td><label class="label danger">High</label></td>
+				<td><i class="material-icons">call_received</i></td>
+				<td>07:00</td>
+				<td>--</td>
+				<td><a class="nav-link" ng-click="toggleDemo3()"><i class="material-icons">add_circle</i> Add Employee</a></td>
+				<td>0800 123 456</td>
+				<td>44982</td>
+				<td>Beach House</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+			<tr>
+				<td><label class="label danger">High</label></td>
+				<td><i class="material-icons">call_received</i></td>
+				<td>07:00</td>
+				<td>+30 mins</td>
+				<td>Alan Smith</td>
+				<td>0175 321 432</td>
+				<td>44982</td>
+				<td>DFL Tower</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+			<tr>
+				<td><label class="label danger">High</label></td>
+				<td><i class="material-icons">call_received</i></td>
+				<td>07:00</td>
+				<td>+30 mins</td>
+				<td>Bobby Brown</td>
+				<td>075 111 223</td>
+				<td>44982</td>
+				<td>MMC Tower</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+			<tr>
+				<td><label class="label success">Low</label></td>
+				<td><i class="material-icons">call_made</i></td>
+				<td>07:00</td>
+				<td>+10 mins</td>
+				<td>Eirc Guzman</td>
+				<td>0800 222 333</td>
+				<td>44982</td>
+				<td>SL1 House</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+			<tr>
+				<td><label class="label success">Low</label></td>
+				<td><i class="material-icons">call_made</i></td>
+				<td>07:00</td>
+				<td>+11 mins</td>
+				<td>Paul Jones</td>
+				<td>0900 444 333</td>
+				<td>44982</td>
+				<td>Barclays House</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+			<tr>
+				<td><label class="label info">Medium</label></td>
+				<td><i class="material-icons">call_received</i></td>
+				<td>07:00</td>
+				<td>+16 mins</td>
+				<td>Susan Mason</td>
+				<td>030 321 222</td>
+				<td>44982</td>
+				<td>Station House</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+			<tr>
+				<td><label class="label danger">High</label></td>
+				<td><i class="material-icons">call_received</i></td>
+				<td>07:00</td>
+				<td>+25 mins</td>
+				<td>Mike Yardy</td>
+				<td>0800 123 999</td>
+				<td>44982</td>
+				<td>NEC Tower</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+			<tr>
+				<td><label class="label success">Low</label></td>
+				<td><i class="material-icons">call_made</i></td>
+				<td>07:00</td>
+				<td>+12 mins</td>
+				<td>Duncan Smith</td>
+				<td>020 721 999</td>
+				<td>44982</td>
+				<td>Water Houses</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+			<tr>
+				<td><label class="label info">Medium</label></td>
+				<td><i class="material-icons">call_received</i></td>
+				<td>07:00</td>
+				<td>+14 mins</td>
+				<td>Peter Jones</td>
+				<td>020 345 666</td>
+				<td>44982</td>
+				<td>MMC Tower</td>
+				<td><a href="" class="modal--click" data-toggle="modal" data-target="#employeeDetailModal"><i class="material-icons">person_pin</i></a></td>
+			</tr>
+
+		</tbody>
+	</table>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div id="employeeDetailModal" ng-controller="NotificationCtrl" class="modal modal__javelin-full-width fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Employee Information</h4>
+				</div>
+				<div class="modal-body">
+					<div class="bd-example bd-example-tabs" role="tabpanel">
+						<ul class="nav nav-pills m-b" id="myTabPills" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="employeeInfo-tab" data-toggle="tab" href="#employeeInfo-pills" role="tab" aria-controls="home" aria-expanded="true">Employee</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="locationInfo-tab" data-toggle="tab" href="#locationInfo-pills" role="tab" aria-controls="profile" aria-expanded="false">Location</a>
+							</li>
+						</ul>
+						<div class="tab-content" id="myTabContent">
+							<div role="tabpanel" class="tab-pane fade active in" id="employeeInfo-pills" aria-labelledby="employeeInfo-tab" aria-expanded="true">
+								<div class="row">
+									<div class="col-sm-6">
+										<h4 class="m-b montserrat">Employee Information</h4>
+										<ul class="list-group">
+											<li class="list-group-item row"><i class="material-icons">portrait</i>Tom Ford</li>
+											<li class="list-group-item row"><i class="material-icons">local_phone</i><span>0208 333 1123 (primary)</span> <span>0208 333 1123 (secondary)</span></li>
+											<li class="list-group-item row"><i class="material-icons">highlight</i>Firearm - Reception - Health & Safety</li>
+										</ul>	
+									</div>
+
+									<div class="col-sm-6">
+										<h4 class="col-sm-12 m-b montserrat">G4S Contract Manager</h4>
+										<ul class="list-group">
+											<li class="list-group-item row"><i class="material-icons">portrait</i> John Adams</li>
+											<li class="list-group-item row"><i class="material-icons">local_phone</i> 0208 333 1123</li>
+										</ul>
+									</div>
+								</div> <!-- row ends here -->
+								<!-- table -->
+								<div class="row">
+									<!-- Search filters -->
+									<div class="col-sm-12">
+										<form class="row form-inline">
+											<fieldset class="form-group col-sm-3 row">
+												<div class="form-group">
+													<div class="input-group input-append date" id="datePicker">
+														<input type="date" class="form-control ng-pristine ng-untouched ng-valid ng-empty" name="poStartDate" id="poStartDate" ng-model="$ctrl.model.workOrder.purchaseOrder.startDate">
+													</div>
+												</div>
+											</fieldset>
+											<fieldset class="form-group col-sm-3 ">
+												<div class="form-group">
+													<button type="button" class="btn btn-danger">Record Absence</button>
+												</div>
+											</fieldset>
+										</form>
+									</div>
+
+									<div class="col-xs-12">
+										<div class="accordion-row__body">
+											<h4 class="col-sm-12 montserrat">Update</h4>
+
+											<div class="col-sm-6 col-xs-12 col-md-3">
+												<div class="form-group">
+													<label for="email">Reason Category</label>
+													<select class="c-select form-control ng-pristine ng-untouched ng-valid">
+														<option>Please Select</option>
+														<option>Sick Leave</option>
+														<option>Jury duty</option>
+														<option>Unplanned Holiday</option>
+													</select>
+												</div>	
+											</div><!-- ends here -->
+											<div class="col-sm-6 col-xs-12 col-md-3">
+												<div class="form-group">
+													<label for="email">Reason Code</label>
+													<select class="c-select form-control ng-pristine ng-untouched ng-valid col-sm-5">
+														<option>Please Select</option>
+														<option>22002</option>
+														<option>322001</option>
+														<option>42123</option>
+														<option>522321</option>
+													</select>
+												</div>	
+											</div><!-- ends here -->
+											<div class="col-sm-12">
+												<div class="form-group">
+													<label for="email">Comment</label>
+													<textarea class="form-control" rows="3"></textarea>
+												</div>	
+											</div>
+										</div><!-- accordion-row__body ends-->
+									</div>
+
+									<div class="col-sm-12">
+										<!-- Table start here -->
+										<table id="approvalsTable" class="table m-b-none white table-stripped table__accordion" ui-jp="footable" data-filter="#filter">
+											<thead>
+												<tr>
+													<th data-sort-ignore="true">
+														<label class="md-check">
+															<input type="checkbox"><i class="black"></i></label>
+														</th>
+														<th>Date</th>
+														<th>Start/End Time</th>
+														<th data-hide="phone,tablet">Actual Time</th>
+														<th data-sort-ignore="true">Employee Name</th>
+														<th data-hide="phone,tablet">Customer</th>
+														<th data-hide="phone,tablet" data-sort-ignore="true">Site ID</th>
+														<th data-hide="phone,tablet" data-sort-ignore="true">Location</th>
+														<th data-sort-ignore="true"></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>
+															<label class="md-check">
+																<input type="checkbox" value="AP667492"><i class="black"></i></label>
+															</td>
+															<td>20-02-2016</td>
+															<td>07:00-19:00</td>
+															<td>07:20</td>
+															<td>Ben Smith</td>
+															<td>Dell, Ireland</td>
+															<td>45654</td>
+															<td>DFL Tower</td>
+															<td><a href="##" class="info--click" ng-click="AP667492=!AP667492"><i class="material-icons">menu</i></a></td>
+														</tr>
+														<tr class="accordion-row " ng-show="AP667492">
+															<td colspan="10">
+																<div class="accordion-row__body">
+																	<h4 class="col-sm-12 montserrat">Update Start Time</h4>
+																	<div class="col-sm-6 col-xs-12 col-md-3">
+																		<div class="form-group">
+																			<label class="clearfix" for="Time">Date</label>
+																			<div class="input-group input-append date" id="datePicker">
+																				<input type="date" class="form-control ng-pristine ng-untouched ng-valid ng-empty" name="poStartDate" id="poStartDate" ng-model="$ctrl.model.workOrder.purchaseOrder.startDate">
+																			</div>
+																		</div>	
+																	</div>
+																	<div class="col-sm-6 col-xs-12 col-md-3">
+																		<div class="form-group">
+																			<label class="clearfix" for="Time">Time</label>
+																			<select class="c-select form-control ng-pristine ng-untouched ng-valid w-50">
+																				<option>HH</option>
+																			</select>
+																			<select class="c-select form-control ng-pristine ng-untouched ng-valid w-50">
+																				<option>MM</option>
+																			</select>
+																		</div>	
+																	</div>
+
+																	<div class="col-sm-6 col-xs-12 col-md-3">
+																		<div class="form-group">
+																			<label for="email">Reason Category</label>
+																			<select class="c-select form-control ng-pristine ng-untouched ng-valid">
+																				<option>Please Select</option>
+																				<option>Sick Leave</option>
+																				<option>Jury duty</option>
+																				<option>Unplanned Holiday</option>
+																			</select>
+																		</div>	
+																	</div><!-- ends here -->
+																	<div class="col-sm-6 col-xs-12 col-md-3">
+																		<div class="form-group">
+																			<label for="email">Reason Code</label>
+																			<select class="c-select form-control ng-pristine ng-untouched ng-valid col-sm-5">
+																				<option>Please Select</option>
+																				<option>22002</option>
+																				<option>322001</option>
+																				<option>42123</option>
+																				<option>522321</option>
+																			</select>
+																		</div>	
+																	</div><!-- ends here -->
+																	<div class="col-sm-12">
+																		<div class="form-group">
+																			<label for="email">Comment</label>
+																			<textarea class="form-control" rows="3"></textarea>
+																		</div>	
+																	</div>
+																	<div class="col-sm-12 col-xs-12">
+																		<button class="btn btn-primary">Save</button>
+																		<button type="button" class="btn btn-warning">Cancel</button>
+																	</div><!-- ends here -->
+																</div><!-- accordion-row__body ends-->
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<label class="md-check">
+																	<input type="checkbox" value="AP667492"><i class="black"></i></label>
+																</td>
+																<td>20-02-2016</td>
+																<td>07:00-19:00</td>
+																<td>07:20</td>
+																<td>Ben Smith</td>
+																<td>Dell, Ireland</td>
+																<td>45654</td>
+																<td>DFL Tower</td>
+																<td><a href="##" class="info--click" ng-click="AP667493=!AP667493"><i class="material-icons">menu</i></a></td>
+															</tr>
+															<tr class="accordion-row " ng-show="AP667493">
+																<td colspan="10">
+																	<div class="accordion-row__body">
+																		<h4 class="col-sm-12 montserrat">Update Start Time</h4>
+																		<div class="col-sm-6 col-xs-12 col-md-3">
+																			<div class="form-group">
+																				<label class="clearfix" for="Time">Date</label>
+																				<div class="input-group input-append date" id="datePicker">
+																					<input type="date" class="form-control ng-pristine ng-untouched ng-valid ng-empty" name="poStartDate" id="poStartDate" ng-model="$ctrl.model.workOrder.purchaseOrder.startDate">
+																				</div>
+																			</div>	
+																		</div>
+																		<div class="col-sm-6 col-xs-12 col-md-3">
+																			<div class="form-group">
+																				<label class="clearfix" for="Time">Time</label>
+																				<select class="c-select form-control ng-pristine ng-untouched ng-valid w-50">
+																					<option>HH</option>
+																				</select>
+																				<select class="c-select form-control ng-pristine ng-untouched ng-valid w-50">
+																					<option>MM</option>
+																				</select>
+																			</div>	
+																		</div>
+
+																		<div class="col-sm-6 col-xs-12 col-md-3">
+																			<div class="form-group">
+																				<label for="email">Reason Category</label>
+																				<select class="c-select form-control ng-pristine ng-untouched ng-valid">
+																					<option>Please Select</option>
+																					<option>Sick Leave</option>
+																					<option>Jury duty</option>
+																					<option>Unplanned Holiday</option>
+																				</select>
+																			</div>	
+																		</div><!-- ends here -->
+																		<div class="col-sm-6 col-xs-12 col-md-3">
+																			<div class="form-group">
+																				<label for="email">Reason Code</label>
+																				<select class="c-select form-control ng-pristine ng-untouched ng-valid col-sm-5">
+																					<option>Please Select</option>
+																					<option>22002</option>
+																					<option>322001</option>
+																					<option>42123</option>
+																					<option>522321</option>
+																				</select>
+																			</div>	
+																		</div><!-- ends here -->
+																		<div class="col-sm-12">
+																			<div class="form-group">
+																				<label for="email">Comment</label>
+																				<textarea class="form-control" rows="3"></textarea>
+																			</div>	
+																		</div>
+																		<div class="col-sm-12 col-xs-12">
+																			<button class="btn btn-primary">Save</button>
+																			<button type="button" class="btn btn-warning">Cancel</button>
+																		</div><!-- ends here -->
+																	</div><!-- accordion-row__body ends-->
+																</td>
+															</tr><!-- accordion-row ends here -->
+															<tr>
+																<td>
+																	<label class="md-check">
+																		<input type="checkbox" value="AP667492"><i class="black"></i></label>
+																	</td>
+																	<td>20-02-2016</td>
+																	<td>07:00-19:00</td>
+																	<td>07:20</td>
+																	<td>Ben Smith</td>
+																	<td>Dell, Ireland</td>
+																	<td>45654</td>
+																	<td>DFL Tower</td>
+																	<td><a href="##" class="info--click" ng-click="AP667494=!AP667494"><i class="material-icons">menu</i></a></td>
+																</tr>
+																<tr class="accordion-row " ng-show="AP667494">
+																	<td colspan="10">
+																		<div class="accordion-row__body">
+																			<h4 class="col-sm-12 montserrat">Update Start Time</h4>
+																			<div class="col-sm-6 col-xs-12 col-md-3">
+																				<div class="form-group">
+																					<label class="clearfix" for="Time">Date</label>
+																					<div class="input-group input-append date" id="datePicker">
+																						<input type="date" class="form-control ng-pristine ng-untouched ng-valid ng-empty" name="poStartDate" id="poStartDate" ng-model="$ctrl.model.workOrder.purchaseOrder.startDate">
+																					</div>
+																				</div>	
+																			</div>
+																			<div class="col-sm-6 col-xs-12 col-md-3">
+																				<div class="form-group">
+																					<label class="clearfix" for="Time">Time</label>
+																					<select class="c-select form-control ng-pristine ng-untouched ng-valid w-50">
+																						<option>HH</option>
+																					</select>
+																					<select class="c-select form-control ng-pristine ng-untouched ng-valid w-50">
+																						<option>MM</option>
+																					</select>
+																				</div>	
+																			</div>
+
+																			<div class="col-sm-6 col-xs-12 col-md-3">
+																				<div class="form-group">
+																					<label for="email">Reason Category</label>
+																					<select class="c-select form-control ng-pristine ng-untouched ng-valid">
+																						<option>Please Select</option>
+																						<option>Sick Leave</option>
+																						<option>Jury duty</option>
+																						<option>Unplanned Holiday</option>
+																					</select>
+																				</div>	
+																			</div><!-- ends here -->
+																			<div class="col-sm-6 col-xs-12 col-md-3">
+																				<div class="form-group">
+																					<label for="email">Reason Code</label>
+																					<select class="c-select form-control ng-pristine ng-untouched ng-valid col-sm-5">
+																						<option>Please Select</option>
+																						<option>22002</option>
+																						<option>322001</option>
+																						<option>42123</option>
+																						<option>522321</option>
+																					</select>
+																				</div>	
+																			</div><!-- ends here -->
+																			<div class="col-sm-12">
+																				<div class="form-group">
+																					<label for="email">Comment</label>
+																					<textarea class="form-control" rows="3"></textarea>
+																				</div>	
+																			</div>
+																			<div class="col-sm-12 col-xs-12">
+																				<button class="btn btn-primary">Save</button>
+																				<button type="button" class="btn btn-warning">Cancel</button>
+																			</div><!-- ends here -->
+																		</div><!-- accordion-row__body ends-->
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+														<!-- Table ends here -->
+													</div><!-- col-sm-12 ends here -->
+												</div>
+
+											</div>
+											<div class="tab-pane padding fade" id="locationInfo-pills" role="tabpanel" aria-labelledby="locationInfo-tab" aria-expanded="false">
+												<p>Some dummy text</p>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="modal-footer">
+									<input type="submit" value="Confirm" class="btn btn-primary" />
+									<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+				<script type="text/javascript">
+
+					$( document ).ready(function() {
+						$('.row-accordion').hide();
+
+						$('a.modal--click, .bd-example a').on('click', function (event) {
+							event.preventDefault();
+						});
+
+						$('.info--click').on('click', function (event) {
+							event.preventDefault();
+							$(this).parent().parent().next('.row-accordion').slideToggle();
+						});
+					});
+
+				</script> 
+

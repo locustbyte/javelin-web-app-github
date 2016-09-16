@@ -1,0 +1,239 @@
+<div class="styleguide">
+    <div class="box__brand-black no-borders m-a-0">
+        <div class="box__header__brand-neutral-light">
+            <h1>Styleguide Help / Dev Guide</h1>
+        </div>
+        <div class="box-tool">
+            <ul class="nav">
+                <li class="nav-item inline dropdown">
+                    <a class="nav-link" data-toggle="dropdown">
+                        <i class="material-icons md-24">&#xe5d4;</i>
+                    </a>
+                    <div class="dropdown-menu pull-right">
+                        <a class="dropdown-item" href="#intro" ui-scroll-to="intro">Introduction</a>
+                        <a class="dropdown-item" href="#search-patterns" ui-scroll-to="search-patterns">Search the UI Pattern Library</a>
+                        <a class="dropdown-item" href="#elementPlacement" ui-scroll-to="elementPlacement">Element Placement</a>
+                        <a class="dropdown-item" href="#list-pattern" ui-scroll-to="list-pattern">List New Pattern in 'Pattern Search' feature</a>
+                        <a class="dropdown-item" href="#gitmergetool" ui-scroll-to="gitmergetool">KDiff3 Git Mergetool</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#support" ui-scroll-to="support">Support</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="box m-a-0" id="intro">
+        <div class="box__header__grey-900">
+            Introduction
+        </div>
+        <div class="box-body">
+            <p class="m-a-0 p-a text-md">This help section is aimed at making your life easier when it comes to interacting with the JLS styleguide.  Whether you're using the JLS styleguide or developing into it.  Each section is headed with the context of help available.</p>
+            <p class="m-a-0 p-a text-md"><code class="brand-black"><i class="material-icons md-24 text-white">&#xe5d4;</i></code> Use this icon which you may notice at the top right in the <code class="text-md">Styleguide Help / Dev Guide</code> title to jump directly to a help section on this page.  (A little sub nav to help you navigate the content).</p>
+            <p class="m-a-0 p-a text-md">Happy Developing!</p>
+        </div>
+    </div>
+        
+    <div class="box m-a-0" id="search-patterns">
+        <div class="row no-gutter" id="pattern-search">
+            <div class="col-md-12">
+                <div class=" blue-grey-100">
+                    <div class="box__header__grey-900">
+                        Search the <code>UI Pattern</code> library
+                    </div>
+                    <div class="box-body p-b-lg">
+                        <p class="p-a text-md">
+                            If you're a developer or just looking for a UI snippet / Patterm, this little tool can help you check if we have what you're looking for by searching via <code>Type</code>, <code>Name</code>, <code>Description</code> you can search by <code>Tags</code> too!
+                        </p>
+                        
+                        <div class="input-group">
+
+                            <span class="input-group-btn">
+                                <button ng-click="person.selected = undefined" class="btn white">
+                                    <i class="material-icons nav__icon">&#xe8b6;</i>
+                                </button>
+                            </span>
+                            <ui-select ng-model="pattern.selected" theme="bootstrap" ng-disabled="disabled" reset-search-input="false" ng-class="ui-select;" class="search__ui-select">
+                                <ui-select-match placeholder="Search by name, type, pattern no, description, tag...">{{$pattern.patternRef}}</ui-select-match>
+                                <ui-select-choices group-by="'type'" repeat="pattern in patterns | propsFilter: {name: $select.search, patternRef: $select.search, type: $select.search, tags: $select.search}">
+                                  <div ng-bind-html="pattern.name | highlight: $select.search"></div>
+                                  <small>
+                                      <b>Pattern Reference: {{pattern.patternRef}}</b>, Tags <code class="grey-300">{{pattern.tags}}</code>
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+                            
+
+                        </div>
+
+                        <div class="row no-gutter">
+                            <div class="col-sm-12 col-md-12">
+                                <ui-include src="thePath" fragment="fragment"></ui-include>
+                            </div>
+                        </div>
+
+                       
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>   
+    </div>
+
+    <div class="" id="elementPlacement">
+        <div class="">
+            <div class="box m-a-0">
+                <div class="box__header__grey-900">
+                    Placing elements in the styleguide
+                </div>
+                <div class="box-body">
+                    <p class="p-a text-md">When placing UI elements on the page you should follow the following format below. This format will place the element in a 'Box' with a header and body which you can use to label and place the code respectively.</p>
+                    <pre ng-copyable="" class="text-left" data-toggle="modal" data-target="#bottom">
+
+                        &lt;div class=&quot;box__jls-variant1&quot; id=&quot;ui-search__[pattern reference]&quot;&gt;
+                            &lt;div class=&quot;box__header__brand-neutral-light&quot;&gt;
+                                [Pattern Reference] &lt;code&gt;[ANY VARIANT ATTRIBUTES]&lt;/code&gt;
+                                &lt;small&gt;Pattern ref: &lt;code class=&quot;grey-900&quot;&gt;[pattern reference]&lt;/code&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;box-body&quot;&gt;
+                                &lt;!--begin pattern --&gt;
+                                &lt;div class=&quot;makecodeview&quot;&gt;
+                                    [YOUR PATTERN CODE HERE]
+                                &lt;/div&gt;
+                                &lt;!--end pattern --&gt;
+                                &lt;pre ng-copyable class=&quot;text-left&quot; data-toggle=&quot;modal&quot; data-target=&quot;#bottom&quot;&gt;&lt;/pre&gt;
+                                &lt;span class=&quot;clip__code label label-md accent pos-rlt m-r-xs&quot;&gt;&lt;b class=&quot;arrow top b-accent pull-left&quot;&gt;&lt;/b&gt;Click Code to Copy&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                    </pre>
+                    <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                    <p class="p-a text-md" style="clear:both;">NOTE: Be sure to change in the code below where you see the <code class="brand-black text-white">[ xxxxx ]</code> as this indicates code you need to change to your specific pattern code / reference.</P>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+    <div class="box m-a-0" id="list-pattern">
+        <div class="row no-gutter" id="pattern-search">
+            <div class="col-md-12">
+                
+                    <div class="box__header__grey-900">
+                        List New Pattern in <code>'Pattern Search'</code> feature
+                    </div>
+                    <div class="box-body p-b-lg">
+                        
+                        <p class="p-a text-md">In order to get your pattern listen in the <code>Pattern Search</code> Feature, you will need to:</p>
+
+                        <code class="brand-black text-white _700 text-md">Step One</code>
+                        <p class="p-a text-md">Ensure than you have appended to the first line of the 'box' element that is displaying your pattern, has an <code class="accent _700">ID</code> which is prefixed with <code class="accent _700">ui-search__</code> followed by your pattern reference as shown below.</p>
+                        <pre ng-copyable="" class="text-left" data-toggle="modal" data-target="#bottom">
+                            &lt;div class=&quot;box__jls-variant1&quot; id=&quot;ui-search__my-pattern-reference&quot;&gt;
+                        </pre>
+
+                        <code class="brand-black text-white _700 text-md">Step Two</code>
+                        <p class="p-a text-md">Locate the <code class="accent _700">patterns.json</code> file which is located in <code class="accent _700">/app/scripts/controllers/</code> and enter a new row (might be easier to copy paste a row already existing) and use common sense by reading the key pairs what data you should enter.</p>
+                        
+                        <code class="brand-black text-white _700 text-md">You're done!</code>
+
+                       
+                    </div>
+                
+
+                
+            </div>
+        </div>   
+    </div>
+
+    <div class="" id="gitmergetool">
+        <div class="">
+            <div class="box m-a-0">
+                <div class="box__header__grey-900">
+                    KDiff3 Git Merge Tool
+                </div>
+                <div class="box-body">
+                    <ul class="list inset m-a-0">
+                            <li class="list-item">
+                                <a herf class="list-left">
+                                    <span class="w-40 circle green">
+                            <i class="material-icons">&#xe2c4;</i>
+                          </span>
+                                </a>
+                                <div class="list-body">
+                                    <div>Download Link (WIN &amp; PC)</div>
+                                    <small class="text-muted text-ellipsis">
+                            <a href="https://sourceforge.net/projects/kdiff3/files/kdiff3/0.9.98/" target="_blank">https://sourceforge.net/projects/kdiff3/files/kdiff3/0.9.98/</a>
+                          </small>
+                                </div>
+                            </li>
+                            <li class="list-item">
+                                <a herf class="list-left">
+                                    <span class="w-40 circle purple">
+                            <i class="material-icons">&#xe88e;</i>
+                          </span>
+                                </a>
+                                <div class="list-body">
+                                    <div>Installation Instructions MAC OS X</div>
+                                    <small class="text-muted text-ellipsis">
+                            <ul class="list-group m-b">
+                              <li class="list-group-item active">
+                                <small>Step One</small>
+                                    <span class="text-muted">Open .DMG file and move kdiff3 app to /Applications</span>
+                            </li>
+                            <li class="list-group-item active">
+                                <small>Step Two</small>
+                                <span class="text-muted">$ git config --global merge.tool kdiff3</span>
+                            </li>
+                            <li class="list-group-item active">
+                                <small>Step Three</small>
+                                <span class="text-muted">$ git config --global mergetool.kdiff3.path /Applications/kdiff3.app/Contents/MacOS/kdiff3</span>
+                            </li>
+                        </ul>
+                        </small>
+                        </div>
+                        </li>
+                        <li class="list-item">
+                            <a herf class="list-left">
+                                <span class="w-40 circle purple">
+                            <i class="material-icons">&#xe88e;</i>
+                          </span>
+                            </a>
+                            <div class="list-body">
+                                <div>Installation Instructions PC</div>
+                                <small class="text-muted text-ellipsis">
+                            <ul class="list-group m-b">
+                              <li class="list-group-item active">
+                                <small>Step One</small>
+                                <span class="text-muted">Run .exe file and note installation path</span>
+                        </li>
+                        <li class="list-group-item active">
+                            <small>Step Two</small>
+                            <span class="text-muted">git config --global merge.tool kdiff3</span>
+                        </li>
+                        <li class="list-group-item active">
+                            <small>Step Three</small>
+                            <span class="text-muted">git config --global mergetool.kdiff3.cmd '"C:\\Program Files (x86)\\KDiff3\\kdiff3" $BASE $LOCAL $REMOTE -o $MERGED'</span>
+                        </li>
+                        </ul>
+                        </small>
+                        </div>
+                        </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div class="" id="support">
+        <div class="">
+            <div class="box m-a-0">
+                <div class="box__header__grey-900">
+                    Need immediate <code>Support</code> ?
+                </div>
+                <div class="box-body">
+                    <p class="p-a text-md">You can try contacting Tan Kent at <a href="mailto:tan.kent@cloudsherpas.com">tan.kent@cloudsherpas.com</a></p>
+                    <p class="p-a text-md">Alternatively join <a href="https://javelinui.slack.com" target="_blank"><code class="accent _700 text-md">Javelin's Slack Channel</code> - https://javelinui.slack.com</a>.  You can sign up with your cloudsherpas.com or g4s.com email account where a mass amount of team players and expertise await!</p>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

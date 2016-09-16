@@ -1,0 +1,42 @@
+/**
+ * Author: lewis.rodgers@accenture.com
+ * For full page log in screen
+ */
+.authentication {
+  background: #282828;
+  height: 100vh;
+  padding-top: 4rem;
+}
+.login {
+  @extend .center-block;
+  max-width: 400px;
+  background: $brand-black;
+}
+.login__img {
+  @extend .card-block;
+  background: $brand-black;
+  padding: 2rem 2rem 0 2rem;
+}
+.login__block {
+  @extend .card-block;
+  background: $brand-black;
+  padding: 2rem;
+}
+.login__title {
+  @extend .card-title;
+  @extend .h1;
+  @extend .open-sans;
+  border-bottom: 1px solid $brand-red;
+  color: #ffffff;
+  padding-bottom: .5rem;
+}
+.login__text {
+  color: #ffffff;
+}
+.login__btn {
+  @extend .btn;
+  @extend .primary;
+  @extend .btn-block;
+  @extend .btn-lg;
+  font-size: 0.750rem;
+}

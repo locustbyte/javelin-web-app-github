@@ -1,0 +1,18 @@
+.select2__select-field{
+	button{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: block;
+	}
+	.ui-select-choices{
+		a{
+			span{
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: block;
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+.login-form {
+  
+  img {
+    @include center-block();
+    height: 40px;
+  }
+  .login-form__links {
+    clear: both;
+    padding: 15px 0 0 0;
+    a {
+      display: block;
+      text-align: center;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.google-login {
+  
+  img {
+    @include center-block();
+    height: 60px;
+  }
+  .btn {
+    @include center-block();
+    margin-top: 30px;
+  }
+}
+

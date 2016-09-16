@@ -1,0 +1,96 @@
+.left.navside.brand-black {
+    li {
+        &.active {
+            a {
+                .nav-text {
+                    color: $nav-text-selected;
+                    // @extend ._700;
+                }
+            }
+        }
+        a .nav-text {
+            color: $nav-text;
+            opacity: 1;
+            &:hover {
+                color: $white;
+            }
+            // line-height: $font-size-lg;
+        }
+    }
+    .nav-icon {
+    	color: $white;
+    	text-align: left;
+    	min-width: 0rem;
+    }
+    // .nav-icon i {
+    // 	font-size: $font-size-lg;
+    // 	margin-top: 0.4rem;
+    // }
+    //USE nav-header INSTEAD please
+    // .nav-group-text{
+    // 	color: $grey;
+    // 	text-transform: uppercase;
+    // 	font-weight: bold;
+    // 	margin-left: 20px ;
+    // 	line-height: $font-size-lg;
+    // 	padding: 0.5625rem 0;
+    // }
+    .nav {
+        li {
+            &.active > .nav-sub {
+                background-color: $grey-900;
+            }
+            &.active {
+                background-color: $grey-800;
+            }
+            &:hover {
+                background-color: $brand-red;
+            }
+            .nav-sub {
+                //background-color: $brand-black;
+                li {
+                    padding-left: 24px;
+                }
+            }
+            .nav-sub.show-up {
+                bottom: 0px;
+                top: inherit;
+                li {
+                    padding-left: 0px;
+                }
+            }
+        }
+    }
+
+    li {
+        &.active {
+            a.ui-tooling:hover {
+                background-color: $brand-red;
+                color: $white;
+            }
+            a.ui-tooling {
+                background-color: $grey-900;
+                li {
+                    a {
+                        background-color: $grey-900;
+                    }
+                }
+                .nav-icon {
+                    color: $white;
+                }
+            }
+            //background-color: $brand-red;	
+            
+        }
+    }
+    a.ui-tooling {
+        color: $nav-text;
+    }
+    // a.ui-tooling {}
+    // //background-color: $brand-red;	
+    // .nav-icon {
+    //     color: $white;
+    // }
+}
+
+//*[@id="aside"]/div/div[2]/nav/ul/li[4]/ul/li/a

@@ -1,0 +1,41 @@
+.nav__heading {
+	@extend .hidden-folded;
+	@extend .montserrat;
+	color: $grey;
+	font-size: 0.625rem;
+	font-weight: bold;
+	line-height: $aside-nav-sub-height;
+	padding: 1rem 1rem 0;
+	text-transform: uppercase;
+
+	&:hover,
+	&:focus{
+		background-color: transparent !important;
+	}
+	&:after{
+		display: none;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.nav__heading {
+		// display: none;
+	}
+}
+
+.prepend-icon {
+	font-size: 1.125rem;
+	height: 100%;
+	line-height: $aside-nav-height;
+	position: absolute;
+
+	+ .nav-text {
+		padding-left: 1.5rem;
+	}
+}
+
+/* Adds space where an icon would be */
+.nav-text--push {
+	@extend .nav-text;
+	padding-left: 1.5rem !important;
+}

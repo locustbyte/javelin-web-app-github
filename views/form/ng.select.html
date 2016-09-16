@@ -1,0 +1,279 @@
+<div class="box__brand-black no-borders m-a-0">
+    <div class="box-header">
+        <h1>Form Angular UI Select Inputs</h1>
+        The kind that are using and include <span class="_700">TYPEAHEAD</span>, <span class="_700">MULTIPLE SELECT</span> and more.  Uses <a href="https://github.com/angular-ui/ui-select" target="blank"><code>Angular UI Select2 and Selectize</code></a>
+
+    </div>
+</div>
+          <form class="form-horizontal">
+              <fieldset>
+
+                <div class="row m-b">
+                  
+                  <div class="col-sm-12">
+                    <div class="box__style-guide">
+                        <div class="box-header">
+                            Address
+                            <small>Pattern ref: xxxxxxx</small>
+                        </div>
+                        <div class="box-body">
+                            <!--begin pattern -->
+                            <div class="makecodeview">
+                              <div class="form-group row">
+                                
+                                <div class="col-sm-12">
+
+                                  <ui-select ng-model="address.selected" theme="bootstrap" ng-disabled="disabled" reset-search-input="false" class="select2__select-field">
+                                    <ui-select-match placeholder="Enter an address...">{{$select.selected.formatted_address}}</ui-select-match>
+                                    <ui-select-choices repeat="address in addresses track by $index"
+                                             refresh="refreshAddresses($select.search)"
+                                             refresh-delay="0">
+                                      <div ng-bind-html="address.formatted_address | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                  </ui-select>
+                                  <span class="help-block">{{address.selected.formatted_address}}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                            <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row m-b">
+                  
+                  <div class="col-sm-12">
+                    <div class="box__style-guide">
+                        <div class="box-header">
+                            Default
+                            <small>Pattern ref: xxxxxxx</small>
+                        </div>
+                        <div class="box-body">
+                            <!--begin pattern -->
+                            <div class="makecodeview">
+                              <div class="form-group row">
+                                
+                                <div class="col-sm-12">
+
+                                  <ui-select ng-model="person.selected" theme="bootstrap" class="select2__select-field">
+                                    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="item in people | filter: $select.search">
+                                      <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                      <span ng-bind-html="item.email | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                  </ui-select>
+
+                                </div>
+                              </div>
+                            </div>
+                            <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                            <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row m-b">
+                  
+                  <div class="col-sm-12">
+                    <div class="box__style-guide">
+                        <div class="box-header">
+                            Grouped
+                            <small>Pattern ref: xxxxxxx</small>
+                        </div>
+                        <div class="box-body">
+                            <!--begin pattern -->
+                            <div class="makecodeview">
+                              <div class="form-group row">
+                                <div class="col-sm-12">
+
+                                  <ui-select ng-model="person.selected" theme="bootstrap" class="select2__select-field">
+                                    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices group-by="'group'" repeat="item in people | filter: $select.search">
+                                      <span ng-bind-html="item.name | highlight: $select.search"></span>
+                                      <span ng-bind-html="item.email | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                  </ui-select>
+
+                                </div>
+                              </div>
+                            </div>
+                            <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                            <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row m-b">
+                  
+                  <div class="col-sm-12">
+                    <div class="box__style-guide">
+                        <div class="box-header">
+                            Grouped using a string
+                            <small>Pattern ref: xxxxxxx</small>
+                        </div>
+                        <div class="box-body">
+                            <!--begin pattern -->
+                            <div class="makecodeview">
+                              <div class="form-group row">
+                                <div class="col-sm-12">
+
+                                  <ui-select ng-model="person.selected" theme="bootstrap" ng-disabled="disabled" class="select2__select-field">
+                                    <ui-select-match placeholder="Select a person in the list or search his name/age...">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices group-by="'country'" repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                      <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                      <span ng-bind-html="'email: ' + person.email + ', age: '+person.age | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                  </ui-select>
+
+                                </div>
+                              </div>
+                            </div>
+                            <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                            <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row m-b">
+                  
+                  <div class="col-sm-12">
+                    <div class="box__style-guide">
+                        <div class="box-header">
+                            Grouped using a function
+                            <small>Pattern ref: xxxxxxx</small>
+                        </div>
+                        <div class="box-body">
+                            <!--begin pattern -->
+                            <div class="makecodeview">
+                              <div class="form-group row">
+                                <div class="col-sm-12">
+
+                                  <ui-select ng-model="person.selected" theme="bootstrap" ng-disabled="disabled" class="select2__select-field">
+                                    <ui-select-match placeholder="Select a person in the list or search his name/age...">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices group-by="someGroupFn" repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                      <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                      <span ng-bind-html="'email: ' + person.email + ', age: '+person.age | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                  </ui-select>
+
+                                </div>
+                              </div>
+                            </div>
+                            <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                            <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row m-b">
+                  
+                  <div class="col-sm-12">
+                    <div class="box__style-guide">
+                        <div class="box-header">
+                            With a clear button
+                            <small>Pattern ref: xxxxxxx</small>
+                        </div>
+                        <div class="box-body">
+                            <!--begin pattern -->
+                            <div class="makecodeview">
+                              <div class="form-group row">
+                                <div class="col-sm-12">
+                                  <div class="input-group">
+
+                                    <ui-select ng-model="person.selected" theme="bootstrap" class="select2__select-field">
+                                      <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
+                                      <ui-select-choices repeat="item in people | filter: $select.search">
+                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                        <span ng-bind-html="item.email | highlight: $select.search"></span>
+                                      </ui-select-choices>
+                                    </ui-select>
+
+                                    <span class="input-group-btn">
+                                      <button ng-click="person.selected = undefined" class="btn white">
+                                        <i class="material-icons nav__icon">clear</i>
+                                      </button>
+                                    </span>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                            <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row m-b">
+                  
+                  <div class="col-sm-12">
+                    <div class="box__style-guide">
+                        <div class="box-header">
+                            Multiple
+                            <small>Pattern ref: xxxxxxx</small>
+                        </div>
+                        <div class="box-body">
+                            <!--begin pattern -->
+                            <div class="makecodeview">
+                              <div class="form-group row">
+                                <div class="col-sm-12">
+
+                                  <ui-select multiple ng-model="multipleDemo.selectedPeopleWithGroupBy" theme="bootstrap" ng-disabled="disabled" class="select2__select-field">
+                                    <ui-select-match placeholder="Select person...">{{$item.email}} &lt;{{$item.email}}&gt;</ui-select-match>
+                                    <ui-select-choices group-by="someGroupFn" repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                      <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                      <span ng-bind-html="'email: ' + person.email + ', age: '+person.age | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                  </ui-select>
+
+                                </div>
+                              </div>
+                            </div>
+                            <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                            <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row m-b">
+                  
+                  <div class="col-sm-12">
+                    <div class="box__style-guide">
+                        <div class="box-header">
+                            Disabled
+                            <small>Pattern ref: xxxxxxx</small>
+                        </div>
+                        <div class="box-body">
+                            <!--begin pattern -->
+                            <div class="makecodeview">
+                              <div class="form-group row">
+                                <div class="col-sm-12">
+
+                                  <ui-select ng-model="person.selected" theme="bootstrap" ng-disabled="true" class="select2__select-field">
+                                    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="item in people | filter: $select.search">
+                                      <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                      <small ng-bind-html="item.email | highlight: $select.search"></small>
+                                    </ui-select-choices>
+                                  </ui-select>
+
+                                </div>
+                              </div>
+                            </div>
+                            <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                            <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+            </form>

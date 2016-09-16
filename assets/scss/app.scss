@@ -1,0 +1,132 @@
+/* Import Bootstrap  */
+@import "../bootstrap/bootstrap.scss";
+
+/**** JLS Web App Main SCSS ****/
+@import "../../styles/___jlsapp.scss";
+
+
+
+
+@import "bs.scss";
+@import "ui.scss";
+@import "utils.scss";
+@import "ng.scss";
+
+/* Custom styles for the code to clipboard function */
+.makewhite{
+  background-color: white;
+}
+
+/* All styles below must be moved to /STYLES/ */
+.rad-none{
+  border-radius:0px;
+}
+
+
+.help-section ~ .help-section{
+  position: relative;
+  top: 80px;
+} 
+/* Custom styles for the code to clipboard function */
+
+
+
+.box-shadow-z0, .box-shadow-z0 .box, .box-shadow-z0 .box-color {
+    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.arrow.top:before {
+    border-bottom-color: rgba(120, 130, 140, 0.5);
+    border-top-width: 0;
+}
+
+.arrow.left:before {
+    border-right-color: rgba(120, 130, 140, 0.5);
+    border-left-width: 0;
+}
+
+.arrow.right:before {
+    border-left-color: rgba(120, 130, 140, 0.5);
+    border-right-width: 0;
+}
+
+.arrow.bottom:before {
+    border-top-color: rgba(120, 130, 140, 0.5);
+    border-bottom-width: 0;
+}
+
+.pattern__reference{
+	margin-bottom: 30px; 
+}
+
+.slowitdownPulse{
+  -webkit-animation-duration: 5s!important;
+  -moz-animation-duration: 5s!important;
+  -ms-animation-duration: 5s!important;
+  -o-animation-duration: 5s!important;
+  animation-duration: 5s!important;
+  -webkit-animation-delay: 1s!important;
+  -moz-animation-delay: 1s!important;
+  -ms-animation-delay: 1s!important;
+  -o-animation-delay: 1s!important;
+  animation-delay: 1s!important;
+
+}
+.slowitdown{
+  -webkit-animation-duration: 2s!important;
+  -moz-animation-duration: 2s!important;
+  -ms-animation-duration: 2s!important;
+  -o-animation-duration: 2s!important;
+  animation-duration: 2s!important;
+  -webkit-animation-delay: 1s!important;
+  -moz-animation-delay: 1s!important;
+  -ms-animation-delay: 1s!important;
+  -o-animation-delay: 1s!important;
+  animation-delay: 1s!important;
+  -webkit-animation-iteration-count: 1!important;
+  -moz-animation-iteration-count: 1!important;
+  -ms-animation-iteration-count: 1!important;
+  -o-animation-iteration-count: 1!important;
+  animation-iteration-count: 1!important;
+}
+.mt50{
+  margin-top: 50px;
+}
+.ng_logo {
+    background: url(https://avatars0.githubusercontent.com/u/139426?v=3&s=400) no-repeat;
+    background-size: 30%;
+    background-position-x: 50%;
+    background-position-y: 0;
+}
+
+.html5_logo {
+    background: url(https://cdn0.iconfinder.com/data/icons/HTML5/512/HTML_Logo.png) no-repeat;
+    background-size: 20%;
+    background-position-x: 50%;
+    background-position-y: 10%;
+}
+
+.clip__code{
+  padding: 0.50em 1em;
+  font-size: 1em; 
+  margin-top: 0px;
+  // margin-bottom: 50px;
+}
+.clip__header{
+  position: absolute;
+    float: right;
+    text-align: right;
+    right: 20px;
+    margin-top: 10px;
+    background-color: yellow;
+    width: 91%;
+}
+
+h2 {
+    // text-align: center;
+    margin: 30px 0;
+}
+
+h4.title {
+  text-align: center;
+}   

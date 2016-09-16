@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>JLS</title>
+  <meta name="description" content="Javelin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="g4s">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800,700italic,800italic' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../static/css/app.min.css" type="text/css" />
+
+  <style>
+            /* Needed for hiding crollbars when pushing */
+            html {
+                overflow-x: hidden;
+            }
+
+            .ng-pageslide {
+                background: #eee;
+                z-index: 999999999;
+            }
+
+            body.ng-pageslide-body-open::before {
+                content: '.';
+                display: block;
+                position: absolute;
+                top: 0;
+                background-color: rgb(0,0,0);
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+                opacity: 0.5;
+                transition: opacity 1s;
+            }
+
+            body.ng-pageslide-body-closed::before {
+                transition: opacity 1s;
+                opacity: 0;
+                content: '.';
+                display: block;
+                position: absolute;
+                top: 0;
+                background-color: rgb(0,0,0);
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+            }
+        </style>
+  <!-- endbuild -->
+
+</head>
+<body ng-app="app" ng-controller="AppCtrl" class="fade-in {{app.setting.bg}}" ng-class="{'container': app.setting.boxed, 'ie': isIE,'smart': isSmart}">
+
+
+  <!-- .modal -->
+<div id="m" class="modal" data-backdrop="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal</h5>
+            </div>
+            <div class="modal-body text-center p-lg">
+                <p>Are you sure to execute this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- / .modal -->
+<!-- small modal -->
+<div id="m-sm" class="modal" data-backdrop="true">
+    <div class="row-col h-v">
+        <div class="row-cell v-m">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Small modal</h5>
+                    </div>
+                    <div class="modal-body text-center p-lg">
+                        <p>Are you sure to execute this action?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+                        <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / .modal -->
+<!-- large modal -->
+<div id="m-md" class="modal" data-backdrop="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Large modal</h5>
+            </div>
+            <div class="modal-body text-center p-lg">
+                <p>Are you sure to execute this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- / .modal -->
+<!-- .modal -->
+<div id="m-b" class="modal" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal</h5>
+            </div>
+            <div class="modal-body text-center p-lg">
+                <p>Are you sure to execute this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- / .modal -->
+<!-- .modal -->
+<div id="m-b-w" class="modal white-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content box-shadow-z3">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal</h5>
+            </div>
+            <div class="modal-body text-center p-lg">
+                <p>Are you sure to execute this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- / .modal -->
+<!-- .modal -->
+<div id="m-b-b" class="modal black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal</h5>
+            </div>
+            <div class="modal-body text-center p-lg">
+                <p>Are you sure to execute this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- / .modal -->
+<!-- .modal -->
+<div id="m-a-f" class="modal fade" data-backdrop="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal</h5>
+            </div>
+            <div class="modal-body text-center p-lg">
+                <p>Are you sure to execute this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- / .modal -->
+<!-- .modal -->
+<div id="m-a-a" class="modal fade animate" data-backdrop="true">
+    <div class="modal-dialog" id="animate">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal</h5>
+            </div>
+            <div class="modal-body text-center p-lg">
+                <p>Are you sure to execute this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- / .modal -->
+<!-- right -->
+<div class="modal fade inactive" id="user" data-backdrop="false">
+    <div class="right w-xl white b-l">
+        <div ui-include="'../views/blocks/modal.user.html'"></div>
+    </div>
+</div>
+<!-- left -->
+<div class="modal fade" id="user-l" data-backdrop="false">
+    <div class="left w-xl white b-r">
+        <div ui-include="'../views/blocks/modal.user.html'"></div>
+    </div>
+</div>
+<!-- top -->
+<div class="modal fade" id="top">
+    <div class="top white b-b" style="height:240px">
+        <div ui-include="'../views/blocks/modal.user.html'"></div>
+    </div>
+</div>
+<!-- top -->
+<div class="modal fade" id="bottom">
+    <div class="bottom white b-t" style="height:240px">
+        <div ui-include="'../views/blocks/modal.copied.code.html'"></div>
+    </div>
+</div>
+
+  <div class="app white" ui-view></div>
+<!-- build:js ../static/js/app.angular.js -->
+<!-- jQuery -->
+  <script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+  <script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../libs/jquery/PACE/pace.min.js"></script>
+<!-- Angular -->
+  <script src="../libs/angular/angular/angular.js"></script>
+  <script src="../libs/angular/angular-animate/angular-animate.js"></script>
+
+  <script src="../libs/angular/angular-strap/dist/angular-strap.js"></script>
+  <script src="../libs/angular/angular-strap/dist/angular-strap.tpl.js"></script>
+
+
+  <script src="../libs/angular/angular-resource/angular-resource.js"></script>
+  <script src="../libs/angular/angular-sanitize/angular-sanitize.js"></script>
+  <script src="../libs/angular/angular-touch/angular-touch.js"></script>
+  <script src="../libs/angular/ngClipboard/ngClipboard.js"></script>
+
+
+
+  <!-- router -->
+  <script src="../libs/angular/angular-ui-router/release/angular-ui-router.js"></script>
+  <!-- Boostrap Angular -->
+  <script src="../libs/angular/ui-bootstrap-tpls-1.3.2.min.js"></script>
+  <!-- storage -->
+  <script src="../libs/angular/ngstorage/ngStorage.js"></script>
+  <!-- utils -->
+  <script src="../libs/angular/angular-ui-utils/ui-utils.js"></script>
+  <!-- lazyload -->
+  <script src="../libs/angular/oclazyload/dist/ocLazyLoad.js"></script>
+
+  <!-- App -->
+  <script src="scripts/jlsapp.js"></script>
+  <!-- Lazy load the stuff we need -->
+  <script src="scripts/jlsapp.lazyload.js"></script>
+  <script src="scripts/jlsapp.router.js"></script>
+  <script src="scripts/jlsapp.ctrl.js"></script>
+
+  <script src="scripts/directives/ui-jp.js"></script>
+  <script src="scripts/directives/ui-datatable-accordion.js"></script>
+  <script src="scripts/directives/ui-nav.js"></script>
+  <script src="scripts/directives/ui-fullscreen.js"></script>
+  <script src="scripts/directives/ui-scroll-to.js"></script>
+  <script src="scripts/directives/ui-toggle-class.js"></script>
+  <script src="scripts/directives/ui-include.js"></script>
+  <script src="scripts/directives/ng-pageslide.js"></script>
+
+  <script src="scripts/filters/fromnow.js"></script>
+
+  <script src="scripts/services/ngstore.js"></script>
+  <script src="scripts/services/ui-load.js"></script>
+  <script src="scripts/services/palette.js"></script>
+
+  <!-- jQuery files -->
+  <script src="scripts/jquery/jquery.min.js"></script>
+
+  <script>
+  $( document ).ready(function() {
+      var theCodeReqEl;
+      $('.makecodeview').each(function(i, obj) {
+        $(this).next().text( $(this).html() )
+    });
+  });
+  </script>
+  <script src="scripts/jquery/custom/bootstrap-switch.js"></script>
+<!-- endbuild -->
+</body>
+</html>

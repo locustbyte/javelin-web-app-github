@@ -1,0 +1,40 @@
+.card__jls-card{
+	@extend .card;
+	img{
+		@extend .w-full;
+	}
+}
+
+
+.list-group-item {
+	background-color: transparent;
+	border-color: $brand-neutral-light;
+}
+
+.card__filter {
+    @extend .card, .m-b-0, .no-border;
+    .card-header{@extend .blue-grey-900, .no-border, .text-md};
+    .card-header i{@extend .text-white};
+    .card-header span{@extend ._700};
+    .filter__count-indicator{@extend .box-color, .text-color, .pos-rlt, .m-a-0, .r, .pull-right};
+    .count__indicator{@extend .p-l-sm, .p-r-sm};
+    .count__indicator-label{@extend .text-sm, .p-r-sm};
+    .count__indicator-value{@extend .text-lg, .v-a-m};
+    .card-block{
+    @extend .dker;
+    display: table;
+    width: 100%;
+    };
+    .card-text{@extend .text-md};
+    
+    button.btn.btn-sm.primary{
+      float: right;
+<<<<<<< HEAD
+      margin: 0 0 0 0;
+=======
+     
+>>>>>>> develop
+    }
+
+    
+}

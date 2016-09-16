@@ -1,0 +1,879 @@
+<div class="padding">
+    <div class="row padding">
+        <div class="col-sm-6">
+            <h5>Shift Widget</h5>
+            <h6>UI Pattern Reference: shiftXXXX</h6>
+            <div class="box">
+                <div class="box-header {{app.setting.theme.primary}}">
+                    <h3>Monday</h3>
+                    <small class="_800">7:00am - 3:00pm</small>
+                    <div class="box-tool">
+                        <ul class="nav">
+                            <li class="nav-item inline">
+                                <a class="nav-link">
+                                    <i class="material-icons md-18">&#xe863;</i>
+                                </a>
+                            </li>
+                            <li class="nav-item inline dropdown">
+                                <a class="nav-link" data-toggle="dropdown">
+                                    <i class="material-icons md-18">&#xe5d4;</i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                                    <a class="dropdown-item" href ng-click="tableform.$show()">Edit</a>
+                                    <a class="dropdown-item" href>Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item">Separated link</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <form editable-form name="tableform" onaftersave="saveTable()" oncancel="cancel()">
+                    <!-- table -->
+                    <table class="table table-hover m-a-0">
+                        <tr ng-repeat="user in shiftDetail | filter:filterUser">
+                            <td>
+                                <!-- editable username (text with validation) -->
+                                <span editable-text="user.name" e-form="tableform" onbeforesave="checkName($data, user.id)">
+                          {{ user.name }}
+                        </span>
+                            </td>
+                            <td>
+                                <!-- editable status (select-local) -->
+                                <span editable-text="user.groupName" e-form="tableform" class="pull-right">
+                          {{ user.groupName }}
+                        </span>
+                            </td>
+                            <td ng-show="tableform.$visible">
+                                <button type="button" ng-click="removeUser(user.id)" class="btn btn-sm btn-danger pull-right">Del</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- buttons -->
+                    <div class="p-a dker b-t" ng-show="tableform.$visible">
+                        <div class="btn-form">
+                            <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-info">Save</button>
+                            <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn white">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+        </div>
+    </div>
+    <div class="row padding">
+        <div class="col-sm-12">
+            <div class="box">
+                <div class="box-header dker">
+                    <h3>View Current Shift Patterns</h3>
+                    <small>Pattern ref: xxxxxxx</small>
+                </div>
+                <div class="box-body">
+                    <!--begin pattern -->
+                    <div class="makecodeview">
+                        <div class="row m-b">
+                            <div class="col-sm-3">
+                                <small>Number of Days:</small>
+                            </div>
+                            <div class="col-sm-3">
+                                <small>Number of Shifts:</small>
+                            </div>
+                            <div class="col-sm-3">
+                                <small>Number Weeks:</small>
+                            </div>
+                            <div class="col-sm-3">
+                                <small>Find Patterns:</small>
+                            </div>
+                        </div>
+                        <div class="row m-b">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="bd-example bd-example-tabs" role="tabpanel">
+                                    <ul class="nav nav-pills-block" id="myTabPills" role="tablist">
+                                        <li class="nav-item">
+                                            <button class="nav-link btn btn-block accent" id="home-tab" data-toggle="tab" href="#home-pills" role="tab" aria-controls="home" aria-expanded="true">Find Patterns</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- <div class="col-sm-4">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home-pills" role="tab" aria-controls="home" aria-expanded="true">Home</a>
+                            </div> -->
+                        </div>
+                        <div class="row m-d">
+                            <div class="col-sm-12">
+                                <div class="tab-content" id="myTabContent">
+                                    <div role="tabpanel" class="tab-pane padding fade  in" id="home-pills" aria-labelledby="home-tab" aria-expanded="true">
+                                        <div class="row m-d">
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">12pm - 12am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">12am - 12pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1pm - 1am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1am - 1pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">2pm - 2am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">2am - 2pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1pm - 1am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1am - 1pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1pm - 1am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1am - 1pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1pm - 1am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1am - 1pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1pm - 1am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1am - 1pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1pm - 1am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1am - 1pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">12pm - 8pm</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">8pm - 4am</td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">4am - 12pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">1pm - 9pm</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">9pm - 5am</td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i> - <i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">5am - 1pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">12pm - 12am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td class="dker"></td>
+                                                                        <td class="dker"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">12am - 12pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td class="dker"></td>
+                                                                        <td class="dker"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="shift-pattern-row col-sm-6">
+                                                <div class="row m-d">
+                                                    <div class="col-sm-12">
+                                                        <div class="table-responsive">
+                                                            <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Shift Hours</th>
+                                                                        <th class="text-xs-center">M</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">W</th>
+                                                                        <th class="text-xs-center">T</th>
+                                                                        <th class="text-xs-center">F</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                        <th class="text-xs-center">S</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">12pm - 12am</td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td class="dker"></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td class="dker"></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                        <td><i class="fa fa-sun-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-xs-left">12am - 12pm</td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td class="dker"></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td class="dker"></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                        <td><i class="fa fa-moon-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 pull-right padding">
+                                                        <button class="btn btn-primary pull-right">Select</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-d">
+                            <div class="col-sm-3 pull-right">
+                                <button class="nav-link btn btn-block accent" aria-controls="home" aria-expanded="true">Create New Pattern</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end pattern -->
+                    <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                    <span class="clip__code label label-md accent pos-rlt m-r-xs"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row padding">
+        <div class="col-sm-12">
+            <div class="box">
+                <div class="box-header dker">
+                    <h3>Create Current Shift Patterns</h3>
+                    <small>Pattern ref: shift-patterns-001</small>
+                </div>
+                <div class="box-body">
+                    <!--begin pattern -->
+                    <div class="makecodeview">
+                        <div class="row m-d">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Start Date:</label>
+                                    <input type="text" class="form-control" id="" placeholder="16/05/2016" disabled="true">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">End Date:</label>
+                                     <input type="text" class="form-control" id="" placeholder="N/a" disabled="true">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Cover Period</label>
+                                    <input type="text" class="form-control" id="" placeholder="0" disabled="true">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-d">
+                            <div class="col-sm-4">
+                                <label for="exampleInputEmail1">Number of Employees</label>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="" placeholder="0" disabled="true">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Total Days:</label>
+                                    <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Total Shifts:</label>
+                                    <input type="number" class="form-control" id="" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <label for="exampleInputEmail1">Shift Information:</label>
+                        <div class="row m-b">
+                            <div class="col-sm-4">
+                                <label for="exampleInputEmail1">Employee 1</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Shift 1" disabled="true">
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Start Time:</label>
+                                    <input type="text" size="8" class="form-control ng-pristine ng-valid ng-touched" ng-model="time" name="time" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" bs-timepicker="" style="">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">End Time:</label>
+                                    <input type="text" size="8" class="form-control ng-pristine ng-valid ng-touched" ng-model="time" name="time" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" bs-timepicker="" style="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-b">
+                            <div class="col-sm-4">
+                                <label for="exampleInputEmail1">Employee 2</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Shift 2" disabled="true">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="exampleInputEmail1">Start Time:</label>
+                               <input type="text" size="8" class="form-control ng-pristine ng-valid ng-touched" ng-model="time" name="time" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" bs-timepicker="" style="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="exampleInputEmail1">End Time:</label>
+                                <input type="text" size="8" class="form-control ng-pristine ng-valid ng-touched" ng-model="time" name="time" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" bs-timepicker="" style="">
+                            </div>
+                        </div>
+                        <div class="row m-b">
+                            <div class="col-sm-12 pull-right padding">
+                                 <button class="btn btn-primary pull-right">Generate Pattern</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end pattern -->
+                    <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                    <span class="clip__code label label-md accent pos-rlt m-r-xs"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row padding">
+        <div class="col-sm-12">
+            <div class="box">
+                <div class="box-header dker">
+                    <h3>Create Current Shift Patterns</h3>
+                    <small>Pattern ref: xxxxxxx</small>
+                </div>
+                <div class="box-body">
+                    <!--begin pattern -->
+                    <div class="makecodeview">
+                        <div class="row m-d">
+                            <div class="col-sm-12">
+                                <div class="table-responsive">
+                                    <table class="shift-pattern table table-bordered m-a-0 text-xs-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Shift Hours</th>
+                                                <th class="text-xs-center">M</th>
+                                                <th class="text-xs-center">T</th>
+                                                <th class="text-xs-center">W</th>
+                                                <th class="text-xs-center">T</th>
+                                                <th class="text-xs-center">F</th>
+                                                <th class="text-xs-center">S</th>
+                                                <th class="text-xs-center">S</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-xs-left">12pm - 12am</td>
+                                                <td><i class="fa fa-sun-o"></i></td>
+                                                <td><i class="fa fa-sun-o"></i></td>
+                                                <td><i class="fa fa-sun-o"></i></td>
+                                                <td><i class="fa fa-sun-o"></i></td>
+                                                <td><i class="fa fa-sun-o"></i></td>
+                                                <td><i class="fa fa-sun-o"></i></td>
+                                                <td><i class="fa fa-sun-o"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-xs-left">12am - 12pm</td>
+                                                <td><i class="fa fa-moon-o"></i></td>
+                                                <td><i class="fa fa-moon-o"></i></td>
+                                                <td><i class="fa fa-moon-o"></i></td>
+                                                <td><i class="fa fa-moon-o"></i></td>
+                                                <td><i class="fa fa-moon-o"></i></td>
+                                                <td><i class="fa fa-moon-o"></i></td>
+                                                <td><i class="fa fa-moon-o"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end pattern -->
+                    <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                    <span class="clip__code label label-md accent pos-rlt m-r-xs"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

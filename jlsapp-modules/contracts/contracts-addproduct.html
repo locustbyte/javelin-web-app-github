@@ -1,0 +1,1781 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>Contracts</a></li>
+            <li><a href>Catalogue</a></li>
+            <li class="active">Add Product</li>
+        </ol>
+    </div>
+</div>
+<div class="box__feature-navigation">
+    <div class="box-header">
+        Add Product
+    </div>
+    <!-- <div class="box-tool">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-xs white btn-block"><i class="material-icons md-24">&#xe3C7; </i> Actions</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage">
+                        <i class="material-icons md-24">&#xe145; </i> Option 1
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href>
+                        Seperated Link (if needed)
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div> -->
+</div>
+<div class="row padding grey-100" >
+    <div class="row p-a">
+        <div class="col-md-6">
+            <div class="label__form" >
+                <label>Rate Card Name</label>
+            </div>
+            <input type="text" class="form-control" placeholder="">
+        </div>
+    </div>
+    <div class="row p-a">
+        <div class="col-md-3">
+            <div class="label__form" >
+            <label>Guard Type</label>
+            </div>
+            <span ng-controller="SelectCtrl">
+                <ui-select ng-model="people.selected" theme="bootstrap" class="ng-pristine ng-untouched ng-valid ng-scope">
+                    <ui-select-match placeholder="Guard Type">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices repeat="item in people | filter: $select.search">
+                            <div ng-bind-html="item.name | highlight: $select.search"></div>
+                              <small ng-bind-html="item.name | highlight: $select.search"></small>
+                        </ui-select-choices>
+                </ui-select>
+            </span>
+        </div>
+        <div class="col-md-3">
+            <div class="label__form">
+                <label> <i class="material-icons">date_range</i>WEF Date</label>
+            </div>
+            <span>
+                <input type="text" size="3" class="form-control"
+                    value="{{ account.wefDate }}"
+                    ng-model="wefDate"
+                    name="wefDate"
+                    data-icon-up="fa fa-chevron-up"
+                    data-icon-down="fa fa-chevron-down"
+                    bs-datepicker>
+            </span>
+        </div>
+        <div class="col-md-3">
+            <div class="label__form">
+                <label> <i class="material-icons">date_range</i>End Date</label>
+            </div>
+            <span>
+                <input type="text" size="3" class="form-control"
+                    value="{{ account.endDate }}"
+                    ng-model="endDate"
+                    name="endDate"
+                    data-icon-up="fa fa-chevron-up"
+                    data-icon-down="fa fa-chevron-down"
+                    bs-datepicker>
+            </span>
+        </div>
+        <div class="col-md-3">
+            <div class="label__form">
+                <label>Country Calendar</label>
+            </div>
+            <span>
+                <select class="form-control">
+                    <option value="1">Ireland</option>
+                    <option value="2">England</option>
+                    <option value="2">USA</option>
+                    <option value="2">France</option>
+                </select>
+            </span>
+        </div>
+    </div>
+    <div class="row p-a">
+        <div class="col-md-12">
+            <div class="box__brand-neutral" id="ui-search__box__brand-red">
+                <div class="box-header">
+                    <h2 class="text-white _700">Pay Rate</h2>
+                    <span class="_600"> </span></small>
+                </div>
+                <div class="box__create-new-line">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-fw dark btn-block"><i class="material-icons md-24">&#xe3C7; </i>
+                    Create New Line</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage" id="startCard" ng-show="showsecondCard" ng-click="showCard()">
+                        <i class="material-icons md-24">&#xe145; </i> Multiplier
+                    </a>
+                    <a class="dropdown-item openInPage" id="fixed" ng-show="showfixedrateCard2" ng-click="showfixedrateCard3()">
+                        <i class="material-icons md-24">&#xe145; </i> Fixed Rate
+                    </a>
+                    <a class="dropdown-item openInPage" id="trainingf" ng-show="showtrainingfocCard2" ng-click="showtrainingfocCard3()">
+                        <i class="material-icons md-24">&#xe145; </i> Training Shift (FOC)
+                    </a>
+                    <a class="dropdown-item openInPage" id="trainingc" ng-show="showtrainingchgCard2" ng-click="showtrainingchgCard3()">
+                        <i class="material-icons md-24">&#xe145; </i> Training Shift (CHG)
+                    </a>
+                    <a class="dropdown-item openInPage" id="special" ng-show="showspecialCard2" ng-click="showspecialCard3()">
+                        <i class="material-icons md-24">&#xe145; </i> Special Date
+                    </a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+                <div class="box-body white">
+                    <div class="multiplyPanel grey-600" id="startCard" ng-show="showstartCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label>Multiplying Factor</label>
+                                </div>
+                                <span>
+                                     <input type="text" class="form-control" placeholder="1.5" value="">
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate Name</label>
+                                </div>
+                                <span>
+
+                                     <input type="text" class="form-control" placeholder="1.5" value="">
+
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md">
+                                    <label>Day of the week</label>
+                                </div>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="12" value="" disabled="">
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showstartCard" ng-click="hideCard()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fixedratePanel grey-600" id="fixed" ng-show="showfixedrateCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label>Rate Name</label>
+                                </div>
+                                <span>
+                                     <input type="text" class="form-control" placeholder="Enter Name" value="">
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="Enter Rate" value="">
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md">
+                                    <label>Day of the week</label>
+                                </div>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showfixedrateCard" ng-click="hidefixedrateCard3()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainingshiftFOCPanel grey-600" id="trainingf" ng-show="showtrainingfocCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label>Rate Name</label>
+                                </div>
+                                <span>
+                                     <input type="text" class="form-control" placeholder="" value="Training Shift (FOC)" disabled>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="" value="0" disabled>
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md">
+                                    <label>Day of the week</label>
+                                </div>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showtrainingfocCard" ng-click="hidetrainingfocCard3()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainingshiftCHGPanel grey-600" id="trainingc" ng-show="showtrainingchgCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label>Rate Name</label>
+                                </div>
+                                <span>
+                                     <input type="text" class="form-control" placeholder="" value="Training Shift (CHG)" disabled>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="" value="" >
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md">
+                                    <label>Day of the week</label>
+                                </div>
+                               <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showtrainingchgCard" ng-click="hidetrainingchgCard3()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="specialDatePanel grey-600" id="special" ng-show="showspecialCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label><i class="material-icons">date_range</i> Date</label>
+                                </div>
+                                <span>
+                                     <input type="text" size="3" class="form-control"
+                                        value="23/05/2014"
+                                        ng-model="setDate"
+                                        name="settDate"
+                                        data-icon-up="fa fa-chevron-up"
+                                        data-icon-down="fa fa-chevron-down"
+                                        bs-datepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate Name</label>
+                                </div>
+                                <span>
+
+                                     <input type="text" class="form-control" placeholder="Enter Name" value="">
+
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md">
+                                    <label>Day of the week</label>
+                                </div>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="" value="" disabled="">
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showspecialCard" ng-click="hidespecialCard3()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <table class="table table-hover table-striped b-a" ui-jp="footable" data-filter="#filter" data-page-size="5">
+                        <thead>
+                            <tr>
+                                <th>Rate Name</th>
+                                <th>Rate</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                                <th>Sun</th>
+                                <th>Hol</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                          <form editable-form name="rowForm1" class="text-md" ng-class="rowForm1.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm1.$visible">Standard</label>
+                                    <span ng-show="rowForm1.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="Standard">
+                                    </span>
+                                </td>
+
+                                <td><label ng-show="!rowForm1.$visible">8</label>
+                                    <span ng-show="rowForm1.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="8">
+                                    </span>
+                                </td>
+
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+
+                                <td><label ng-show="!rowForm1.$visible">09:00</label>
+                                    <span ng-show="rowForm1.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime1"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <label ng-show="!rowForm1.$visible">17:00</label>
+                                    <span ng-show="rowForm1.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime1"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm1.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="" class="info--click" ng-click="rowForm1.$show()" ng-show="!rowForm1.$visible"><i class="material-icons">edit</i></a>
+                                    <a href="" class="info--click" ng-click="rowForm1.$cancel()" ng-show="rowForm1.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+
+                            </tr>
+                          </form>
+
+
+                          <form editable-form name="rowForm2" class="text-md" ng-class="rowForm2.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm2.$visible">1.5</label>
+                                 <span ng-show="rowForm2.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="1.5">
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm2.$visible">12</label>
+                                 <span ng-show="rowForm2.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="12">
+                                    </span>
+                                </td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label ng-show="!rowForm2.$visible">05:00</label>
+                                     <span ng-show="rowForm2.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime2"
+                                          name="startTime1"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm2.$visible">08:00</label>
+                                     <span ng-show="rowForm2.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime2"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm2.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                  <a href="" class="info--click" ng-click="rowForm2.$show()" ng-show="!rowForm2.$visible"><i class="material-icons">edit</i></a>
+                                  <a href="" class="info--click" ng-click="rowForm2.$cancel()" ng-show="rowForm2.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+                            </tr>
+                          </form>
+
+                          <form editable-form name="rowForm3" class="text-md" ng-class="rowForm3.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm3.$visible">2.0</label>
+                                 <span ng-show="rowForm3.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="2.0">
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm3.$visible">16</label>
+                                 <span ng-show="rowForm3.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="16">
+                                    </span>
+                                </td>
+                               <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label ng-show="!rowForm3.$visible">00:00</label>
+                                     <span ng-show="rowForm3.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime3"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm3.$visible">00:00</label>
+                                     <span ng-show="rowForm3.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime3"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm3.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                  <a href="" class="info--click" ng-click="rowForm3.$show()" ng-show="!rowForm3.$visible"><i class="material-icons">edit</i></a>
+                                  <a href="" class="info--click" ng-click="rowForm3.$cancel()" ng-show="rowForm3.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+                            </tr>
+                          </form>
+                          <form editable-form name="rowForm4" class="text-md" ng-class="rowForm4.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm4.$visible">Training Shift (Chrg)</label>
+                                     <span ng-show="rowForm4.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="Training Shift (Chrg)">
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm4.$visible">8</label>
+                                  <span ng-show="rowForm4.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="8">
+                                    </span>
+                                </td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label ng-show="!rowForm4.$visible">09:00</label>
+                                     <span ng-show="rowForm4.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime4"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm4.$visible">17:00</label>
+                                     <span ng-show="rowForm4.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime4"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm4.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                  <a href="" class="info--click" ng-click="rowForm4.$show()" ng-show="!rowForm4.$visible"><i class="material-icons">edit</i></a>
+                                  <a href="" class="info--click" ng-click="rowForm4.$cancel()" ng-show="rowForm4.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+                            </tr>
+                          </form>
+
+                          <form editable-form name="rowForm5" class="text-md" ng-class="rowForm5.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm5.$visible">3.0</label>
+                                     <span ng-show="rowForm5.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="3.0">
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm5.$visible">24</label>
+                                     <span ng-show="rowForm5.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="24">
+                                    </span>
+                                </td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label ng-show="!rowForm5.$visible">09:00</label>
+                                     <span ng-show="rowForm5.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime5"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm5.$visible">17:00</label>
+                                     <span ng-show="rowForm5.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime5"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm5.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                  <a href="" class="info--click" ng-click="rowForm5.$show()" ng-show="!rowForm5.$visible"><i class="material-icons">edit</i></a>
+                                  <a href="" class="info--click" ng-click="rowForm5.$cancel()" ng-show="rowForm5.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+                            </tr>
+                          </form>
+                        </tbody>
+                    </table>
+                    <!-- </form> -->
+                    <!-- <div class="row p-a">
+                        <div class="col-md-3">
+                            <button class="btn btn-sm btn-fw dark" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+                            Edit</button>
+                            <button type="submit" ng-show="editableForm.$visible" class="btn btn-sm btn-fw dark"
+                            ng-click="editableForm.$cancel()">Save
+                            </button>
+                            <button type="button" ng-show="editableForm.$visible" class="btn btn-sm btn-fw dark"
+                            ng-click="editableForm.$cancel()">Cancel
+                            </button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <! -- Beginning of charge rate form -->
+
+    <div class="row p-a">
+        <div class="col-md-12">
+            <div class="box__brand-neutral" id="ui-search__box__brand-red">
+                <div class="box-header">
+                    <h2 class="text-white _700">Charge Rate</h2>
+                    <span class="_600"> </span></small>
+                </div>
+                <div class="box__create-new-line">
+                   <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-fw dark btn-block"><i class="material-icons md-24">&#xe3C7; </i>
+                    Create New Line</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage" id="startCard" ng-show="showsecondCard" ng-click="">
+                        <i class="material-icons md-24">&#xe145; </i> Multiplier
+                    </a>
+                    <a class="dropdown-item openInPage" id="fixed" ng-show="showfixedrateCard2" ng-click="">
+                        <i class="material-icons md-24">&#xe145; </i> Fixed Rate
+                    </a>
+                    <a class="dropdown-item openInPage" id="trainingf" ng-show="showtrainingfocCard2" ng-click="">
+                        <i class="material-icons md-24">&#xe145; </i> Training Shift (FOC)
+                    </a>
+                    <a class="dropdown-item openInPage" id="trainingc" ng-show="showtrainingchgCard2" ng-click="">
+                        <i class="material-icons md-24">&#xe145; </i> Training Shift (CHG)
+                    </a>
+                    <a class="dropdown-item openInPage" id="special" ng-show="showspecialCard2" ng-click="">
+                        <i class="material-icons md-24">&#xe145; </i> Special Date
+                    </a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+        </ul>
+                </div>
+                <div class="box-body white">
+                    <div class="multiplyPanel grey-600" id="startCard" ng-show="crshowstartCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label>Multiplying Factor</label>
+                                </div>
+                                <span>
+                                     <input type="text" class="form-control" placeholder="1.5" value="">
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate Name</label>
+                                </div>
+                                <span>
+
+                                     <input type="text" class="form-control" placeholder="1.5" value="">
+
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md">
+                                    <label>Day of the week</label>
+                                </div>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="12" value="" disabled="">
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showstartCard" ng-click="hideCard()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fixedratePanel grey-600" id="fixed" ng-show="crshowfixedrateCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label>Rate Name</label>
+                                </div>
+                                <span>
+                                     <input type="text" class="form-control" placeholder="Enter Name" value="">
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="Enter Rate" value="">
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md">
+                                    <label>Day of the week</label>
+                                </div>
+                               <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showfixedrateCard" ng-click="hidefixedrateCard3()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainingshiftFOCPanel grey-600" id="trainingf" ng-show="crshowtrainingfocCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label>Rate Name</label>
+                                </div>
+                                <span>
+                                     <input type="text" class="form-control" placeholder="" value="Training Shift (FOC)" disabled>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="" value="0" disabled>
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showtrainingfocCard" ng-click="hidetrainingfocCard3()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainingshiftCHGPanel grey-600" id="trainingc" ng-show="crshowtrainingchgCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label>Rate Name</label>
+                                </div>
+                                <span>
+                                     <input type="text" class="form-control" placeholder="" value="Training Shift (CHG)" disabled>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="" value="" >
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md">
+                                    <label>Day of the week</label>
+                                </div>
+                               <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showtrainingchgCard" ng-click="hidetrainingchgCard3()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="specialDatePanel grey-600" id="special" ng-show="crshowspecialCard">
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class=" text-md">
+                                    <label>Date</label>
+                                </div>
+                                <span>
+                                     <input type="text" size="3" class="form-control"
+                                        value="23/05/2014"
+                                        ng-model="setDate"
+                                        name="settDate"
+                                        data-icon-up="fa fa-chevron-up"
+                                        data-icon-down="fa fa-chevron-down"
+                                        bs-datepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate Name</label>
+                                </div>
+                                <span>
+
+                                     <input type="text" class="form-control" placeholder="Enter Name" value="">
+
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md">
+                                    <label>Day of the week</label>
+                                </div>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Mon </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Tue </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Wed </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Thu </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Fri </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sat </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Sun </label>
+                                </span>
+                                <span class="m-a">
+                                    <label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i>Hol</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row p-a">
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> Rate (£)</label>
+                                </div>
+                                <span>
+                                    <input type="text" class="form-control" placeholder="" value="" disabled="">
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> Start Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="startTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-md">
+                                    <label> <i class="material-icons">access_time</i> End Time</label>
+                                </div>
+                                <span>
+                                    <input type="text" size="8" class="form-control"
+                                      ng-model="endTime"
+                                      name="startTime"
+                                      data-icon-up="fa fa-chevron-up"
+                                      data-icon-down="fa fa-chevron-down"
+                                      placeholder='{{currentDate | date: "h:mm a"}}'
+                                      bs-timepicker>
+                                </span>
+                            </div>
+                             <div class="col-md-3">
+                                <div class="text-md">
+                                    <label></label>
+                                </div>
+                                <span>
+                                    <button class="btn btn-fw grey-900">
+                                        Add Line
+                                    </button>
+                                    <button class="btn btn-fw brand-red" id="startCard" ng-show="showspecialCard" ng-click="hidespecialCard3()">
+                                        Cancel
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table table-hover table-striped b-a" ui-jp="footable" data-filter="#filter" data-page-size="5">
+                        <thead>
+                            <tr>
+                                <th>Rate Name</th>
+                                <th>Rate</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                                <th>Sun</th>
+                                <th>Hol</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                          <form editable-form name="rowForm6" class="text-md" ng-class="rowForm6.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm6.$visible">Standard</label>
+                                    <span ng-show="rowForm6.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="Standard">
+                                    </span>
+                                </td>
+
+                                <td><label ng-show="!rowForm6.$visible">8</label>
+                                    <span ng-show="rowForm6.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="8">
+                                    </span>
+                                </td>
+
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+
+                                <td><label ng-show="!rowForm6.$visible">09:00</label>
+                                    <span ng-show="rowForm6.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime1"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <label ng-show="!rowForm6.$visible">17:00</label>
+                                    <span ng-show="rowForm6.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime1"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm6.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="" class="info--click" ng-click="rowForm6.$show()" ng-show="!rowForm6.$visible"><i class="material-icons">edit</i></a>
+                                    <a href="" class="info--click" ng-click="rowForm6.$cancel()" ng-show="rowForm6.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+
+                            </tr>
+                          </form>
+
+
+                          <form editable-form name="rowForm7" class="text-md" ng-class="rowForm7.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm7.$visible">1.5</label>
+                                 <span ng-show="rowForm7.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="1.5">
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm7.$visible">12</label>
+                                 <span ng-show="rowForm7.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="12">
+                                    </span>
+                                </td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label ng-show="!rowForm7.$visible">05:00</label>
+                                     <span ng-show="rowForm7.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime2"
+                                          name="startTime1"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm7.$visible">08:00</label>
+                                     <span ng-show="rowForm7.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime2"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm7.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                  <a href="" class="info--click" ng-click="rowForm7.$show()" ng-show="!rowForm7.$visible"><i class="material-icons">edit</i></a>
+                                  <a href="" class="info--click" ng-click="rowForm7.$cancel()" ng-show="rowForm7.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+                            </tr>
+                          </form>
+
+                          <form editable-form name="rowForm8" class="text-md" ng-class="rowForm8.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm8.$visible">2.0</label>
+                                 <span ng-show="rowForm8.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="2.0">
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm8.$visible">16</label>
+                                 <span ng-show="rowForm8.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="16">
+                                    </span>
+                                </td>
+                               <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label ng-show="!rowForm8.$visible">00:00</label>
+                                     <span ng-show="rowForm8.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime3"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm8.$visible">00:00</label>
+                                     <span ng-show="rowForm8.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime3"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm8.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                  <a href="" class="info--click" ng-click="rowForm8.$show()" ng-show="!rowForm8.$visible"><i class="material-icons">edit</i></a>
+                                  <a href="" class="info--click" ng-click="rowForm8.$cancel()" ng-show="rowForm8.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+                            </tr>
+                          </form>
+                          <form editable-form name="rowForm9" class="text-md" ng-class="rowForm9.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm9.$visible">Training Shift (Chrg)</label>
+                                     <span ng-show="rowForm9.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="Training Shift (Chrg)">
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm9.$visible">8</label>
+                                  <span ng-show="rowForm9.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="8">
+                                    </span>
+                                </td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label ng-show="!rowForm9.$visible">09:00</label>
+                                     <span ng-show="rowForm9.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime4"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm9.$visible">17:00</label>
+                                     <span ng-show="rowForm9.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime4"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm9.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                  <a href="" class="info--click" ng-click="rowForm9.$show()" ng-show="!rowForm9.$visible"><i class="material-icons">edit</i></a>
+                                  <a href="" class="info--click" ng-click="rowForm9.$cancel()" ng-show="rowForm9.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+                            </tr>
+                          </form>
+
+                          <form editable-form name="rowForm10" class="text-md" ng-class="rowForm10.$visible" onaftersave="saveUser()">
+                            <tr class="text-md">
+                                <td><label ng-show="!rowForm10.$visible">3.0</label>
+                                     <span ng-show="rowForm10.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="3.0">
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm10.$visible">24</label>
+                                     <span ng-show="rowForm10.$visible">
+                                    <input type="text" e-name="account.name" onbeforesave="checkName($data)" class="form-control" placeholder="" value="24">
+                                    </span>
+                                </td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label class="ui-check ui-check-md"><input type="checkbox"><i class="dark-white"></i></label></td>
+                                <td><label ng-show="!rowForm10.$visible">09:00</label>
+                                     <span ng-show="rowForm10.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="startTime5"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td><label ng-show="!rowForm10.$visible">17:00</label>
+                                     <span ng-show="rowForm10.$visible">
+                                        <input type="text" size="8" class="form-control"
+                                          ng-model="endTime5"
+                                          name="startTime"
+                                          data-icon-up="fa fa-chevron-up"
+                                          data-icon-down="fa fa-chevron-down"
+                                          placeholder='{{currentDate | date: "h:mm a"}}'
+                                          bs-timepicker>
+                                    </span>
+                                </td>
+                                <td class="pull-right">
+                                    <a class="removeClass" id="removeItem1">
+                                      <i class="material-icons md-24" ng-show="rowForm10.$visible" ng-click="removeItem()">indeterminate_check_box</i>
+                                    </a>
+                                </td>
+                                <td>
+                                  <a href="" class="info--click" ng-click="rowForm10.$show()" ng-show="!rowForm10.$visible"><i class="material-icons">edit</i></a>
+                                  <a href="" class="info--click" ng-click="rowForm10.$cancel()" ng-show="rowForm10.$visible"><i class="material-icons">edit</i></a>
+                                </td>
+                            </tr>
+                          </form>
+                        </tbody>
+                    </table>
+                    <!-- </form>
+                     <div class="row p-a">
+                        <div class="col-md-3">
+                            <button class="btn btn-sm btn-fw dark" ng-show="!editableForm.$visible">
+                            Edit</button>
+
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="row p-a">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm btn-fw primary">Save
+                            </button>
+                            <button type="button" class="btn btn-sm btn-fw primary">Save & Close
+                            </button>
+                            <button type="button" class="btn btn-sm btn-fw white">Cancel
+                            </button>
+                            <button type="button" class="btn btn-sm btn-fw dark">Clone
+                            </button>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,918 @@
+
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>Dell</a></li>
+            <li><a href>Contracts</a></li>
+            <li class="active">Work Orders</li>
+        </ol>
+    </div>
+</div>
+<div class="box__feature-navigation">
+    <div class="box-header">
+        Work Order
+    </div>
+    <div class="box-tool">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-xs white btn-block"><i class="material-icons md-24">&#xe3C7; </i> Actions</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage">
+                        <i class="material-icons md-24">&#xe145; </i> Option 1
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href>
+                        Seperated Link (if needed)
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="p-a" ng-controller="WorkContractsCtrl">
+    <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header blue-grey-900 b-a b-white">
+        <div ui-include="theHeaderPath"></div>
+    </div>
+    <div class="modal-body m-t-md">
+         <div ui-include="theContentPath"></div>
+    </div>
+    <div class="modal-footer dker">
+        <div ui-include="theFooterPath"></div>
+    </div>
+</script>
+
+    <div class="row p-b">
+        <div class="col-md-12">
+            <div class="input-group">
+                <label for="customerAddress">Address:</label>
+
+                
+                <!-- <div ui-include="'../jlsapp-modules/contracts/template-add-new-location-content.html'"></div> -->
+                 <input type="text" class="form-control" ng-model="$ctrl.model.workOrder.purchaseOrder.address" name="customerAddress" id="customerAddress" readonly="">
+                <span class="input-group-btn v-a-b">
+                <button class="btn white" type="button" ng-click="open('lg', 'newLocation')"><i class="material-icons">edit</i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-b">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Work Order Type</label>
+                <select class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Work Order Status</label>
+                <select class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">G4S Service Line</label>
+                <select class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">G4S Branch</label>
+                <select class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-b">
+        <div class="col-md-3">
+            <div class="input-group">
+                <label for="customerAddress">Select WO. Location Address:</label>
+
+                
+                <!-- <div ui-include="'../jlsapp-modules/contracts/template-add-new-location-content.html'"></div> -->
+                 <input type="text" class="form-control" ng-model="$ctrl.model.workOrder.purchaseOrder.address" name="customerAddress" id="customerAddress" readonly="">
+                <span class="input-group-btn v-a-b">
+                <button class="btn white" type="button" ng-click="open('lg', 'newLocation')"><i class="material-icons">edit</i></button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <label for="customerAddress">Select WO. Billing Address:</label>
+
+                
+                <!-- <div ui-include="'../jlsapp-modules/contracts/template-add-new-location-content.html'"></div> -->
+                 <input type="text" class="form-control" ng-model="$ctrl.model.workOrder.purchaseOrder.address" name="customerAddress" id="customerAddress" readonly="">
+                <span class="input-group-btn v-a-b">
+                <button class="btn white" type="button" ng-click="open('lg', 'newLocation')"><i class="material-icons">edit</i></button>
+                </span>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">WO. Start Date</label>
+                <select class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">WO. End Date</label>
+                <select class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-b">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">G4S Product</label>
+                <select class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Purchase Order Number</label>
+                <select class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Purchase Order Value</label>
+                <input type="number" class="form-control" id="" placeholder="365">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="docUpload">Purchase Order Document Upload</label>
+                <input type="file" class="form-control" name="docUpload" id="docUpload">
+            </div>
+        </div>
+    </div>
+
+
+
+
+        
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                <script type="text/ng-template" id="group-template.html">
+                    <div class="box__acordion {{panelClass || 'panel-default'}}">
+                        <div class="box-heading">
+
+                            <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+
+                                <div class="">
+                                    <div class="accordion__header">
+                                        {{heading}}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="box-tool"></div>
+                        <div class="box-body panel-collapse collapse grey-100" uib-collapse="!isOpen">
+                            <div class="" ng-transclude></div>
+                        </div>
+                    </div>
+                </script>
+                <!-- <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="oneAtATime">
+                  Open only one at a time
+                </label>
+              </div> -->
+                <uib-accordion close-others="oneAtATime">
+                    <uib-accordion-group heading="Select Bill Plan" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Select Bill Plan<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <div class="row m-b">
+                            <div class="col-sm-12">
+                                <button class="btn btn-fw white pull-right" ui-sref="app.jlsapp.contracts-addskill">Add Skill / Licence</button>
+                            </div>
+                        </div>
+
+                    </uib-accordion-group>
+                    <uib-accordion-group heading="Select Revenue Plan" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Select Revenue Plan<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <div class="row m-b">
+                            <div class="col-sm-12">
+                                <button class="btn btn-fw white pull-right" ui-sref="app.jlsapp.contracts-addskill">Add Skill / Licence</button>
+                            </div>
+                        </div>
+
+                    </uib-accordion-group>
+                    <uib-accordion-group heading="Rates" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Rates<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <div class="row m-b">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Charge Rate (what G4S charges the customer)</label>
+                                    <input type="number" class="form-control" id="" placeholder="100">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Pay Rate (what G4S pays the employee)</label>
+                                    <input type="number" class="form-control" id="" placeholder="40">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Overtime Rate (a multiplier factor of the 'Pay Rate')</label>
+                                    <input type="number" class="form-control" id="" placeholder="5">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-b">
+                         <div class="col-sm-12">
+                                <button class="btn btn-fw white pull-right" ui-sref="app.jlsapp.contracts-addskill">Save</button>
+                            </div>
+                        </div>
+
+                    </uib-accordion-group>
+                    <uib-accordion-group heading="Check in Call" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Check in Call<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Check Call Required</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="md-check">Yes
+                                    <input type="checkbox" value="AP7297492"><i class="black"></i></label>
+
+                                     <label class="md-check">No
+                                    <input type="checkbox" value="AP7297492"><i class="black"></i></label>
+                                </div>
+
+                            </div>
+                            
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Time (minutes)</label>
+                                    <input type="number" class="form-control" id="" placeholder="15">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">W.E.F (With Effect From)</label>
+                                    <input type="text" size="8" class="form-control ng-pristine ng-valid ng-touched" ng-model="startDate" name="startDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" placeholder="06/10/16" bs-datepicker="" style="">
+                                </div>
+                            </div>
+
+
+                            
+                            
+                        </div>
+                         <div class="row m-b">
+                         <div class="col-sm-12">
+                                <button class="btn btn-fw white pull-right" ui-sref="app.jlsapp.contracts-addskill">Save</button>
+                            </div>
+                        </div>
+
+                    </uib-accordion-group>
+                    <uib-accordion-group heading="Skills & Licences" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            SKills & Licences<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <div class="row m-b">
+                            <div class="col-sm-12">
+                                <button class="btn btn-fw white pull-right" ui-sref="app.jlsapp.contracts-addskill">Add Skill / Licence</button>
+                            </div>
+                        </div>
+                        <div class="input-group input-group-lg">
+                          <span class="input-group-btn">
+                            <button type="submit" class="btn white b-a rounded no-shadow"><i class="material-icons">search</i></button>
+                          </span>
+                          <input id="filter" type="text" class="form-control p-x b-a rounded" placeholder="Search Skills / Licences">
+                        </div>
+
+                        <table class="table table-hover table-striped b-a" ui-jp="footable" data-filter="#filter" data-page-size="5">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Mandatory
+                                    </th>
+                                    <th data-toggle="true">ID</th>
+                                    <th>
+                                        Skill / License
+                                    </th>
+                                    <th>
+                                        Details
+                                    </th>
+                                    <th data-sort-ignore="true">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input class="mandatory-toggle" type="checkbox" checked data-size="mini" data-on-text="Yes" data-off-text="No">
+                                    </td>
+                                    <td>24002</td>
+                                    <td><a href>Boudreaux</a></td>
+                                    <td>Traffic Court Referee</td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input class="mandatory-toggle" type="checkbox" checked data-size="mini" data-on-text="Yes" data-off-text="No">
+                                    </td>
+                                    <td>29000</td>
+                                    <td>Woldt</td>
+                                    <td><a href>Airline Transport Pilot</a></td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="ui-check m-a-0">
+                                            <input type="checkbox" name="post[]"><i class="dark-white"></i></label>
+                                    </td>
+                                    <td>27865</td>
+                                    <td>Leonardo</td>
+                                    <td>Business Services Sales Representative</td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="ui-check m-a-0">
+                                            <input type="checkbox" name="post[]"><i class="dark-white"></i></label>
+                                    </td>
+                                    <td>23465</td>
+                                    <td>Test Contract</td>
+                                    <td>Business Services</td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        
+
+                    </uib-accordion-group>
+                    <uib-accordion-group heading="Equipments" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Equipments<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <div class="row m-b">
+                            <div class="col-sm-12">
+                                <button class="btn btn-fw white pull-right" ui-sref="app.jlsapp.contracts-addskill">Add Skill / Licence</button>
+                            </div>
+                        </div>
+                        <div class="input-group input-group-lg">
+                          <span class="input-group-btn">
+                            <button type="submit" class="btn white b-a rounded no-shadow"><i class="material-icons">search</i></button>
+                          </span>
+                          <input id="filter" type="text" class="form-control p-x b-a rounded" placeholder="Search Equipment">
+                        </div>
+
+                        <table class="table table-hover table-striped b-a" ui-jp="footable" data-filter="#filter" data-page-size="5">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Mandatory
+                                    </th>
+                                    <th data-toggle="true">ID</th>
+                                    <th>
+                                        Equipments
+                                    </th>
+                                    <th>
+                                        Details
+                                    </th>
+                                    <th data-sort-ignore="true">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input class="mandatory-toggle" type="checkbox" checked data-size="mini" data-on-text="Yes" data-off-text="No">
+                                    </td>
+                                    <td>24002</td>
+                                    <td><a href>Radios</a></td>
+                                    <td>Radios</td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input class="mandatory-toggle" type="checkbox" checked data-size="mini" data-on-text="Yes" data-off-text="No">
+                                    </td>
+                                    <td>29000</td>
+                                    <td>Battons</td>
+                                    <td><a href>Battons</a></td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="ui-check m-a-0">
+                                            <input type="checkbox" name="post[]"><i class="dark-white"></i></label>
+                                    </td>
+                                    <td>27865</td>
+                                    <td>Torches</td>
+                                    <td>Business Services Sales Representative</td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="ui-check m-a-0">
+                                            <input type="checkbox" name="post[]"><i class="dark-white"></i></label>
+                                    </td>
+                                    <td>23465</td>
+                                    <td>Firearms</td>
+                                    <td>Business Services</td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        
+                        
+
+                    </uib-accordion-group>
+                   
+                    <uib-accordion-group heading="Locations" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Locations<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-fw white pull-right m-b" ng-click="open('lg', 'addNewLocation')">Add Location</button>
+                                <button class="btn btn-fw white pull-right m-b m-r" ng-click="open('lg', 'addNewLocation')">Show Overides</button>
+                            </div>
+                            <div>
+
+                                <div class="row m-b">
+                                    <div class="col-sm-12">
+                                        <h5>General Location Information</h5>
+                                    </div>
+                                </div>
+
+                                <div class="row m-b">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Location ID</label>
+                                            <input type="number" class="form-control" id="" placeholder="001" disabled="true">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Location Name</label>
+                                            <input type="number" class="form-control" id="" placeholder="Dublin-001">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="input-group">
+                                            <label for="customerAddress">Select a WO. Location Address</label>
+                                            <!-- <div ui-include="'../jlsapp-modules/contracts/template-add-new-location-content.html'"></div> -->
+                                             <input type="text" class="form-control" ng-model="$ctrl.model.workOrder.purchaseOrder.address" name="customerAddress" id="customerAddress" readonly="">
+                                            <span class="input-group-btn v-a-b">
+                                            <button class="btn white" type="button" ng-click="open('lg', 'newLocation')"><i class="material-icons">edit</i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-b">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Location Start Date</label>
+                                            <input type="text" size="8" class="form-control ng-pristine ng-valid ng-touched" ng-model="startDate" name="startDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" placeholder="06/10/16" bs-datepicker="" style="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Location End Date</label>
+                                            <input type="text" size="8" class="form-control ng-pristine ng-valid ng-touched" ng-model="startDate" name="startDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" placeholder="06/10/16" bs-datepicker="" style="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                    
+                                    </div>
+                                </div>
+
+                                <div class="row m-b">
+                                    <div class="col-sm-12">
+                                        <h5>Barred Employees</h5>
+                                    </div>
+                                </div>
+                                <div class="row m-b">
+                                    <div class="col-sm-12">
+                                        <table class="table table-hover table-striped b-a" ui-jp="footable" data-filter="#filter" data-page-size="5">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Date
+                                                    </th>
+                                                    <th>name</th>
+                                                    <th>
+                                                        W.E.F Date
+                                                    </th>
+                                                    <th>
+                                                        Lift Date
+                                                    </th>
+                                                    <th class="pull-right">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>16/06//1979</td>
+                                                    <td>Tan Kent</td>
+                                                    <td>16/06//1979</td>
+                                                    <td>16/06//1979</td>
+                                                    <td>
+                                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                                            <i class="material-icons">clear</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        16/06//1979
+                                                    </td>
+                                                    <td>Calvin Kent</td>
+                                                    <td>16/06//1979</td>
+                                                    <td>16/06//1979</td>
+                                                    <td>
+                                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                                            <i class="material-icons">clear</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                       16/06//1979
+                                                    </td>
+                                                    <td>Lewis Rodgers</td>
+                                                    <td>16/06//1979</td>
+                                                    <td>16/06//1979</td>
+                                                    <td>
+                                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                                            <i class="material-icons">clear</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        16/06//1979
+                                                    </td>
+                                                    <td>23465</td>
+                                                    <td>16/06//1979</td>
+                                                    <td>16/06//1979</td>
+                                                    <td>
+                                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                                            <i class="material-icons">clear</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row m-b">
+                                    <div class="col-sm-12">
+                                        <h5>Location Contacts</h5>
+                                    </div>
+                                </div>
+                                 <div class="row m-b">
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <label for="customerAddress">Customer Contact</label>
+                                            <!-- <div ui-include="'../jlsapp-modules/contracts/template-add-new-location-content.html'"></div> -->
+                                             <input type="text" class="form-control" ng-model="$ctrl.model.workOrder.purchaseOrder.address" name="customerAddress" id="customerAddress" readonly="">
+                                            <span class="input-group-btn v-a-b">
+                                            <button class="btn white" type="button" ng-click="open('lg', 'newLocation')"><i class="material-icons">edit</i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <label for="customerAddress">G4S Contact</label>
+                                            <!-- <div ui-include="'../jlsapp-modules/contracts/template-add-new-location-content.html'"></div> -->
+                                             <input type="text" class="form-control" ng-model="$ctrl.model.workOrder.purchaseOrder.address" name="customerAddress" id="customerAddress" readonly="">
+                                            <span class="input-group-btn v-a-b">
+                                            <button class="btn white" type="button" ng-click="open('lg', 'newLocation')"><i class="material-icons">edit</i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="row m-b">
+                                    <div class="col-sm-12">
+                                        <h5>Surveys & Site Specific Documents</h5>
+                                    </div>
+                                </div>
+                                 <div class="row m-b">
+                                    <div class="col-sm-6">
+                                         <div class="form-group">
+                                            <label for="docUpload">Health & Safety Survey</label>
+                                            <input type="file" class="form-control" name="docUpload" id="docUpload">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="docUpload">Technical Site Survey</label>
+                                            <input type="file" class="form-control" name="docUpload" id="docUpload">
+                                        </div>
+                                    </div>
+                                </div> 
+                                 <div class="row m-b">
+                                    <div class="col-sm-6">
+                                         <div class="form-group">
+                                            <label for="docUpload">S.O.P.1</label>
+                                            <input type="file" class="form-control" name="docUpload" id="docUpload">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="docUpload">S.O.P.2</label>
+                                            <input type="file" class="form-control" name="docUpload" id="docUpload">
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </uib-accordion-group>
+
+                    <uib-accordion-group heading="Post" template-url="group-template.html">
+                        <uib-accordion-heading>
+                            Post<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-fw white pull-right m-b" ng-click="open('lg', 'addNewLocation')">Create Post</button>
+                                <button class="btn btn-fw white pull-right m-b m-r" ng-click="open('lg', 'addNewLocation')">Show Overides</button>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                                <h5>General Post Information</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="row m-b">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Post ID</label>
+                                            <input type="number" class="form-control" id="" placeholder="001" disabled="true">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Post Name</label>
+                                            <input type="number" class="form-control" id="" placeholder="Dublin-001">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="input-group">
+                                            <label for="customerAddress">Post hours</label>
+                                             <input type="number" class="form-control" id="" placeholder="168">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="input-group">
+                                            <label for="customerAddress">Post Start Date</label>
+                                             <input type="text" size="8" class="form-control ng-pristine ng-valid ng-touched" ng-model="startDate" name="startDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" placeholder="06/10/16" bs-datepicker="" style="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="input-group">
+                                            <label for="customerAddress">Post End Date</label>
+                                             <input type="text" size="8" class="form-control ng-pristine ng-valid ng-touched" ng-model="startDate" name="startDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" placeholder="06/10/16" bs-datepicker="" style="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5>Post Requirements</h5>
+                                    </div>
+                                </div>
+                                <div class="row m-b">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Identification Required</label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="md-check">Yes
+                                            <input type="checkbox" value="AP7297492"><i class="black"></i></label>
+                                        </div>
+
+                                        </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Service Type / Role</label>
+                                            <select class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Select Requirements</label>
+                                            <select class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    
+                                     
+                                </div>
+                                <div class="input-group input-group-lg">
+                          <span class="input-group-btn">
+                            <button type="submit" class="btn white b-a rounded no-shadow"><i class="material-icons">search</i></button>
+                          </span>
+                          <input id="filter" type="text" class="form-control p-x b-a rounded" placeholder="Search Uniforms">
+                        </div>
+
+                        <table class="table table-hover table-striped b-a" ui-jp="footable" data-filter="#filter" data-page-size="5">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Uniform
+                                    </th>
+                                    <th data-sort-ignore="true" class="pull-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>White Shirt</td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Black Trousers</td>
+                                    <td>
+                                        <button type="button" ng-click="removeItem(row)" class="btn btn-xs white pull-right">
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+
+                            </div>
+                            <div class="col-md-3">
+                                 <img class="irc_mi iaBGMY_xgdaU-pQOPx8XEepE post-image" alt="" style="width:100%;border:1px solid #ddd;" src="http://cobyphilips.co.uk/wp-content/uploads/2015/07/coby-receptionist.jpg">
+                                 <div class="form-group">
+                                    <label for="docUpload"></label>
+                                    <input type="file" class="form-control" name="docUpload" id="docUpload">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Lone Worker</label>
+
+                                    <label class="md-check pull-right">Yes
+                                    <input type="checkbox" value="AP7297492"><i class="black"></i></label>
+                               
+                                </div>
+
+                                
+
+                        </div>
+                            </div>
+
+                         <div class="row">
+                            <div class="col-md-12">
+                                <h5>Rates</h5>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Select Rate Card</label>
+                                        <select class="form-control">
+                                            <option value="1">Rate Card A</option>
+                                            <option value="2">Rate Card B</option>
+                                            <option value="3">Rate Card C</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <label for="customerAddress">charge Rate</label>
+                                         <input type="text" class="form-control" name="customerAddress" id="customerAddress" readonly="" placeholder="15 GBP Per Hour">
+                                        <span class="input-group-btn v-a-b">
+                                        <button class="btn white" type="button" ng-click="open('lg', 'newLocation')"><i class="material-icons">edit</i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <label for="customerAddress">Pay Rate</label>
+                                         <input type="text" class="form-control" name="customerAddress" id="customerAddress" readonly="" placeholder="17 GBP Per Hour">
+                                        <span class="input-group-btn v-a-b">
+                                        <button class="btn white" type="button" ng-click="open('lg', 'newLocation')"><i class="material-icons">edit</i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <label for="customerAddress">Overtime Rate</label>
+                                         <input type="text" class="form-control" name="customerAddress" id="customerAddress" readonly="" placeholder="19 GBP Per Hour">
+                                        <span class="input-group-btn v-a-b">
+                                        <button class="btn white" type="button" ng-click="open('lg', 'newLocation')"><i class="material-icons">edit</i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                 
+                            </div>
+                        </div>
+
+
+                    </uib-accordion-group>
+                </uib-accordion>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

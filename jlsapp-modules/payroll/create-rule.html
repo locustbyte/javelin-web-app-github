@@ -1,0 +1,290 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>Payroll</a> </li>
+            <li class="active">Payroll Administration</li>
+        </ol>
+    </div>
+</div>
+<div class="box__feature-navigation">
+    <div class="box-header">
+        <span class="">Payroll Administration</span><span class="text-md _700 m-r-sm" ng-show="createNewRule"> - Creating New Rule</span> 
+    </div>
+    <div class="box-tool">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-xs grey-100 btn-block"><i class="material-icons md-24">&#xe3C7; </i> Actions</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage" ng-click="doOne()">
+                        <i class="material-icons md-24">add </i> Create New Rule
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" ui-sref="app.jlsapp.payroll">
+                        <i class="material-icons md-24">call_made </i> Payroll
+                    </a>
+                    <a class="dropdown-item" ui-sref="app.jlsapp.payprofiles">
+                        <i class="material-icons md-24">call_made </i> Profiles
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div ng-hide="one">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="input-group input-group-lg">
+                <span class="input-group-btn">
+                      <button type="submit" class="btn white b-a rounded no-shadow"><i class="material-icons">filter_list</i></button>
+                    </span>
+                <input id="filterInc" type="text" class="form-control p-x b-a rounded" placeholder="Filter current profiles">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table m-b-none" ui-jp="footable" data-filter="#filterInc" data-page-size="50">
+                <thead>
+                    <tr>
+                        <th data-toggle="true">
+                            ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Frequency
+                        </th>
+                        <th data-hide="phone">
+                            Next run date
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href ng-click="showIncDetail();" class="_700 text-accent text-u-l">INC0000412</a></td>
+                        <td><a href>Dispatch Job</a></td>
+                        <td data-value="78025368997">Draft</td>
+                        <td>Mike Simms</td>
+                    </tr>
+                    <tr>
+                        <td>INC67036513</td>
+                        <td data-value="78025368997">Other Type</td>
+                        <td><a href>Open</a></td>
+                        <td>Paul Wescott</td>
+                    </tr>
+                    <tr>
+                        <td>INC99896612</td>
+                        <td data-value="78025368997">Repair</td>
+                        <td><a href>Closed</a></td>
+                        <td>Samuel Paceman</td>
+                    </tr>
+                </tbody>
+                <tfoot class="hide-if-no-paging">
+                    <tr>
+                        <td colspan="5" class="text-center">
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row no-gutter" ng-show="one">
+
+    <div class="col-sm-12">
+        <form role="form" class="ng-pristine ng-valid p-l">
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md _700">Name</label>
+                <div class="col-sm-8">
+                    
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <div class="col-sm-4">
+                    <input type="text" size="30" class="p-a-sm ng-pristine ng-valid ng-touched">
+                </div>
+
+                <div class="col-sm-8">
+                    
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md _700">Period</label>
+                <div class="col-sm-8">
+                    
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputEmail3" class="col-sm-12 col-md-4 text-md">Frequency</label>
+                <div class="col-sm-8">
+                    <p>
+                        <label class="md-check">
+                            <input type="radio" name="radio">
+                            <i class="brand-black"></i> Monthly
+                        </label>
+                    </p>
+                    <p>
+                        <label class="md-check">
+                            <input type="radio" name="radio">
+                            <i class="brand-black"></i> Fortnightly
+                        </label>
+                    </p>
+                    <p>
+                        <label class="md-check">
+                            <input type="radio" name="radio">
+                            <i class="brand-black"></i> Weekly
+                        </label>
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">Start Day</label>
+                <div class="col-sm-8">
+                    <ui-select ng-model="person.selected" theme="bootstrap" class="select2__select-field">
+                        <ui-select-match placeholder="Choose day...">{{$select.selected.value}}</ui-select-match>
+                        <ui-select-choices repeat="item in people | filter: $select.search">
+                            <div ng-bind-html="item.value | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">End Day</label>
+                <div class="col-sm-8">
+                    <input type="text" size="8" class="p-a-sm ng-pristine ng-valid ng-touched">
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputEmail3" class="col-sm-12 col-md-4 text-md">Work days only</label>
+                <div class="col-sm-8">
+                    <p>
+                        <label class="md-check">
+                            <input type="radio" name="radio">
+                            <i class="brand-black"></i> Monthly
+                        </label>
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md _700">Payroll Run</label>
+                <div class="col-sm-8">
+                    
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">Days after period end day</label>
+                <div class="col-sm-8">
+                    <ui-select ng-model="person.selected" theme="bootstrap" class="select2__select-field">
+                        <ui-select-match placeholder="Choose day...">{{$select.selected.value}}</ui-select-match>
+                        <ui-select-choices repeat="item in people | filter: $select.search">
+                            <div ng-bind-html="item.value | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">Run time of day</label>
+                <div class="col-sm-8">
+                    <input type="text" size="8" class="p-a-sm ng-pristine ng-valid ng-touched">
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">First run date</label>
+                <div class="col-sm-8">
+                    <input type="text" class="p-a-sm ng-pristine ng-valid ng-touched" ng-model="startDate" name="startDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" placeholder="06/29/16" bs-datepicker="" style="">
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">Last run date</label>
+                <div class="col-sm-8">
+                    <input type="text" class="p-a-sm ng-pristine ng-valid ng-touched" ng-model="startDate" name="startDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" placeholder="06/29/16" bs-datepicker="" style="">
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md _700">First run sample</label>
+                <div class="col-sm-8">
+                    
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">Payroll period</label>
+                <div class="col-sm-8">
+                    <input type="text" class="p-a-sm ng-pristine ng-valid ng-touched" ng-model="startDate" name="startDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" placeholder="06/29/16" bs-datepicker="" style="">
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">Payroll run</label>
+                <div class="col-sm-8">
+                    <input type="text" class="p-a-sm ng-pristine ng-valid ng-touched" ng-model="startDate" name="startDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" placeholder="06/29/16" bs-datepicker="" style="">
+                </div>
+            </div>
+
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md _700">Pay profiles</label>
+                <div class="col-sm-8">
+                    
+                </div>
+            </div>
+
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">
+                    <div class="input-group input-group-sm" ng-show="!creatingTask">
+                        <span class="input-group-btn">
+                          <button type="submit" class="btn white b-a rounded no-shadow"><i class="material-icons">search</i></button>
+                        </span>
+                        <input id="filter001" type="text" class="form-control p-x b-a rounded" placeholder="Filter search">
+                    </div>
+
+                </label>
+                <div class="col-sm-8">
+                    <button class="btn btn-sm">Create</button>
+                </div>
+            </div>
+
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">Composite rate monthly</label>
+                <div class="col-sm-8">
+                    <button class="btn btn-sm">remove</button>
+                </div>
+            </div>
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">Drogheda/Dundalk</label>
+                <div class="col-sm-8">
+                    <button class="btn btn-sm">remove</button>
+                </div>
+            </div>
+            <div class="form-group row no-gutter">
+                <label for="inputPassword3" class="col-sm-4 form-control-label text-md">Limerick Overtime</label>
+                <div class="col-sm-8">
+                    <button class="btn btn-sm">remove</button>
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+
+

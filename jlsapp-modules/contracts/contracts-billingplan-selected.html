@@ -1,0 +1,219 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li>
+                <div><a href ui-sref="app.jlsapp.contracts-customers-new">Customer</a><small class="block">Axure UK</small></div>
+            </li>
+            <li>
+                <div><a href="">Contracts</a><small class="block">CTR-452345</small></div>
+            </li>
+            <li class="active">
+                <div><a href="">Billing Plan</a><small class="block"></small></div>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="box__feature-navigation">
+    <div class="box-header" ng-class="{'box-header'}">
+        <span class="text-lg _700">Billing Plan Selected</span>
+
+        <span class="text-lg _700 pull-right" ng-show="!editableForm.$visible">
+          <button class="btn btn-sm btn-fw primary m-b-md" ng-click="editableForm.$show()">
+              Edit
+          </button>
+        </span>
+        <span class="text-lg _700 pull-right" ng-show="editableForm.$visible">
+          <button type="button" class="btn btn-sm btn-fw primary" ng-show="editableForm.$visible" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            Save
+          </button>
+          <button type="button" class="btn btn-sm btn-fw white text-black" ng-show="editableForm.$visible" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            Cancel
+          </button>
+        </span>
+    </div>
+
+    <div ng-show="editableForm.$visible" class="grey-300 p-a"><span class="text-sm animated slowitdown infinite _700" ng-show="editableForm.$visible"><i class="material-icons md-24 _700">edit</i> <code class="_700 text-md m-l-sm m-r-sm green-600">EDIT MODE</code> (Click Save button at bottom of form once you have finished editing)</span></div>
+</div>
+
+<form editable-form name="editableForm" onaftersave="saveUser()">
+    <div class="row p-a" ng-class="{'grey-100': editableForm.$visible, 'white': !editableForm.$visible}">
+        <div class="col-sm-12">
+
+
+            <div class="row p-b-lg">
+              <div class="col-md-6">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Bill Plan Name</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="G4S-WO121332-B1P">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">G4S-WO121332-B1P</span>
+              </div>
+
+              <div class="col-md-6">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Model Name</div>
+                  <span ng-show="editableForm.$visible">
+                    <select class="form-control">
+                      <option value="1">Reference Data Set</option>
+                      <option value="2">Option 2</option>
+                    </select>
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">Reference Data Set</span>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4>Billing Information</h4>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-3">
+                    <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Billing Currency Type</div>
+                    <span ng-show="editableForm.$visible">
+                <select class="form-control">
+                  <option value="1">Reference Set</option>
+                  <option value="2">Option 2</option>
+                </select>
+              </span>
+                    <span class="" ng-show="!editableForm.$visible">Reference Set</span>
+                </div>
+                <div class="col-md-3">
+                    <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Billing Cycle</div>
+                    <span ng-show="editableForm.$visible">
+                <select class="form-control">
+                  <option value="1">Daily</option>
+                  <option value="2">Weekly</option>
+                  <option value="3">Bi-Weekly</option>
+                  <option value="4">21 days</option>
+                  <option value="5">30 days</option>
+                  <option value="6">Monthly</option>
+                </select>
+              </span>
+                    <span class="" ng-show="!editableForm.$visible">Daily</span>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Payment Terms</div>
+                    <span ng-show="editableForm.$visible">
+                <select class="form-control">
+                  <option value="1">Reference Data Set</option>
+                  <option value="2">Option 2</option>
+                </select>
+              </span>
+                    <span class="" ng-show="!editableForm.$visible">Refernce Data Set</span>
+                </div>
+
+                <!-- <div class="col-md-3">
+                    <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">First Bill Offset Day</div>
+                    <span ng-show="editableForm.$visible">
+              <input type="text" class="form-control" placeholder="" value="">
+            </span>
+                    <span class="" ng-show="!editableForm.$visible"></span>
+                </div> -->
+
+                <div class="col-md-3">
+                    <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">
+                        <label ng-show="editableForm.$visible"></label>First Bill Offset Day</div>
+                    <span ng-show="editableForm.$visible">
+                                <input type="text" size="3" class="form-control"
+                                  value="7/8/15"
+                                  ng-model="firstBillOffsetDay"
+                                  name="firstBillOffsetDay"
+                                  data-icon-up="fa fa-chevron-up"
+                                  data-icon-down="fa fa-chevron-down"
+                                  bs-datepicker>
+                              </span>
+                    <span class="" ng-show="!editableForm.$visible">{{ account.loiStartDate }}</span>
+                </div>
+
+            </div>
+
+
+
+            <div class="row p-b-lg">
+                <div class="col-md-12">
+
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Invoice Comment</div>
+                  <span ng-show="editableForm.$visible">
+                    <!-- <input type="text" class="form-control" placeholder="" value="{{ customer.description }}"> -->
+                    <textarea class="form-control" rows="2">This is the invoice comment</textarea>
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">This is the invoice comment</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4>Currency Conversion Information</h4>
+                </div>
+            </div>
+
+
+            <div class="row p-b-lg">
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Conversion Rate Type</div>
+                  <span ng-show="editableForm.$visible">
+                    <select class="form-control">
+                      <option value="1">Reference Data Type</option>
+                      <option value="2">Option 2</option>
+                    </select>
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">Reference Data Type</span>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Conversion Data Type</div>
+                  <span ng-show="editableForm.$visible">
+                    <select class="form-control">
+                      <option value="1">Reference Data Set</option>
+                      <option value="2">External</option>
+                    </select>
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible">Reference Data Set</span>
+                </div>
+
+                <!-- <div class="col-md-3">
+                  <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Conversion Date</div>
+                  <span ng-show="editableForm.$visible">
+                    <input type="text" class="form-control" placeholder="" value="">
+                  </span>
+                  <span class="" ng-show="!editableForm.$visible"></span>
+
+                </div> -->
+
+                <div class="col-md-3">
+                    <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">
+                        <label ng-show="editableForm.$visible"></label>Conversion Date</div>
+                    <span ng-show="editableForm.$visible">
+                                <input type="text" size="3" class="form-control"
+                                  value="7/8/15"
+                                  ng-model="conversionDate"
+                                  name="conversionDate"
+                                  data-icon-up="fa fa-chevron-up"
+                                  data-icon-down="fa fa-chevron-down"
+                                  bs-datepicker>
+                              </span>
+                    <span class="" ng-show="!editableForm.$visible">{{ account.loiStartDate }}</span>
+                </div>
+              </div>
+        </div>
+
+
+    <div class="row p-a">
+      <div class="col-md-12">
+        <button class="btn btn-sm btn-fw primary" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+          Edit
+        </button>
+        <span ng-show="editableForm.$visible">
+          <button type="submit" class="btn btn-sm btn-fw primary" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+              Save
+          </button>
+          <button type="button" class="btn btn-sm btn-fw white" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            Cancel
+          </button>
+        </span>
+      </div>
+    </div>
+      </div>
+</form>

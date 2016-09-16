@@ -1,0 +1,33 @@
+#aside{
+	.brand-black{
+		color: $white;
+	}
+	.navbar-toggler {
+	    float: right;
+	    padding: .5rem 0rem;
+	    margin-top: 5px;
+	    font-weight: normal;
+	    font-size: $font-size-lg;
+	    border: 0;
+	}
+
+	&.folded{
+		.navbar-toggler{
+			padding: .5rem 1.1rem;
+		}
+	}
+}
+
+.aside{
+	&.header__notifications{
+		background-color: $red-50;
+		.aside-header{
+			min-height: 56px !important;
+			background-color: $brand-red !important;
+			color: $brand-neutral-lighter !important;
+			-webkit-box-shadow: -4px -8px 2px 9px rgba(0, 0, 0, 0.75);
+		    -moz-box-shadow: -4px -8px 2px 9px rgba(0, 0, 0, 0.75);
+		    box-shadow: -4px -8px 2px 9px rgba(0, 0, 0, 0.75);
+		}
+	}
+}

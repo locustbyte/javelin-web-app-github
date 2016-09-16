@@ -1,0 +1,14 @@
+/**
+ * Author: lewis.rodgers@accenture.com
+ */
+.brand--lg {
+  width: 120px;
+}
+
+.navbar-brand {
+	img {
+		// IE9-11 desktop & mobile don't properly scale SVG files.
+		// Adding height, width, viewBox, and CSS rules seem to be the best workaround.
+		height: 24px;
+	}
+}

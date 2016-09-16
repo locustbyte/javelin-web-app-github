@@ -1,0 +1,141 @@
+<div class="box__brand-black no-borders m-a-0">
+    <div class="box-header">
+        <h1>Grid UI</h1>
+        Understanding bootstraps grid classes
+    </div>
+</div>
+
+<div class="box__style-guide">
+    <div class="box-header">
+        Stacked to horizontal
+    </div>
+    <div class="box-body">
+        <!--begin pattern -->
+        <div class="makecodeview">
+            <div class="row">
+              <div class="col-md-2"><div class="box p-a">.col-md-2</div></div>
+              <div class="col-md-2"><div class="box p-a">.col-md-2</div></div>
+              <div class="col-md-2"><div class="box p-a">.col-md-2</div></div>
+              <div class="col-md-2"><div class="box p-a">.col-md-2</div></div>
+              <div class="col-md-2"><div class="box p-a">.col-md-2</div></div>
+              <div class="col-md-2"><div class="box p-a">.col-md-2</div></div>
+            </div>
+            <div class="row">
+              <div class="col-md-8"><div class="box p-a">.col-md-8</div></div>
+              <div class="col-md-4"><div class="box p-a">.col-md-4</div></div>
+            </div>
+            <div class="row">
+              <div class="col-md-4"><div class="box p-a">.col-md-4</div></div>
+              <div class="col-md-4"><div class="box p-a">.col-md-4</div></div>
+              <div class="col-md-4"><div class="box p-a">.col-md-4</div></div>
+            </div>
+            <div class="row">
+              <div class="col-md-6"><div class="box p-a">.col-md-6</div></div>
+              <div class="col-md-6"><div class="box p-a">.col-md-6</div></div>
+            </div>
+        </div>
+        <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+        <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+    </div>
+</div>
+
+
+<div class="box__style-guide">
+    <div class="box-header">
+        Mobile &amp; Desktop
+    </div>
+    <div class="box-body">
+        <!--begin pattern -->
+        <div class="makecodeview">
+          <code>Stack the columns on mobile by making one full-width and the other half-width</code>
+          <div class="row">
+            <div class="col-xs-12 col-md-8"><div class="box p-a">.col-xs-12 .col-md-8</div></div>
+            <div class="col-xs-6 col-md-4"><div class="box p-a">.col-xs-6 .col-md-4</div></div>
+          </div>
+
+          <code>Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop</code>
+          <div class="row">
+            <div class="col-xs-6 col-md-4"><div class="box p-a">.col-xs-6 .col-md-4</div></div>
+            <div class="col-xs-6 col-md-4"><div class="box p-a">.col-xs-6 .col-md-4</div></div>
+            <div class="col-xs-6 col-md-4"><div class="box p-a">.col-xs-6 .col-md-4</div></div>
+          </div>
+
+          <code>Columns are always 50% wide, on mobile and desktop</code>
+          <div class="row">
+            <div class="col-xs-6"><div class="box p-a">.col-xs-6</div></div>
+            <div class="col-xs-6"><div class="box p-a">.col-xs-6</div></div>
+          </div>
+        </div>
+        <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+        <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+    </div>
+</div>
+
+
+<div class="box__style-guide">
+    <div class="box-header">
+        Mobile, Tablet, Desktop
+    </div>
+    <div class="box-body">
+        <!--begin pattern -->
+        <div class="makecodeview">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-8"><div class="box p-a">.col-xs-12 .col-sm-6 .col-md-8</div></div>
+            <div class="col-xs-6 col-md-4"><div class="box p-a">.col-xs-6 .col-md-4</div></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-sm-4"><div class="box p-a">.col-xs-6 .col-sm-4</div></div>
+            <div class="col-xs-6 col-sm-4"><div class="box p-a">.col-xs-6 .col-sm-4</div></div>
+            <!-- Optional: clear the XS cols if their content doesn't match in height -->
+            <div class="clearfix visible-xs-block"></div>
+            <div class="col-xs-6 col-sm-4"><div class="box p-a">.col-xs-6 .col-sm-4</div></div>
+          </div>
+        </div>
+        <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+        <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+    </div>
+</div>
+
+
+
+<div class="box__style-guide">
+    <div class="box-header">
+        Offsetting columns
+    </div>
+    <div class="box-body">
+        <!--begin pattern -->
+        <div class="makecodeview">
+          <div class="row">
+            <div class="col-md-4"><div class="box p-a">.col-md-4</div></div>
+            <div class="col-md-4 col-md-offset-4"><div class="box p-a">.col-md-4 .col-md-offset-4</div></div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-md-offset-3"><div class="box p-a">.col-md-3 .col-md-offset-3</div></div>
+            <div class="col-md-3 col-md-offset-3"><div class="box p-a">.col-md-3 .col-md-offset-3</div></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3"><div class="box p-a">.col-md-6 .col-md-offset-3</div></div>
+          </div>
+        </div>
+        <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+        <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+    </div>
+</div>
+
+<div class="box__style-guide">
+    <div class="box-header">
+        Column Ordering
+    </div>
+    <div class="box-body">
+        <!--begin pattern -->
+        <div class="makecodeview">
+          <div class="row">
+            <div class="col-md-9 col-md-push-3"><div class="box p-a">.col-md-9 .col-md-push-3</div></div>
+            <div class="col-md-3 col-md-pull-9"><div class="box p-a">.col-md-3 .col-md-pull-9</div></div>
+          </div>
+        </div>
+        <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+        <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+    </div>
+</div>
+  

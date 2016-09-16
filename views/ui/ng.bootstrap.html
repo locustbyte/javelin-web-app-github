@@ -1,0 +1,189 @@
+<div class="p-a white">
+  <h3>AngularJS Native directives for Bootstrap</h3>
+  <small>Reference <a href="https://angular-ui.github.io/bootstrap/" target="_blank"><code class="accent">https://angular-ui.github.io/bootstrap/</code></a></small>
+</div>
+<div class="padding">
+  
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div ng-controller="AccordionDemoCtrl">
+
+        <div class="box">
+          <div class="box-header dker">
+            <h3>Accordions</h3>
+            <small>Example</small>
+          </div>
+
+          <div class="box-body">
+            <script type="text/ng-template" id="group-template.html">
+              <div class="card {{panelClass || 'panel-default'}}">
+                <div class="card-header">
+                  <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+                    <span ng-class="{'text-muted': isDisabled}">{{heading}}</span>
+                  </a>
+                </div>
+                <div class="card-block collapse" uib-collapse="!isOpen">
+                  <div ng-transclude></div>
+                </div>
+              </div>
+            </script>
+
+            <p>
+              <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+              <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+            </p>
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="oneAtATime">
+                Open only one at a time
+              </label>
+            </div>
+            <uib-accordion close-others="oneAtATime">
+              <uib-accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                This content is straight in the template.
+              </uib-accordion-group>
+              <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+                {{group.content}}
+              </uib-accordion-group>
+              <uib-accordion-group heading="Dynamic Body Content">
+                <p>The body of the uib-accordion group grows to fit the contents</p>
+                <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+                <div ng-repeat="item in items">{{item}}</div>
+              </uib-accordion-group>
+              <uib-accordion-group heading="Custom template" template-url="group-template.html">
+                Hello
+              </uib-accordion-group>
+              <uib-accordion-group heading="Delete account" panel-class="panel-danger">
+                <p>Please, to delete your account, click the button below</p>
+                <button class="btn btn-danger">Delete</button>
+              </uib-accordion-group>
+              <uib-accordion-group is-open="status.open">
+                <uib-accordion-heading>
+                  I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </uib-accordion-heading>
+                This is just some content to illustrate fancy headings.
+              </uib-accordion-group>
+            </uib-accordion>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+      <div ng-controller="AlertDemoCtrl">
+
+        <div class="box">
+          <div class="box-header dker">
+            <h3>Alerts</h3>
+            <small>Example</small>
+          </div>
+          <div class="box-body">
+            <script type="text/ng-template" id="alert.html">
+              <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+                <div ng-transclude></div>
+              </div>
+            </script>
+
+            <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+            <uib-alert template-url="alert.html">A happy alert!</uib-alert>
+            <button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    
+    <div class="col-sm-12 col-md-6">
+      <div ng-controller="ButtonsCtrl">
+
+        <div class="box">
+          <div class="box-header dker">
+            <h3>Buttons</h3>
+            <small>Example</small>
+          </div>
+          <div class="box-body">
+            <h4>Single toggle</h4>
+            <pre>{{singleModel}}</pre>
+            <button type="button" class="btn btn-primary" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                Single Toggle
+            </button>
+            <h4>Checkbox</h4>
+            <pre>Model: {{checkModel}}</pre>
+            <pre>Results: {{checkResults}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-primary" ng-model="checkModel.left" uib-btn-checkbox>Left</label>
+                <label class="btn btn-primary" ng-model="checkModel.middle" uib-btn-checkbox>Middle</label>
+                <label class="btn btn-primary" ng-model="checkModel.right" uib-btn-checkbox>Right</label>
+            </div>
+            <h4>Radio &amp; Uncheckable Radio</h4>
+            <pre>{{radioModel || 'null'}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Left'">Left</label>
+                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Middle'">Middle</label>
+                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Right'">Right</label>
+            </div>
+            <div class="btn-group">
+                <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uncheckable>Left</label>
+                <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable>Middle</label>
+                <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uib-uncheckable="uncheckable">Right</label>
+            </div>
+            <div>
+                <button class="btn btn-default" ng-click="uncheckable = !uncheckable">
+                    Toggle uncheckable
+                </button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+          
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+      <div ng-controller="ModalDemoCtrl">
+        <div class="box">
+          <div class="box-header dker">
+            <h3>Modals</h3>
+            <small>Example</small>
+          </div>
+          <div class="box-body">
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                    <h3 class="modal-title">You see, I am modal!</h3>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li ng-repeat="item in items">
+                            <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+                        </li>
+                    </ul>
+                    Selected: <b>{{ selected.item }}</b>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click='ok()'>OK</button>
+                    <button class="btn btn-warning" type="button" ng-click='cancel()'>Cancel</button>
+                </div>
+            </script>
+
+            <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
+            <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
+            <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
+            <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
+            <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

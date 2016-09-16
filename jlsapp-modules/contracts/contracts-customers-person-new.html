@@ -1,0 +1,130 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>Contracts</a></li>
+            <li><a href>Customers</a></li>
+            <li class="active">New Customer</li>
+        </ol>
+    </div>
+</div>
+<div class="box__feature-navigation">
+    <div class="box-header">
+        <span class="">New Customer</span>
+    </div>
+    <!-- <div class="box-tool">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-xs white btn-block"><i class="material-icons md-24">&#xe3C7; </i> Actions</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage">
+                        <i class="material-icons md-24">&#xe145; </i> Create New Contract
+                    </a>
+                    <a class="dropdown-item" href ng-click="viewScheduler();">
+                        <i class="material-icons md-24">&#xe896; </i> View Task Scheduler
+                    </a>
+                    <a class="dropdown-item" href ng-click="viewIncidents();">
+                        <i class="material-icons md-24">&#xe896; </i> View Incidents Overview
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href>
+                        Seperated Link (if needed)
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div> -->
+</div>
+<div class="row p-a">
+    <div class="col-md-3">
+        <label class="_700 text-md">First Name</label>
+        <input type="text" class="form-control" placeholder="" maxlength="150">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Middle Name</label>
+        <input type="text" class="form-control" placeholder="" maxlength="150">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Last Name</label>
+        <input type="text" class="form-control" placeholder="" maxlength="150">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Title</label>
+        <input type="text" class="form-control" placeholder="" maxlength="60">
+    </div>
+</div>
+<div class="row p-a">
+    <div class="col-md-3">
+        <label class="_700 text-md">Taxpayer Identification No.</label>
+        <input type="text" class="form-control" placeholder="" maxlength="30">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Customer Type</label>
+        <select class="form-control">
+            <option value="Organisation">Organisation</option>
+            <option value="Person">Person</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Account Description</label>
+        <input type="text" class="form-control" placeholder="" maxlength="240">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Account Type</label>
+        <select class="form-control">
+            <option value="I">Internal</option>
+            <option value="R">External</option>
+        </select>
+    </div>
+</div>
+<div class="row p-a">
+    <div class="col-md-3">
+        <label class="_700 text-md">Account Established</label>
+        <input type="text" size="3" class="form-control" ng-model="accountEstablished" name="accountEstablished" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" bs-datepicker="">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Account Termination</label>
+        <input type="text" size="3" class="form-control" ng-model="accountTermaination" name="accountTermination" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" bs-datepicker="">
+    </div>
+</div>
+<div class="row p-a">
+    <div class="col-md-3">
+        <label class="_700 text-md">Profile Class</label>
+        <select class="form-control">
+            <option value="1">Type 1</option>
+            <option value="2">Type 2</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Effective End Date</label>
+        <input type="text" size="3" class="form-control" ng-model="effectiveEndDate" name="effectiveEndDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" bs-datepicker="">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Effective Start Date</label>
+        <input type="text" size="3" class="form-control" ng-model="effectiveStartDate" name="effectiveStartDate" data-icon-up="fa fa-chevron-up" data-icon-down="fa fa-chevron-down" bs-datepicker="">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Credit Classification</label>
+        <input type="text" class="form-control" placeholder="" maxlength="30">
+    </div>
+</div>
+<div class="row p-a">
+    <div class="col-md-3">
+        <label class="_700 text-md">Credit Limit</label>
+        <input type="number" class="form-control" placeholder="" min="0" max="2">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Risk Code</label>
+        <input type="text" class="form-control" placeholder="" maxlength="30">
+    </div>
+    <div class="col-md-3">
+        <label class="_700 text-md">Credit Rating</label>
+        <input type="text" class="form-control" placeholder="" maxlength="30">
+    </div>
+</div>
+<div class="row p-a">
+    <div class="col-md-12">
+        <button class="btn btn-sm primary">Create New Customer</button>
+    </div>
+</div>

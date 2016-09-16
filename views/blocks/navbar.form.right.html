@@ -1,0 +1,47 @@
+<!-- search form -->
+<!-- <form class="searchbar" role="search">
+  <div class="form-group l-h">
+    <div class="input-group input-group-sm">
+		  <span class="input-group-btn">
+		  	<div class="btn-group">
+		  	  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  	    Everything
+		  	  </button>
+		  	  <div class="dropdown-menu">
+		  	    <a class="dropdown-item" href="#">Everything</a>
+		  	    <a class="dropdown-item" href="#">Employee</a>
+		  	    <a class="dropdown-item" href="#">Location</a>
+		  	    <div class="dropdown-divider"></div>
+		  	    <a class="dropdown-item" href="#">Separated link</a>
+		  	  </div>
+		  	</div>
+				<input type="text" class="form-control rounded search" placeholder="Type what you're looking for...">
+		  </span>
+		</div>
+  </div>
+</form> -->
+<!-- / search form -->
+
+<div class="searchbar">
+	<div class="searchbar__group">
+		<div class="input-group">
+		  <span class="searchbar__icon">
+		  	<i class="material-icons">search</i>
+		  </span>
+		  <div class="searchbar__filter">
+		    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		 
+		      <span data-ng-bind="query || 'Everything'">
+		    </button>
+		    <div class="dropdown-menu">
+		      <a class="dropdown-item" href="#" ng-click="query='Everything'">Everything</a>
+		      <a class="dropdown-item" href="#" ng-click="query='Employee'">Employee</a>
+		      <a class="dropdown-item" href="#" ng-click="query='Location'">Location</a>
+		      <div role="separator" class="dropdown-divider"></div>
+		      <a class="dropdown-item" href="#" ng-click="query='Something'">Something</a>
+		    </div>
+		  </div>
+		  <input type="text" class="searchbar__input" placeholder="Search" aria-describedby="basic-addon1">
+		</div>
+	</div>
+</div>

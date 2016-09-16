@@ -1,0 +1,42 @@
+.searchbar {
+	// TODO: Add left padding in smaller devices.
+	padding: .5rem 0;
+	//Is there a reason the search bar is not flush with the content? Is valid reason, then remove comment below
+	//That's fine, as long as we compensate for smaller screens. -lr
+	// padding-left: 1rem;
+}
+.searchbar__group {
+	background-color: #fff;
+	border-radius: $border-radius;
+	display: table-cell;
+	position: relative;
+	padding-right: .5rem;
+	line-height: 1;
+}
+.searchbar__icon {
+	display: table-cell;
+	padding: 0 .5rem;
+	vertical-align: middle;
+	.material-icons {
+		line-height: 1 !important;
+		color: $brand-neutral;
+	}
+}
+.searchbar__filter {
+	@extend .input-group-btn;
+	.btn {
+		@extend .btn-sm;
+		border: none;
+		border-left: 1px solid $brand-neutral-light;
+		border-right: 1px solid $brand-neutral-light;
+		border-radius: 0;
+		color: $brand-neutral;
+		font-size: $font-size-xs;
+		font-weight: normal;
+		text-transform: none;
+	}
+}
+.searchbar__input {
+	@extend .form-control;
+	border-color: transparent !important;
+}

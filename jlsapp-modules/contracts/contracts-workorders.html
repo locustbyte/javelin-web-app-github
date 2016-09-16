@@ -1,0 +1,85 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>My Dashboard</a></li>
+            <li class="active"><a href>Work Orders</a></li>
+        </ol>
+    </div>
+</div>
+<div class="box__feature-navigation">
+    <div class="box-header">
+        Recent Work Orders
+    </div>
+    <div class="box-tool">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-xs white btn-block"><i class="material-icons md-24">&#xe3C7; </i> Actions</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage" ui-sref="app.jlsapp.contracts-workorder">
+                        <i class="material-icons md-24">&#xe145; </i> Create New Work Order
+                    </a>
+                    <!-- <a class="dropdown-item" href ng-click="viewScheduler();">
+                        <i class="material-icons md-24">&#xe896; </i> View Task Scheduler
+                    </a> -->
+                    <div class="dropdown-divider"></div>
+                    <a ui-sref="app.jlsapp.contracts-audit-trail" class="dropdown-item" href>
+                        Audit Trail
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="padding">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="input-group input-group-lg">
+              <span class="input-group-btn">
+                <button type="submit" class="btn white b-a rounded no-shadow"><i class="material-icons">search</i></button>
+              </span>
+              <input id="filter" type="text" class="form-control p-x b-a rounded" placeholder="Search Work Orders">
+            </div>
+        </div>
+    </div>
+    <div class="row m-b">
+        <div class="col-sm-12">
+            <table class="table table-hover table-striped b-a" ui-jp="footable" data-filter="#filter" data-page-size="5">
+                <thead>
+                    <tr>
+                        <th data-toggle="true">ID</th>
+                        <th>
+                            Work Order
+                        </th>
+                        <th data-hide="phone">
+                            Address
+                        </th>   
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ui-sref="app.jlsapp.contracts-workorder">
+                        <td>24002</td>
+                        <td>Boudreaux</td>
+                        <td>Traffic Court Referee</td>
+                    </tr>
+                    <tr ui-sref="app.jlsapp.contracts-workorder">
+                        <td>29000</td>
+                        <td>Woldt</td>
+                        <td><a href>Airline Transport Pilot</a></td>
+                    </tr>
+                    <tr ui-sref="app.jlsapp.contracts-workorder">
+                        <td>27865</td>
+                        <td>Leonardo</td>
+                        <td>Business Services Sales Representative</td>
+                    </tr>
+                    <tr ui-sref="app.jlsapp.contracts-workorder">
+                        <td>23465</td>
+                        <td>Test Contract</td>
+                        <td>Business Services</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

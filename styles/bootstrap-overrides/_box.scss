@@ -1,0 +1,177 @@
+/* The Main Box style we are using which include a border, the body has a white background */
+.box__jls-variant1{
+	@extend .box, .m-a-0, .b-a, .m-b-lg;
+	.box-header{@extend .text-md, .p-r-md, .l-h-1x};
+	small{@extend .text-sm, .p-t-xs};
+	.box-tool{@extend .text-black};
+	.box-body{@extend .box-body, .white};
+}
+
+.box__brand-red{
+	@extend .box, .m-a-0, .b-a;
+	.box-header{@extend .box-header, .text-md, .p-r-md, .red-900};
+	small{@extend .text-sm, .p-t-xs};
+	.box-tool{@extend .text-white};
+	.box-body{@extend .box-body, .white};
+}
+
+.box__brand-black{
+	@extend .box, .m-a-0, .b-a;
+	.box-header{@extend .box-header, .text-md, .p-r-md, .brand-black, .text-white};
+	small{@extend .text-sm, .p-t-xs};
+	.box-tool{@extend .text-white};
+	.box-body{@extend .box-body, .white};
+}
+
+.box__brand-neutral{
+	@extend .box, .m-a-0, .b-a;
+	.box-header{@extend .box-header, .text-md, .p-r-md, .brand-neutral, .text-white};
+	small{@extend .text-sm, .p-t-xs};
+	.box-tool{@extend .text-white};
+	.box-body{@extend .box-body, .white};
+}
+
+.box__brand-neutral-light{
+	@extend .box, .m-a-0, .b-a;
+	.box-header{@extend .box-header, .text-md, .p-r-md, .brand-neutral-light, .text-black};
+	small{@extend .text-sm, .p-t-xs};
+	.box-tool{@extend .text-black};
+	.box-body{@extend .box-body, .white};
+}
+
+.box__brand-neutral-lighter{
+	@extend .box, .m-a-0, .b-a;
+	.box-header{@extend .box-header, .text-md, .p-r-md, .brand-neutral-lighter, .text-black};
+	small{@extend .text-sm, .p-t-xs};
+	.box-tool{@extend .text-black};
+	.box-body{@extend .box-body, .white};
+}
+
+.box__style-guide{
+	@extend .box, .no-borders, .m-a-0, .b-a;
+	.box-header{@extend .box-header, .text-md, .p-r-md, .blue-grey-900};
+	small{@extend .text-sm, .p-t-xs};
+	.box-tool{@extend .text-white};
+	.box-body{@extend .box-body, .grey-200};
+}
+
+.box__notifications-panel{
+	@extend .box, .no-borders, .m-a-0, .b-a;
+	.box-header{@extend .text-md, .p-r-md, .red-900};
+	small{@extend .text-sm, .p-t-xs};
+	.box-tool{@extend .text-white};
+	.box-body{@extend .box-body, .p-b-lg, .grey-200};
+}
+
+//Support box header colours
+.box__header__brand-neutral-light{
+	@extend .box-header, .text-md, .p-r-md, .brand-neutral-light;
+	@extend .text-black;
+}
+
+.box__header__grey-900{
+	@extend .box-header, .text-md, .p-r-md, .grey-900;
+}
+
+
+
+.box__breadcrumbs{
+	@extend .box, .no-borders, .m-a-0, .b-a;
+	.breadcrumbs__header{@extend .text-xs, .blue-grey-900};
+	ol{@extend .no-radius, .m-a-0};
+	li{
+		@extend .text-white;
+		&.active{@extend .text-muted};
+		div{
+			display: inline-block;
+		}
+	}
+	small{@extend .text-sm, .p-t-xs};
+	.box-tool{@extend .text-white};
+	.box-body{@extend .box-body, .p-b-lg, .grey-200};
+}
+
+
+.box__feature-navigation{
+	@extend .box, .m-a-0;
+	.box-header{@extend .text-md, .p-r-md, .grey-900};
+	.box-header__editing{@extend .red-900, .p-a};
+	.box__box-body{@extend .box-body, .grey-300};
+	.box-tool ul{@extend .text-black};
+}
+.box__feature-sub{
+	@extend .box, .m-a-0;
+	.box-header{@extend .text-md, .p-r-md, .grey-200};
+	.box__box-body{@extend .box-body, .grey-300};
+	.box-tool ul{@extend .text-black};
+}
+
+.box__ess-scheduler{
+	@extend .box, .m-a-0;
+	.box-header{
+		@extend .text-md, .p-r-md, .grey-900;
+	}
+	.box-header.secondary{
+		@extend .text-lg, ._700, .p-r-md, .grey-300;
+	}
+
+	.box__box-body{
+		@extend .box-body, .grey-300;
+		.box__box-header{
+			@extend .text-md, ._700, .p-r-md;
+		}
+	}
+
+}
+
+.box__acordion{
+	@extend .box, .m-b-0, .b-b;
+	.accordion__header{@extend .p-a-md, .text-md, .p-r-md, .blue-grey-900, ._700};
+	// .box__header{@extend .box-header, .p-t-xs, .p-b-xs, .text-md, .p-b-md, .b-l, .grey-300};
+	.box-header{
+		border-bottom: 1px solid $white;
+	}
+	.box-body{@extend .p-a, .p-b-0, .white};
+	.box__contracts-row{@extend .row, .p-a, .white};
+	.box-tool ul{@extend .text-black};
+}
+
+
+
+
+// .box__contracts{
+// 	@extend .box;
+// 	margin-bottom: 0px !important;
+// 	border: 1px solid #ddd;
+
+// 	.box-heading{
+// 		@extend .dker;
+// 		padding: 10px;
+
+// 	}
+// }
+.box__pattern-search{
+	@extend .box;
+	@extend .blue-grey-100, .m-b-0;
+	.box-header__intro{@extend .box-header, .grey-300, .text-2x};
+	> code:first-child{@extend .accent};
+
+	.box-body{
+		@extend .grey-200;
+		@extend .text-md;
+		.instructions{
+			@extend .m-b-md;
+			> code{
+				@extend .grey-300;
+				@extend ._200;
+				@extend .text-lg;
+			}
+		}
+	}
+}
+
+.box__create-new-line{
+	position: absolute;
+	right: 16px;
+	top: 6px
+}

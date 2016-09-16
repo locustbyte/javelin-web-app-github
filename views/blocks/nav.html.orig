@@ -1,0 +1,203 @@
+<ul class="nav" ui-nav>
+  <!-- <li class="nav__heading">Heading</li> -->
+  <li>
+    <a class="ui-tooling">
+      <span class="nav-caret">
+        <i class="material-icons nav__icon">&#xe5c5;</i>
+      </span>
+      <i class="nav-icon material-icons prepend-icon">web</i>
+      <span class="nav-text">Page Examples</span>
+    </a>
+
+    <ul class="nav-sub">
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.search-results"><span class="nav-text">Search Results</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="contact.html" ui-sref="app.jlsapp.signin"><span class="nav-text">Sign In</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.authfail"><span class="nav-text">Authentication Fail</span></a>
+      </li>
+      <li ui-sref-active="active" class="hide" ng-class="{'show': 1}">
+        <a ui-sref="app.jlsapp.profile"><span class="nav-text">Profile</span></a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a class="ui-tooling">
+      <span class="nav-caret">
+        <i class="material-icons nav__icon">&#xe5c5;</i>
+      </span>
+      <i class="nav-icon material-icons prepend-icon">beenhere</i>
+      <span class="nav-text">Contracts</span>
+    </a>
+
+    <ul class="nav-sub">
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-contract"><span class="nav-text">Contracts-Contract</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-customers"><span class="nav-text">Contracts-Customers</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-workorder"><span class="nav-text">Contracts-WorkOrder</span></a>
+      </li>
+     <!--  <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-customers-new"><span class="nav-text">Contracts-Customers-New</span></a>
+      </li> -->
+
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-contract-selected"><span class="nav-text">Contract-Selected</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-contract-customer-selected"><span class="nav-text">Contract-Customer-Selected</span></a>
+      </li>
+
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-contract-customers-person-new"><span class="nav-text">Contract-Customer-Person-New</span></a>
+      </li>
+
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-addskill"><span class="nav-text">Contract-AddSkills</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-workorder-location-post"><span class="nav-text">Contracts-Post</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="calendar.html" ui-sref="app.jlsapp.contracts-create-shiftpattern"><span class="nav-text">ContractsCreate-ShiftPattern</span></a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a class="ui-tooling">
+      <span class="nav-caret">
+        <i class="material-icons nav__icon">&#xe5c5;</i>
+      </span>
+      <i class="nav-icon material-icons prepend-icon">security</i>
+      <span class="nav-text">Roles &amp; Permissions</span>
+    </a>
+
+    <ul class="nav-sub">
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.roles"><span class="nav-text">Roles</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.data-access"><span class="nav-text">Data Access</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.data-tag-admin"><span class="nav-text">Data Tag</span></a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a class="ui-tooling">
+      <span class="nav-caret">
+        <i class="material-icons nav__icon">&#xe5c5;</i>
+      </span>
+      <i class="nav-icon material-icons prepend-icon">today</i>
+      <span class="nav-text">Multi-purpose Calendar</span>
+    </a>
+
+    <ul class="nav-sub">
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.calendar"><span class="nav-text">Calendar</span></a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a class="ui-tooling">
+      <span class="nav-caret">
+        <i class="material-icons nav__icon">&#xe5c5;</i>
+      </span>
+      <i class="nav-icon material-icons prepend-icon">settings</i>
+      <span class="nav-text">Employee Preferences</span>
+    </a>
+
+    <ul class="nav-sub">
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.employee-preferences"><span class="nav-text">Availability</span></a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a class="ui-tooling">
+      <span class="nav-caret">
+        <i class="material-icons nav__icon">&#xe5c5;</i>
+      </span>
+      <i class="nav-icon material-icons prepend-icon">check_circle</i>
+      <span class="nav-text">Approvals</span>
+    </a>
+
+    <ul class="nav-sub">
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.approvals"><span class="nav-text">Approvals</span></a>
+      </li>
+
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.approvals-requester"><span class="nav-text">My requests</span></a>
+      </li>
+
+<<<<<<< HEAD
+       <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.approvals-admin"><span class="nav-text">Approval Admin</span></a>
+      </li>
+       
+=======
+>>>>>>> develop
+    </ul>
+  </li>
+
+  <li>
+    <a class="ui-tooling">
+      <span class="nav-caret">
+        <i class="material-icons nav__icon">&#xe5c5;</i>
+      </span>
+      <i class="nav-icon material-icons prepend-icon">clear_all</i>
+      <span class="nav-text">Rules</span>
+    </a>
+
+    <ul class="nav-sub">
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.jlsapp.rules"><span class="nav-text">Rules Admin</span></a>
+      </li>
+
+    </ul>
+  </li>
+
+  <li class="nav__heading">ESS sheduling</li>
+  <li>
+    <a class="ui-tooling">
+      <span class="nav-caret">
+        <i class="material-icons nav__icon">&#xe5c5;</i>
+      </span>
+      <i class="nav-icon material-icons prepend-icon">event</i>
+      <span class="nav-text">ESS Scheduling</span>
+    </a>
+
+    <ul class="nav-sub">
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.ess.view-incidents"><span class="nav-text">Incidents</span></a>
+      </li>
+      <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.ess.task-info"><span class="nav-text">Task Info View</span></a>
+      </li>
+      <!-- <li ui-sref-active="active">
+        <a href="inbox.html" ui-sref="app.ess.alarm-response"><span class="nav-text">Alarm Response</span></a>
+      </li> -->
+    </ul>
+  </li>
+
+  <!-- <li class="nav__heading">Employee Portal</li>
+  <li><a href=""><i class="nav-icon material-icons prepend-icon">event</i><span class="nav-text">My Schedule</span></div></a></li>
+  <li><a href=""><i class="nav-icon material-icons prepend-icon">account_balance</i><span class="nav-text">Payslips</span></a></li>
+  <li><a href=""><i class="nav-icon material-icons prepend-icon">assignment</i><span class="nav-text">Work Orders</span></a></li>
+  <li><a href=""><i class="nav-icon material-icons prepend-icon">update</i><span class="nav-text">Overtime Requests</span></a></li>
+  <li><a href=""><span class="nav-text--push">Enlist</span></a></li>
+  <li><a href=""><i class="nav-icon material-icons prepend-icon">short_text</i><span class="nav-text">Assets</span></a></li> -->
+</ul>

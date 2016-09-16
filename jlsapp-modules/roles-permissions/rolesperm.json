@@ -1,0 +1,124 @@
+{
+  "items":[
+    {
+      "id": 13,
+      "group" : "Systems Admin",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/sa.png"
+    },
+    {
+      "id": 13,
+      "group" : "System Manager",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/sm.png"
+    },
+    {
+      "id": 13,
+      "group" : "Contract Manager",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/cm.png"
+    },
+    {
+      "id": 13,
+      "group" : "Sales Manager",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/sm.png"
+    },
+    {
+      "id": 13,
+      "group" : "HR Manager",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/hrm.png"
+    },
+    {
+      "id": 13,
+      "group" : "Finance Manager",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/a6.jpg"
+    },
+    {
+      "id": 13,
+      "group" : "Another Manager",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/a7.jpg"
+    },
+    {
+      "id": 13,
+      "group" : "Security Guard",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/a8.jpg"
+    },
+    {
+      "id": 13,
+      "group" : "Tea Boy",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/a3.jpg"
+    },
+    {
+      "id": 13,
+      "group" : "Postman",
+      "first": "System",
+      "last": "Admin",
+      "company": "",
+      "mobile": "121 364 135",
+      "home": "(021) 1234 8755",
+      "work": "(021) 9000 9877",
+      "notes": "",
+      "avatar": "../static/img/a3.jpg"
+    }
+  ]
+}

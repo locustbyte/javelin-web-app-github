@@ -1,0 +1,11 @@
+.btn {
+	@extend .montserrat;
+	font-weight: $btn-font-weight;
+	text-transform: inherit;
+}
+.btn{
+	&.ui-select-match{
+		text-transform: capitalize;
+	}
+}
+

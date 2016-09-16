@@ -1,0 +1,66 @@
+<div class="box__brand-black no-borders m-a-0">
+    <div class="box-header">
+        <h1>Table (Editable) UI</h1>
+        <!-- <h3>The kind that are <span class="_700">SORTABLE</span>, have <span class="_700">FILTER</span> controls, and are <span class="_700">RESPONSIVE</span></h3> -->
+    </div>
+</div>
+<div class="box__style-guide" id="ui-search__table001">
+  <div class="box-header">
+      Editable Table
+      <small>Pattern ref: table001</small>
+  </div>
+  <div class="box-body">
+      <!--begin pattern -->
+      <div class="makecodeview">
+        <form editable-form name="tableform" onaftersave="saveTable()" oncancel="cancel()">
+
+          <!-- table -->
+          <table class="table white table-hover m-a-0">
+            <tr style="font-weight: bold">
+              <td style="width:40%">Name</td>
+              <td style="width:30%">Status</td>
+              <td style="width:30%">Group</td>
+              <td style="width:30%"><span ng-show="tableform.$visible">Action</span></td>
+            </tr>
+            <tr ng-repeat="user in users | filter:filterUser">
+              <td>
+                <!-- editable username (text with validation) -->
+                <span editable-text="user.name" e-form="tableform" onbeforesave="checkName($data, user.id)">
+                  {{ user.name || 'empty' }}
+                </span>
+              </td>
+              <td>
+                <!-- editable status (select-local) -->
+                <span editable-select="user.status" e-form="tableform" e-ng-options="s.value as s.text for s in statuses">
+                  {{ showStatus(user) }}
+                </span>
+              </td>
+              <td>
+                <!-- editable group (select-remote) -->
+                <span editable-select="user.group" e-form="tableform" onshow="loadGroups()" e-ng-options="g.id as g.text for g in groups">
+                  {{ showGroup(user) }}
+                </span>
+              </td>
+              <td><button type="button" ng-show="tableform.$visible" ng-click="removeUser(user.id)" class="btn btn-sm btn-danger pull-right">Del</button></td>
+            </tr>
+          </table>
+
+          <!-- buttons -->
+          <div class="p-a dker b-t">
+            <div class="btn-edit">
+              <button type="button" class="btn info" ng-show="!tableform.$visible" ng-click="tableform.$show()">
+                Edit
+              </button>
+            </div>
+            <div class="btn-form" ng-show="tableform.$visible">
+              <button type="button" ng-disabled="tableform.$waiting" ng-click="addUser()" class="btn white pull-right">Add row</button>
+              <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-info">Save</button>
+              <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn white">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+      <span class="clip__code label label-md accent pos-rlt m-r-xs pull-left"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span>
+  </div>
+</div>

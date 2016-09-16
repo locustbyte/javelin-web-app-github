@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="input-group input-group-sm">
+          <span class="input-group-btn">
+            <button type="submit" class="btn white b-a rounded no-shadow"><i class="material-icons">search</i></button>
+          </span>
+          <input id="filter" type="text" class="form-control p-x b-a rounded" placeholder="Search Locations">
+        </div>
+
+        
+        <table class="table table-hover hide table-striped b-t" ui-jp="footable" data-filter="#filter" data-page-size="5">
+            <tbody>
+                <tr>
+                    <td>
+                        1st Floor, 124 Crossdown Road, London, EC4N 7BP
+                    </td>
+                    <td>
+                        <button type="button" ng-click="removeItem(row)" class="btn btn-sm white pull-right btn-xs">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2nd Floor, 124 Crossdown Road, London, EC4N 7BP
+                    </td>
+                    <td>
+                        <button type="button" ng-click="removeItem(row)" class="btn btn-sm white pull-right btn-xs">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        3rd Floor, 124 Crossdown Road, London, EC4N 7BP
+                    </td>
+                    <td>
+                        <button type="button" ng-click="removeItem(row)" class="btn btn-sm white pull-right btn-xs">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        4th Floor, 124 Crossdown Road, London, EC4N 7BP
+                    </td>
+                    <td>
+                        <button type="button" ng-click="removeItem(row)" class="btn btn-sm white pull-right btn-xs">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

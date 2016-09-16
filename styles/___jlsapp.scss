@@ -1,0 +1,118 @@
+/* STYLING STANDARD APPLIES */
+/* https://robots.thoughtbot.com/keeping-the-frontend-modular-with-bem */
+
+/** Add custom mixins **/
+/* Affecting placeholder text */
+@import "mixins/placeholder";
+@import "mixins/box";
+/**End Mixins **/
+
+
+/** App defaults [do not remove] **/
+
+/* Variables */
+@import "__variables";
+@import "__color-variables";
+/* Fonts */
+@import "__fonts";
+
+
+/* Bootstrap Overrides */
+@import "bootstrap-overrides/___bootstrap-overrides";
+/* End App defaults */
+
+/* Load in your required SCSS files for the app here */
+/* ------------------------------------------------- */
+/***************** FORMAT *****************/
+/* UI Elements: Placed within [elements/] */
+
+/* Structure / Navigation */
+@import "layout/aside-nav";
+@import "layout/header";
+@import "layout/nav";
+@import "layout/table";
+@import "layout/styleguide";
+@import "layout/alignment";
+@import "layout/modals";
+@import "layout/alignment";
+
+/* Material Design Elements */
+@import "elements/md.colors";
+@import "elements/md.btn";
+@import "elements/md.check";
+@import "elements/md.input";
+@import "elements/md.switch";
+
+/* Elements */
+@import "elements/auth-login";
+@import "elements/calendar";
+@import "elements/badges";
+@import "elements/brand";
+@import "elements/custom-form";
+@import "elements/employee-preferences";
+@import "elements/global-searchbar";
+@import "elements/nav";
+@import "elements/popover";
+@import "elements/role-permissions";
+@import "elements/tables";
+@import "elements/ui-loader";
+@import "elements/table-accordion";
+@import "elements/filters";
+@import "elements/search-filter";
+@import "elements/select-select2";
+
+/* Features */
+@import "features/contracts";
+
+/* JLS UI Styleguide ONLY Specific Styles */
+.styleguide{
+    background-color:  #{$grey-200};
+}
+.icons__material{
+    i{
+        height: initial;
+    }
+}
+
+.fade-in{
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fc-toolbar{
+    @extend .no-radius;
+}

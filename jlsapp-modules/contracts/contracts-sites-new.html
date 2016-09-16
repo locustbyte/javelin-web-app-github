@@ -1,0 +1,303 @@
+<div class="box__breadcrumbs">
+    <div class="breadcrumbs__header">
+        <ol class="breadcrumb">
+            <li><a href>My Dashboard</a></li>
+            <li><a href ui-sref="app.jlsapp.contracts-customers">Customers</a></li>
+            <li class="active"><a href>Add Site</a></li>
+        </ol>
+    </div>
+</div>
+
+
+    <div class="row p-a text-md" ng-class="{'grey-100'}">
+      <div class="col-sm-12">
+
+        <div class="form-group row">
+          <div class="col-sm-12">
+            <div class="jumbotron">
+              <p>Google Maps Place holder</p>
+              <p>For demonstration purpose only</p>
+              <p>Devs - please swap with actual google map</p>
+              <p>test only</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <div class="label__form">Site Name</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+            </span>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-3">
+            <div class="label__form">Floor</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Building</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Address Line 1</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Address Line 2</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+        </div>
+
+        <div class="row form-group">
+
+          <div class="col-md-3">
+            <div class="label__form">Address Line 3</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Address Line 4</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">City</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Province</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-3">
+            <div class="label__form">State</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Postal Code</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">County</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Country</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-3">
+            <div class="label__form">Country Code</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Postal Code Extension</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Address Effective Date</div>
+              <input type="text" size="3" class="form-control"
+                ng-model=""
+                name=""
+                data-icon-up="fa fa-chevron-up"
+                data-icon-down="fa fa-chevron-down"
+                bs-datepicker
+                disabled>
+          </div>
+          <div class="col-md-3">
+            <div class="label__form">Address Expiration Date</div>
+              <input type="text" size="3" class="form-control"
+                ng-model=""
+                name=""
+                data-icon-up="fa fa-chevron-up"
+                data-icon-down="fa fa-chevron-down"
+                bs-datepicker
+                disabled>
+
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-3">
+            <div class="label__form">Sales Tax Geocode</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+
+          <div class="col-md-3">
+            <div class="label__form">Description</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+
+          <div class="col-md-3">
+            <div class="label__form">Short Description</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+
+          <div class="col-md-3">
+            <div class="label__form">Latitude</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-3">
+            <div class="label__form">Longitude</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-12">
+            <!-- <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Purpose</div> -->
+            <span ng-show="editableForm.$visible">
+              <div class="input-group input-group-md">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn white b-a no-shadow"><i class="material-icons">search</i></button>
+                </span>
+                <ui-select ng-model="selected_site" theme="bootstrap" class="ng-pristine ng-untouched ng-valid ng-scope md" title="Choose Purpose">
+                  <ui-select-match placeholder="Select a Purpose">{{$select.selected.purposeOptions}}</ui-select-match>
+                    <ui-select-choices repeat="item in purposeOptions | filter: $select.search track by item.purpose">
+                      <div ng-click="addPurpose(item.id)" >
+                        <i class="material-icons">add_box</i>
+                        <span ng-bind-html="item.purpose"></span>
+                      </div>
+                  </ui-select-choices>
+                  <ui-select-no-choice>
+                    <span>No results are present</span>
+                  </ui-select-no-choice>
+                </ui-select>
+              </div>
+              <!-- <input type="text" class="form-control" placeholder="" value="{{ sites.purpose }}"> -->
+            </span>
+            <!-- <span class="text-muted" ng-show="!editableForm.$visible">{{ sites.purpose }}</span> -->
+
+            <!-- <table class="table table-hover table-striped b-t" ui-jp="footable" data-filter="#filter" data-page-size="5"> -->
+              <table class="table table-hover table-striped b-t" ui-jp="" data-filter="#filter" data-page-size="5">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purpose</th>
+                  <th>Primary Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                 <!-- <tr ng-repeat = "item in purpose | orderBy: sortType:!sortReverse"> -->
+                  <!-- <td>{{item.purpose}}</td> -->
+                  <!-- <td class="pull-right"> -->
+                  <!-- <i class="material-icons md-24" ng-click="removePurpose()">indeterminate_check_box</i> -->
+                  <!-- </td> -->
+                <!-- </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4>IVR</h4>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-12">
+            <div class="label__form">Add new IVR Number</div>
+
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-3">
+            <div class="label__form">Country</div>
+              <select class="form-control">
+                <option value="1"></option>
+                <option value="2">UK</option>
+                <option value="3">France</option>
+                <option value="4">Germany</option>
+                <option value="5">Indonesia</option>
+                <option value="6">Australia</option>
+              </select>
+            <div class="label__form">This field is required</div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="label__form" ng-class="{'b-b': !editableForm.$visible}">Code</div>
+              <input type="text" class="form-control" placeholder="" value="" disabled>
+          </div>
+
+          <div class="col-md-3">
+            <div class="label__form">Number</div>
+              <input type="text" class="form-control" placeholder="" value="">
+              <div class="label__form">This field is required</div>
+          </div>
+        </div>
+
+        <!-- <div class="row form-group"> -->
+        <div class="row m-b">
+            <div class="col-sm-12">
+                <button class="btn white" ui-sref="">Add IVR</button>
+            </div>
+          <!-- </div> -->
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-12">
+            <div class="label__form"></div>
+              <div class="input-group input-group-md">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn white b-a no-shadow"><i class="material-icons">search</i></button>
+                </span>
+                <ui-select ng-model="selected_site" theme="bootstrap" class="ng-pristine ng-untouched ng-valid ng-scope md" title="Choose Purpose">
+                  <ui-select-match placeholder="Search IVR...">{{$select.selected.purposeOptions}}</ui-select-match>
+                    <ui-select-choices repeat="item in purposeOptions | filter: $select.search track by item.purpose">
+                      <div ng-click="addPurpose(item.id)" >
+                        <i class="material-icons">add_box</i>
+                        <span ng-bind-html="item.purpose"></span>
+                      </div>
+                  </ui-select-choices>
+                  <ui-select-no-choice>
+                    <span>No results are present</span>
+                  </ui-select-no-choice>
+                </ui-select>
+              </div>
+              <!-- <input type="text" class="form-control" placeholder="" value="{{ sites.purpose }}"> -->
+
+            <!-- <span class="text-muted" ng-show="!editableForm.$visible">{{ sites.purpose }}</span> -->
+
+            <!-- <table class="table table-hover table-striped b-t" ui-jp="footable" data-filter="#filter" data-page-size="5"> -->
+            <table class="table table-hover table-striped b-t" ui-jp="" data-filter="#filter" data-page-size="5">
+              <thead>
+                <tr>
+                  <th>IVR Number</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                 <!-- <tr ng-repeat = "item in purpose | orderBy: sortType:!sortReverse"> -->
+                   <tr>
+                  <!-- <td>{{item.purpose}}</td> -->
+                  <td>No IVR records found</td>
+                  <td class="pull-right">
+                  <i class="material-icons md-24" ng-click="removePurpose()">indeterminate_check_box</i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <hr/>
+          <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-fw white pull-right">
+                  Back
+                </button>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>

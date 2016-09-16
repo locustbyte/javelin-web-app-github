@@ -1,0 +1,106 @@
+<div class="box__breadcrumbs">
+    <div class="box-header dker">
+        <ol class="breadcrumb">
+            <li><a href>ESS Scheduling</a></li>
+            <li><a href>Incidents</a></li>
+            <li><a href>Incident INC0000412</a></li>
+            <li>Task Information</li>
+            <li class="active">Engineer Location</li>
+        </ol>
+    </div>
+</div>
+<div class="box__ess-scheduler">
+    <div class="box-header">
+        Incident <span class="_600">INC0000412</span>
+    </div>
+    <div class="box-tool">
+        <ul class="nav">
+            <li class="nav-item inline dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <button class="btn btn-xs white btn-block"><i class="material-icons md-24">&#xe3C7; </i> Actions</button>
+                </a>
+                <div class="dropdown-menu dropdown-menu-scale pull-right">
+                    <a class="dropdown-item openInPage" ui-sref="app.ess.view-incidents">
+                        <i class="material-icons md-24">&#xe5c4; </i> Back to related Incident
+                    </a>
+                    <!-- <a class="dropdown-item" href ng-click="viewScheduler();">
+                        <i class="material-icons md-24">&#xe896; </i> View Task Scheduler
+                    </a> -->
+                    <a class="dropdown-item" ui-sref="app.ess.view-incidents">
+                        <i class="material-icons md-24">&#xe896; </i> View Incidents Overview
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href>
+                        Seperated Link (if needed)
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="box__box-body dker">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <span class="box__box-header">TSK0322 Task Information</span>
+                <div class="text-md ">Current Status <code class="green-800">In Progress</code></div>
+            </div>
+        </div>
+         
+    </div>
+</div>
+<div class="app-body">
+      <div class="row-col light lt">
+        <div class="col-md-3">
+          <div class="row-col">
+            <div class="row-row">
+              <div class="row-body">
+                <div class="row-inner">
+                  <div class="p-a">
+                    <p>{{zoomMessage}}</p>
+                    <ul class="list-group m-b no-borders">
+                
+                        <li class="list-group-item p-a-xs">
+                          <a href="">
+                            <span class="text-2x text-muted">Michael Sampson</span>
+                            <span class="text-md block _500">Current Location</span>
+                          </a>
+                        </li>
+                        <li class="list-group-item p-a-xs">
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar accent _700" style="width: 65%">Replacing heat sensor</div>
+                            </div>
+                        </li>
+                        
+
+                    </ul>
+                  </div>
+                  <!-- this is the confusing part. we have to point the map marker directive
+                        at an existing google.maps.Marker object, so it can hook up events -->
+                  <div ng-repeat="marker in myMarkers" ui-map-marker="myMarkers[$index]"
+                       ui-event="{'map-click': 'openMarkerInfo(marker)'}">
+                  </div>
+
+                  <div ui-map-info-window="myInfoWindow">
+                    <div class="m-b-sm">Marker</div>
+                    <div class="m-b-sm">
+                      <div class="pull-left m-t-xs">Lat: </div>
+                      <input ng-model="currentMarkerLat" class="form-control input-sm w-sm m-l-lg">
+                    </div>
+                    <div class="m-b-sm">
+                      <div class="pull-left m-t-xs">Lng: </div>
+                      <input ng-model="currentMarkerLng" class="form-control input-sm w-sm m-l-lg">
+                    </div>
+                    <a class="btn white btn-sm m-l-lg m-b-sm" ng-click="setMarkerPosition(currentMarker, currentMarkerLat, currentMarkerLng)">Set Position</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div style="position:relative; height:100%; min-height:320px" ui-map="myMap"
+               ui-event="{'map-click': 'addMarker($event, $params)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }"
+               ui-options="mapOptions">
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,247 @@
+<div class="box__brand-black no-borders m-a-0">
+    <div class="box__header__brand-neutral-light">
+        <h1>Angular Panel Slide UI</h1>
+        <!-- <h3>The kind that are <span class="_700">SORTABLE</span>, have <span class="_700">FILTER</span> controls, and are <span class="_700">RESPONSIVE</span></h3> -->
+    </div>
+</div>
+<div class="row m-b-lg">
+    <div class="col-sm-12">
+        <div class="box__style-guide" id="ui-search__slide-panel001">
+            <div class="box-header">
+                Sliding Panels
+                <small>Pattern Reference: <span class="_600">Still in development</span></small>
+            </div>
+            <div class="box-body white">
+                <!--begin pattern -->
+                <div class="makecodeview">
+                    <div pageslide ps-open="demo1" ps-speed="0.25">
+                        <div id="demo-right">
+                            <!-- slide panel content -->
+                            <div class="box__notifications-panel" id="ui-search__box__brand-red">
+                                <div class="box-header red-900">
+                                    <span class="_700">Demo 1</span>
+                                </div>
+                                <div class="box-tool">
+                                    <a ng-click="toggleDemo1()" class="button"><i class="material-icons md-24">close</i></a>
+                                </div>
+                                <div class="box-body white">
+                                    <p class="m-a-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="item">
+                                    <div class="item-overlay active p-a">
+                                        <a class="pull-right text-white _800">$ 4.99</a>
+                                        <a href class="pull-left text-u-c label label-md danger">Food</a>
+                                    </div>
+                                    <img src="../assets/images/c7.jpg" class="w-full">
+                                </div>
+                                <div class="p-a">
+                                    <div class="text-muted m-b-xs">
+                                        <a href class="m-r"><i class="fa fa-heart-o"></i> 34</a>
+                                        <a href><i class="fa fa-bookmark-o"></i> 20</a>
+                                    </div>
+                                    <div class="m-b h-2x"><a href class="_800">15 Recipes to Make the Most of Tomatoes</a></div>
+                                    <div class="m-b h-3x">
+                                        <div class="m-b-sm">Liked:</div>
+                                        <a href><img src="../assets/images/a0.jpg" class="w-32 rounded"></a>
+                                        <a href><img src="../assets/images/a1.jpg" class="w-32 rounded"></a>
+                                        <a href><img src="../assets/images/a2.jpg" class="w-32 rounded"></a>
+                                        <a href><img src="../assets/images/a3.jpg" class="w-32 rounded"></a>
+                                        <a class="btn btn-sm danger rounded"><i class="fa fa-plus"></i> 99</a>
+                                    </div>
+                                    <div><a href class="btn btn-xs white">Read More</a></div>
+                                </div>
+                            </div>
+                            <!-- end slide panel content -->
+                        </div>
+                    </div>
+                    <div pageslide ps-open="demo2" ps-speed="0.25" ps-side="right" ps-push="true">
+                        <div id="demo-right">
+                            <!-- slide panel content -->
+                            <div class="box no-borders" id="ui-search__box__brand-red">
+                                <div class="box-header yellow-900">
+                                    <span class="_700">Demo 2</span>
+                                </div>
+                                <div class="box-tool">
+                                    <a ng-click="toggleDemo2()" class="button"><i class="material-icons md-24">close</i></a>
+                                </div>
+                                <div class="box-body white">
+                                    <p class="m-a-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+                                </div>
+                            </div>
+                            <div class="p-a-md">
+                                <p><img src="../assets/images/a1.jpg" class="img-circle w-56"></p>
+                                <a href class="text-md block">Jason Warren</a>
+                                <p><small>London, UK</small></p>
+                                <div>
+                                    <a href="" class="btn btn-icon btn-social rounded white btn-sm">
+                                        <i class="fa fa-facebook"></i>
+                                        <i class="fa fa-facebook indigo"></i>
+                                    </a>
+                                    <a href="" class="btn btn-icon btn-social rounded white btn-sm">
+                                        <i class="fa fa-twitter"></i>
+                                        <i class="fa fa-twitter light-blue"></i>
+                                    </a>
+                                    <a href="" class="btn btn-icon btn-social rounded white btn-sm">
+                                        <i class="fa fa-google-plus"></i>
+                                        <i class="fa fa-google-plus red"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row no-gutter b-t">
+                                <div class="col-xs-4 b-r">
+                                    <a class="p-a block text-center" ui-toggle-class>
+                                        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe7fc;</i>
+                                        <i class="material-icons md-24 text-danger m-v-sm none">&#xe7fb;</i>
+                                        <span class="block">Group</span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 b-r">
+                                    <a class="p-a block text-center" ui-toggle-class>
+                                        <i class="material-icons md-24 text-muted m-v-sm none">&#xe87e;</i>
+                                        <i class="material-icons md-24 text-danger m-v-sm inline">&#xe87d;</i>
+                                        <span class="block">Like</span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a class="p-a block text-center" ui-toggle-class>
+                                        <i class="material-icons md-24 text-muted m-v-sm inline">&#xe0cb;</i>
+                                        <i class="material-icons md-24 text-danger m-v-sm none">&#xe0b7;</i>
+                                        <span class="block">Chat</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end slide panel content -->
+                            <a ng-click="toggle()" class="button">Close</a>
+                        </div>
+                    </div>
+                    <div pageslide ps-open="demo3" ps-speed="0.25" ps-side="right" ps-squeeze="true">
+                        <div id="demo-right">
+                            <!-- slide panel content -->
+                            <div class="box__notifications-panel" id="ui-search__box__brand-red">
+                                <div class="box-header red-900">
+                                    <span class="_700">Demo 3</span>
+                                </div>
+                                <div class="box-tool">
+                                    <a ng-click="toggleDemo3()" class="button"><i class="material-icons md-24">close</i></a>
+                                </div>
+                                <div class="box-body white">
+                                    <p class="m-a-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+                                </div>
+                            </div>
+                            <div class="list box">
+                                <div class="list-item">
+                                    <div class="list-left">
+                                        <img src="../static/img/calvin.jpg" class="w-40 circle">
+                                    </div>
+                                    <div class="list-body">
+                                        <a href class="_500">Calvin Kent</a>
+                                        <small class="block text-muted">Hangout request</small>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-left">
+                                        <img src="../static/img/lewis.jpg" class="w-40 circle">
+                                    </div>
+                                    <div class="list-body">
+                                        <a href class="_500">Lewis Rogers.</a>
+                                        <small class="block text-muted">Design studio</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list inset box">
+                                <div class="list-item">
+                                    <div class="list-left">
+                                        <span class="w-40 avatar">
+                                                            <img src="../static/img/a8.jpg">
+                                                            <i class="away b-white"></i>
+                                                          </span>
+                                    </div>
+                                    <div class="list-body">
+                                        <a href="" class="_500">Consectetur adipiscing elit.</a>
+                                        <small class="block text-muted">Min Li Chan</small>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-left">
+                                        <span class="w-40 avatar">
+                                                            <img src="../static/img/a4.jpg">
+                                                            <i class="on bottom b-white"></i>
+                                                          </span>
+                                    </div>
+                                    <div class="list-body">
+                                        <a href="" class="_500">Dipiscing elit.</a>
+                                        <small class="block text-muted">Peter send you a message</small>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-left">
+                                        <span class="w-40 avatar">
+                                                            <img src="../static/img/a5.jpg">
+                                                            <i class="on top b-white"></i>
+                                                          </span>
+                                    </div>
+                                    <div class="list-body">
+                                        <a href="" class="_500">Dipiscing elit.</a>
+                                        <small class="block text-muted">Peter send you a message</small>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-left">
+                                        <span class="w-40 avatar">
+                                                            <img src="../static/img/a6.jpg">
+                                                            <i class="on bottom b-white"></i>
+                                                          </span>
+                                    </div>
+                                    <div class="list-body">
+                                        <a href="" class="_500">Dipiscing elit.</a>
+                                        <small class="block text-muted">Peter send you a message</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group m-b">
+                                <a href class="list-group-item">
+                                    <span class="pull-right label info">12</span> New contracts.
+                                </a>
+                                <a href class="list-group-item">
+                                    <span class="pull-right label success">5</span> Messages
+                                </a>
+                                <a href class="list-group-item">
+                                    <span class="pull-right label primary">4</span> Meeting Requests
+                                </a>
+                                <a href class="list-group-item">
+                                    <span class="pull-right label danger">9</span> Work schedules
+                                </a>
+                            </div>
+                            <div class="list-group m-b">
+                                <a href class="list-group-item b-l-primary">
+                                    <span class="pull-right text-primary"><i class="fa fa-circle text-xs"></i></span> Border left primary
+                                </a>
+                                <a href class="list-group-item b-l-warning">
+                                    <span class="pull-right text-warning"><i class="fa fa-circle text-xs"></i></span> Border left warning
+                                </a>
+                                <a href class="list-group-item b-l-success">
+                                    <span class="pull-right text-success"><i class="fa fa-circle text-xs"></i></span> Border left success
+                                </a>
+                                <a href class="list-group-item b-l-danger">
+                                    <span class="pull-right text-danger"><i class="fa fa-circle text-xs"></i></span> Border left danger
+                                </a>
+                                <a href class="list-group-item b-l-info">
+                                    <span class="pull-right text-info"><i class="fa fa-circle text-xs"></i></span> Border left info
+                                </a>
+                            </div>
+                            <!-- end slide panel content -->
+                        </div>
+                    </div>
+                </div>
+                <!--end pattern -->
+                <!-- <pre ng-copyable class="text-left" data-toggle="modal" data-target="#bottom"></pre>
+                    <span class="clip__code label label-md accent pos-rlt m-r-xs"><b class="arrow top b-accent pull-left"></b>Click Code to Copy</span> -->
+                <button class="btn btn-fw btn-sm primary" ng-click="toggleDemo1()">Open Demo 1 Panel</button>
+                <button class="btn btn-fw btn-sm info" ng-click="toggleDemo2()">Open Demo 2 Panel</button>
+                <button class="btn btn-fw btn-sm white" ng-click="toggleDemo3()">Open Demo 3 Panel</button>
+            </div>
+        </div>
+    </div>
+</div>

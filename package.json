@@ -1,0 +1,38 @@
+{
+  "name": "javelin",
+  "version": "4.0.0",
+  "description": "Javelin Styleguide",
+  "url": "git://github.com/username/repository.git",
+  "scripts": {
+    "start": "node node_modules/http-server/bin/http-server -o"
+  },
+  "keywords": [],
+  "repository": "",
+  "author": "Tan Kent",
+  "license": "MIT",
+  "dependencies": {},
+  "preferGlobal": "true",
+  "bin": {
+    "git-changelog": "libs/git-changelog/tasks/command.js"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.2",
+    "grunt": "^0.4.5",
+    "grunt-assemble": "^0.4.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-bump": "0.0.15",
+    "grunt-concat-css": "^0.3.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-sass": "^1.0.0",
+    "grunt-usemin": "^3.1.1",
+    "http-server": "^0.6.1",
+    "node-sass": "^3.6.0"
+  }
+}
